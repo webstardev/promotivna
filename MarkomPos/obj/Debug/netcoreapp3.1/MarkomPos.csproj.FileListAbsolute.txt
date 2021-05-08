@@ -1,0 +1,324 @@
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.exe
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.deps.json
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.runtimeconfig.json
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.runtimeconfig.dev.json
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.pdb
+C:\Users\USER\source\repos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.AssemblyInfo.cs
+C:\Users\USER\source\repos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\USER\source\repos\MarkomPos\obj\Debug\netcoreapp3.1\staticwebassets\MarkomPos.StaticWebAssets.Manifest.cache
+C:\Users\USER\source\repos\MarkomPos\obj\Debug\netcoreapp3.1\staticwebassets\MarkomPos.StaticWebAssets.xml
+C:\Users\USER\source\repos\MarkomPos\obj\Debug\netcoreapp3.1\scopedcss\bundle\MarkomPos.styles.css
+C:\Users\USER\source\repos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.RazorTargetAssemblyInfo.cache
+C:\Users\USER\source\repos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.dll
+C:\Users\USER\source\repos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.pdb
+C:\Users\USER\source\repos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.genruntimeconfig.cache
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\USER\source\repos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.csproj.CopyComplete
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\Users\USER\source\repos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\USER\source\repos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.csprojAssemblyReference.cache
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\appsettings.json
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.exe
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.deps.json
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.runtimeconfig.json
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.runtimeconfig.dev.json
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.pdb
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\projects\posRepo\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\projects\posRepo\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.csprojAssemblyReference.cache
+C:\projects\posRepo\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.AssemblyInfoInputs.cache
+C:\projects\posRepo\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.AssemblyInfo.cs
+C:\projects\posRepo\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.csproj.CoreCompileInputs.cache
+C:\projects\posRepo\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.MvcApplicationPartsAssemblyInfo.cache
+C:\projects\posRepo\webpos\MarkomPos\obj\Debug\netcoreapp3.1\staticwebassets\MarkomPos.StaticWebAssets.Manifest.cache
+C:\projects\posRepo\webpos\MarkomPos\obj\Debug\netcoreapp3.1\staticwebassets\MarkomPos.StaticWebAssets.xml
+C:\projects\posRepo\webpos\MarkomPos\obj\Debug\netcoreapp3.1\scopedcss\bundle\MarkomPos.styles.css
+C:\projects\posRepo\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.RazorTargetAssemblyInfo.cache
+C:\projects\posRepo\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.csproj.CopyComplete
+C:\projects\posRepo\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.dll
+C:\projects\posRepo\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.pdb
+C:\projects\posRepo\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.genruntimeconfig.cache
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.exe
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.deps.json
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.runtimeconfig.json
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.runtimeconfig.dev.json
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.pdb
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Humanizer.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.csprojAssemblyReference.cache
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.AssemblyInfoInputs.cache
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.AssemblyInfo.cs
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.RazorTargetAssemblyInfo.cache
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.csproj.CopyComplete
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\obj\Debug\netcoreapp3.1\staticwebassets\MarkomPos.StaticWebAssets.Manifest.cache
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\obj\Debug\netcoreapp3.1\staticwebassets\MarkomPos.StaticWebAssets.xml
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.pdb
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.genruntimeconfig.cache
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\appsettings.json
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.exe
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.deps.json
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.runtimeconfig.json
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.runtimeconfig.dev.json
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\MarkomPos.pdb
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Humanizer.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.csprojAssemblyReference.cache
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.AssemblyInfoInputs.cache
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.AssemblyInfo.cs
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.csproj.CoreCompileInputs.cache
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.MvcApplicationPartsAssemblyInfo.cache
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\obj\Debug\netcoreapp3.1\staticwebassets\MarkomPos.StaticWebAssets.Manifest.cache
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\obj\Debug\netcoreapp3.1\staticwebassets\MarkomPos.StaticWebAssets.xml
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\obj\Debug\netcoreapp3.1\scopedcss\bundle\MarkomPos.styles.css
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.RazorTargetAssemblyInfo.cache
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.csproj.CopyComplete
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.dll
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.pdb
+D:\workspace\94-local task\LuckyCheng\MarkomPos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.genruntimeconfig.cache
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.csproj.CoreCompileInputs.cache
+D:\Workspace\Freelancer\Daniel\ASPNET\Project\webpos\MarkomPos\obj\Debug\netcoreapp3.1\MarkomPos.MvcApplicationPartsAssemblyInfo.cache
