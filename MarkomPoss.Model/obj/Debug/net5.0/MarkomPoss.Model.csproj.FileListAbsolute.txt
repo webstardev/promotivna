@@ -1,0 +1,12 @@
+D:\My\Nikhil\Promotivna\Source\MarkomPoss.Model\bin\Debug\net5.0\MarkomPoss.Model.deps.json
+D:\My\Nikhil\Promotivna\Source\MarkomPoss.Model\bin\Debug\net5.0\MarkomPoss.Model.dll
+D:\My\Nikhil\Promotivna\Source\MarkomPoss.Model\bin\Debug\net5.0\ref\MarkomPoss.Model.dll
+D:\My\Nikhil\Promotivna\Source\MarkomPoss.Model\bin\Debug\net5.0\MarkomPoss.Model.pdb
+D:\My\Nikhil\Promotivna\Source\MarkomPoss.Model\obj\Debug\net5.0\MarkomPoss.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\My\Nikhil\Promotivna\Source\MarkomPoss.Model\obj\Debug\net5.0\MarkomPoss.Model.AssemblyInfoInputs.cache
+D:\My\Nikhil\Promotivna\Source\MarkomPoss.Model\obj\Debug\net5.0\MarkomPoss.Model.AssemblyInfo.cs
+D:\My\Nikhil\Promotivna\Source\MarkomPoss.Model\obj\Debug\net5.0\MarkomPoss.Model.csproj.CoreCompileInputs.cache
+D:\My\Nikhil\Promotivna\Source\MarkomPoss.Model\obj\Debug\net5.0\MarkomPoss.Model.dll
+D:\My\Nikhil\Promotivna\Source\MarkomPoss.Model\obj\Debug\net5.0\ref\MarkomPoss.Model.dll
+D:\My\Nikhil\Promotivna\Source\MarkomPoss.Model\obj\Debug\net5.0\MarkomPoss.Model.pdb
+D:\My\Nikhil\Promotivna\Source\MarkomPoss.Model\obj\Debug\net5.0\MarkomPoss.Model.csprojAssemblyReference.cache

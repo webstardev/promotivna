@@ -1,0 +1,15 @@
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\bin\Debug\net5.0\MarkomPos.IRepository.deps.json
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\bin\Debug\net5.0\MarkomPos.IRepository.dll
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\bin\Debug\net5.0\ref\MarkomPos.IRepository.dll
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\bin\Debug\net5.0\MarkomPos.IRepository.pdb
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\obj\Debug\net5.0\MarkomPos.IRepository.csprojAssemblyReference.cache
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\obj\Debug\net5.0\MarkomPos.IRepository.GeneratedMSBuildEditorConfig.editorconfig
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\obj\Debug\net5.0\MarkomPos.IRepository.AssemblyInfoInputs.cache
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\obj\Debug\net5.0\MarkomPos.IRepository.AssemblyInfo.cs
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\obj\Debug\net5.0\MarkomPos.IRepository.csproj.CoreCompileInputs.cache
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\obj\Debug\net5.0\MarkomPos.IRepository.dll
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\obj\Debug\net5.0\ref\MarkomPos.IRepository.dll
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\obj\Debug\net5.0\MarkomPos.IRepository.pdb
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\bin\Debug\net5.0\MarkomPoss.Model.dll
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\bin\Debug\net5.0\MarkomPoss.Model.pdb
+D:\My\Nikhil\Promotivna\Source\MarkomPos.IRepository\obj\Debug\net5.0\MarkomPos.IRepository.csproj.CopyComplete
