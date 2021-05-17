@@ -35,8 +35,7 @@ namespace MarkomPos.Repository.Repository
                         unitOfMeasure.DateCreated = DateTime.Now;
                         unitOfMeasure.DateModified = DateTime.Now;
                         context.UnitOfMeasures.Add(unitOfMeasure);
-                    }
-                    
+                    }                    
                     context.SaveChanges();
                     return true;
                 }

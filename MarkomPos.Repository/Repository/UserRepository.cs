@@ -41,7 +41,6 @@ namespace MarkomPos.Repository.Repository
                         user.DateModified = DateTime.Now;
                         context.Users.Add(user);
                     }
-
                     context.SaveChanges();
                     return true;
                 }
