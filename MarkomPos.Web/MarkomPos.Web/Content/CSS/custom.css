@@ -20,3 +20,20 @@
 .txtColor {
     color: white;
 }
+
+a.nav-link:hover {
+    color: #7db8e1;
+}
+
+button.close {
+    opacity: 1;
+}
+
+button.close span {
+    color: #fff !important;
+    opacity: 1;
+}
+
+.btn-create-wrap {
+    text-align: right;
+}

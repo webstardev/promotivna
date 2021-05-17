@@ -110,7 +110,7 @@ namespace MarkomPos.Web.Controllers
         }
 
         // POST: Users/Delete/5
-        [HttpPost, ActionName("DeleteConfirmed")]
+        [HttpGet, ActionName("DeleteConfirmed")]
         //[ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
