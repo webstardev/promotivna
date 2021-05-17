@@ -1,0 +1,22 @@
+﻿.dashboard {
+    background-image: url('../Image/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.footerBg {
+    background-color: #28323a;
+}
+
+.formBg {
+    background-color: #a8d6ef;
+}
+
+.marginLayout {
+    margin-left: 0px !important;
+}
+
+.txtColor {
+    color: white;
+}

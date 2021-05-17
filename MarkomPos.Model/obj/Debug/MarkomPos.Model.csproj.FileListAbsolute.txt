@@ -1,0 +1,11 @@
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\MarkomPos.Model.dll.config
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\MarkomPos.Model.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\MarkomPos.Model.pdb
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\EntityFramework.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\EntityFramework.xml
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.csproj.CoreCompileInputs.cache
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.csproj.CopyComplete
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.pdb
