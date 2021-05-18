@@ -62,8 +62,7 @@ namespace MarkomPos.Web.Controllers
                 }
             //}
 
-            return RedirectToAction("Index");
-            //return View(unitOfMeasure);
+            return View(unitOfMeasure);
         }
 
         // GET: UnitOfMeasures/Edit/5

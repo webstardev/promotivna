@@ -1,0 +1,92 @@
+﻿@model MarkomPos.Model.Model.ProductGroup
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content footerBg">
+            <form method="post" action="@Url.Action("Create", "ProductGroups")">
+                @Html.AntiForgeryToken()
+                <div class="modal-header txtColor">
+                    <h4 class="modal-title">Product Groups</h4>
+                    <button type="button" class="close txtColor" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body formBg">
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <!-- left column -->
+                                <div class="col-md-12">
+                                    @Html.HiddenFor(model => model.ID)
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.DisplayName, htmlAttributes: new { @class = "control-label" })
+                                            @Html.EditorFor(model => model.DisplayName, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.DisplayName, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.ParrentGroupId, "ParrentGroupId", htmlAttributes: new { @class = "control-label" })
+                                            @Html.DropDownList("ParrentGroupId", null, "Select Product Group", htmlAttributes: new { @class = "form-control", @onchange = "onChangefunc(this.value)" })
+                                            @Html.ValidationMessageFor(model => model.ParrentGroupId, "", new { @class = "text-danger" })
+                                        </div>
+                                        @*@Html.DropDownListFor(m => m.ParrentGroupId, (SelectList)ViewBag.ParrentGroupId)*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer footerBg">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function onChangefunc(val) {
+        if ($('#ID').val() > 0) {
+            $.ajax({
+                url: "/ProductGroups/GetIsMainGroup",
+                type: 'GET',
+                data: {
+                    id: $('#ID').val()
+                },
+                success: function (result) {
+                    if (val != null && result) {
+                        alert("You are not able to set as child because this is the main group and their has an child group!");
+                        $('#ParrentGroupId').val("");
+                    }
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+        else {
+            $.ajax({
+                url: "/ProductGroups/GetIsLast",
+                type: 'GET',
+                data: {
+                    id: val
+                },
+                success: function (result) {
+                    if (val != null && !result) {
+                        alert("Level is exceed!");
+                        $('#ParrentGroupId').val("");
+                    }
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+    }
+</script>

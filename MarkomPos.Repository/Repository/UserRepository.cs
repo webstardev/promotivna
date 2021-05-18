@@ -51,30 +51,6 @@ namespace MarkomPos.Repository.Repository
 
             }
         }
-
-        public bool UpdateUser(User user)
-        {
-            using (var context = new markomPosDbContext())
-            {
-                try
-                {
-                    //var dbData = context.UnitOfMeasures.Find(user.ID);
-                    //if (dbData != null)
-                    //{
-                    //    dbData.ID = user.ID;
-                    //    dbData.Name = user.Name;
-                    //    dbData.DisplayName = user.DisplayName;
-                    //    dbData.DateModified = DateTime.Now;
-                    //    context.SaveChanges();
-                    //}
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    return false;
-                }
-            }
-        }
         public void Dispose()
         {
         }

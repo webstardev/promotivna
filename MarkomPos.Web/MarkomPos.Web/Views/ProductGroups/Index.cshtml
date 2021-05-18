@@ -1,23 +1,20 @@
-﻿@model IEnumerable<MarkomPos.Model.Model.UnitOfMeasure>
+﻿@model IEnumerable<MarkomPos.Model.Model.ProductGroup>
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <section class="content-header">
     <div class="container">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="txtColor">Unit of measure</h1>
+                <h1 class="txtColor">Product Groups</h1>
             </div>
             <div class="col-sm-6">
-                @*<ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item txtColor">Unit of measure</li>
-                        <li class="breadcrumb-item txtColor active">List</li>
-                    </ol>*@
             </div>
         </div>
-    </div><!-- /.container-fluid -->
+    </div>
 </section>
 
 <section class="container">
@@ -26,12 +23,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        @*<div class="pull-left">
-                                <h3 class="card-title">Unit of Measure</h3>
-                            </div>*@
                         <div class="btn-create-wrap">
                             <a class="btn btn-default create" href="javascript:void(0)">Create New</a>
-                            @*@Html.ActionLink("Create New", "Create")*@
                         </div>
                     </div>
                     <div class="card-body">
@@ -40,6 +33,9 @@
                                 <tr>
                                     <th>
                                         @Html.DisplayNameFor(model => model.ID)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Parent")
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.Name)
@@ -70,6 +66,9 @@
                                             @Html.DisplayFor(modelItem => item.ID)
                                         </td>
                                         <td>
+                                            @Html.DisplayFor(modelItem => item.ParrentGroup.Name)
+                                        </td>
+                                        <td>
                                             @Html.DisplayFor(modelItem => item.Name)
                                         </td>
                                         <td>
@@ -90,12 +89,7 @@
                                         <td>
                                             <a class="edit" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
                                             <a class="details" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
-                                            @Html.ActionLink(".", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');"})
-                                            @*<a href='"DeleteConfirmed/"+item.ID' onclick="return confirm('Are you sure?')">
-                                                    <i class="fa fa-trash"></i>
-                                                </a>*@
-                                            @*<a href="@Url.Action("DeleteConfirmed","UnitOfMeasures", new { onclick = "return confirm('Are sure wants to delete?');" })"><i class="fa fa-user-edit"></i> </a>*@
-                                            @*@Html.ActionLink("Delete", "DeleteConfirmed", new { id = item.ID }, new { onclick = "return confirm('Are sure wants to delete?');" })*@
+                                            @Html.ActionLink(".", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
                                         </td>
                                     </tr>
                                 }
@@ -123,7 +117,7 @@
                 keyboard: true
             };
             var id = $(this).closest("tr").find("td").eq(0).html();
-            var ajaxCallURL = '/UnitOfMeasures/Details?id=' + id;
+            var ajaxCallURL = '/ProductGroups/Details?id=' + id;
             $.ajax({
                 type: "GET",
                 url: ajaxCallURL,
@@ -145,7 +139,7 @@
                 "backdrop": "static",
                 keyboard: true
             };
-            var ajaxCallURL = '/UnitOfMeasures/Create';
+            var ajaxCallURL = '/ProductGroups/Create';
             $.ajax({
                 type: "GET",
                 url: ajaxCallURL,
@@ -168,7 +162,7 @@
                 keyboard: true
             };
             var id = $(this).closest("tr").find("td").eq(0).html();
-            var ajaxCallURL = '/UnitOfMeasures/Edit?id=' + id;
+            var ajaxCallURL = '/ProductGroups/Edit?id=' + id;
             $.ajax({
                 type: "GET",
                 url: ajaxCallURL,
