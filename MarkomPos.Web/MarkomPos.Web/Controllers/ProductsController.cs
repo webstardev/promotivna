@@ -35,8 +35,8 @@ namespace MarkomPos.Web.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ProductGroupId = new SelectList(db.ProductGroups, "ID", "Name");
-            ViewBag.UnitOfMeasureId = new SelectList(db.UnitOfMeasures, "ID", "Name");
+            ViewBag.ProductGroupId = new SelectList(db.ProductGroups, "ID", "Name", product.ProductGroupId);
+            ViewBag.UnitOfMeasureId = new SelectList(db.UnitOfMeasures, "ID", "Name", product.UnitOfMeasureId);
             return PartialView("_Details", product);
         }
 
