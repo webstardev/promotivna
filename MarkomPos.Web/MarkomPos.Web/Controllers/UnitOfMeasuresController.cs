@@ -41,7 +41,8 @@ namespace MarkomPos.Web.Controllers
         // GET: UnitOfMeasures/Create
         public ActionResult Create()
         {
-            return PartialView("_AddUnitOfMeasure", null);
+            var unitOfMeasure = new UnitOfMeasure();
+            return PartialView("_AddUnitOfMeasure", unitOfMeasure);
             //return View();
         }
 
@@ -49,20 +50,20 @@ namespace MarkomPos.Web.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(UnitOfMeasure unitOfMeasure)
         {
-            //if (ModelState.IsValid)
-            //{
+            if (ModelState.IsValid)
+            {
                 using (var unitOfMeasuresRepository = new UnitOfMeasuresRepository())
                 {
                     var result = unitOfMeasuresRepository.AddUnitMeasure(unitOfMeasure);
                     if (result)
                         return RedirectToAction("Index");
                 }
-            //}
+            }
 
-            return View(unitOfMeasure);
+            return RedirectToAction("Index");
         }
 
         // GET: UnitOfMeasures/Edit/5
@@ -121,14 +122,21 @@ namespace MarkomPos.Web.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            UnitOfMeasure unitOfMeasure = db.UnitOfMeasures.Find(id);
-            if (unitOfMeasure == null)
+            try
             {
-                return HttpNotFound();
+                UnitOfMeasure unitOfMeasure = db.UnitOfMeasures.Find(id);
+                if (unitOfMeasure == null)
+                {
+                    return HttpNotFound();
+                }
+                db.UnitOfMeasures.Remove(unitOfMeasure);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            db.UnitOfMeasures.Remove(unitOfMeasure);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            catch (Exception ex)
+            {
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

@@ -40,7 +40,8 @@ namespace MarkomPos.Web.Controllers
         // GET: Users/Create
         public ActionResult Create()
         {
-            return PartialView("_AddUsers", null);
+            var user = new User();
+            return PartialView("_AddUsers", user);
         }
 
         // POST: Users/Create
@@ -50,15 +51,15 @@ namespace MarkomPos.Web.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult Create(User user)
         {
-            //if (ModelState.IsValid)
-            //{
-            using (var userRepository = new UserRepository())
+            if (ModelState.IsValid)
             {
-                var result = userRepository.AddUser(user);
-                if (result)
-                    return RedirectToAction("Index");
+                using (var userRepository = new UserRepository())
+                {
+                    var result = userRepository.AddUser(user);
+                    if (result)
+                        return RedirectToAction("Index");
+                }
             }
-            //}
 
             return View(user);
         }

@@ -1,0 +1,39 @@
+﻿.dashboard {
+    background-image: url('../Image/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.footerBg {
+    background-color: #28323a;
+}
+
+.formBg {
+    background-color: #a8d6ef;
+}
+
+.marginLayout {
+    margin-left: 0px !important;
+}
+
+.txtColor {
+    color: white !important;
+}
+
+a.nav-link:hover {
+    color: #7db8e1;
+}
+
+button.close {
+    opacity: 1;
+}
+
+button.close span {
+    color: #fff !important;
+    opacity: 1;
+}
+
+.btn-create-wrap {
+    text-align: right;
+}

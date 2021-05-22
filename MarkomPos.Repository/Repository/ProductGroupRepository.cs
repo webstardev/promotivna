@@ -22,14 +22,20 @@ namespace MarkomPos.Repository.Repository
                         {
                             dbData.ID = productGroup.ID;
                             dbData.Name = productGroup.Name;
+                            dbData.DisplayName = productGroup.DisplayName;
+                            dbData.ParrentGroupId = productGroup.ParrentGroupId;
                             dbData.DateModified = DateTime.Now;
                         }
                     }
                     else
                     {
-                        productGroup.DateCreated = DateTime.Now;
-                        productGroup.DateModified = DateTime.Now;
-                        context.ProductGroups.Add(productGroup);
+                        var isExist = context.ProductGroups.Any(f => f.Name == productGroup.Name);
+                        if (!isExist)
+                        {
+                            productGroup.DateCreated = DateTime.Now;
+                            productGroup.DateModified = DateTime.Now;
+                            context.ProductGroups.Add(productGroup);
+                        }
                     }
                     context.SaveChanges();
                     return true;
@@ -45,13 +51,13 @@ namespace MarkomPos.Repository.Repository
         {
             using (var context = new markomPosDbContext())
             {
-                //var groupData = context.ProductGroups.Find(id);
-                //if (groupData != null && groupData.ParrentGroupId == null)
-                //{
-                //    return context.ProductGroups.Any(a => a.ParrentGroupId == id);
-                //}
-                //return false;
-                return context.ProductGroups.Any(a => a.ParrentGroupId == id);
+                var groupData = context.ProductGroups.Find(id);
+                if (groupData != null && groupData.ParrentGroupId == null)
+                {
+                    return context.ProductGroups.Any(a => a.ParrentGroupId == id);
+                }
+                return false;
+                //return context.ProductGroups.Any(a => a.ParrentGroupId == id);
             }
         }
         public bool checkIsLastLevel(int parentId)
@@ -59,7 +65,7 @@ namespace MarkomPos.Repository.Repository
             using (var context = new markomPosDbContext())
             {
                 var subGroupId = context.ProductGroups.Find(parentId).ParrentGroupId;
-                if(subGroupId != null)
+                if (subGroupId != null)
                 {
                     var parentGroupId = context.ProductGroups.Find(subGroupId).ParrentGroupId;
                     if (parentGroupId != null)

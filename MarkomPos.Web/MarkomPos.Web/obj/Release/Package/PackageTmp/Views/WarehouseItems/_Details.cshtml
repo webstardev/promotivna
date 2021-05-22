@@ -1,0 +1,74 @@
+﻿@model MarkomPos.Model.Model.WarehouseItem
+
+<div class="modal fade" id="detailsModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content footerBg">
+            <div class="modal-header txtColor">
+                <h4 class="modal-title">Warehouse Item</h4>
+                <button type="button" class="close txtColor" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body formBg">
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- left column -->
+                            <div class="col-md-12">
+                                <form>
+                                    @Html.HiddenFor(model => model.ID)
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.ProductId, "ProductId", htmlAttributes: new { @class = "control-label" })
+                                                    @Html.DropDownList("ProductId", null, "Select Product Group", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.WarehouseId, "WarehouseId", htmlAttributes: new { @class = "control-label" })
+                                                    @Html.DropDownList("WarehouseId", null, "Select Unit of Measure", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.CurrentQuantity, htmlAttributes: new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.CurrentQuantity, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.ReservedQuantity, htmlAttributes: new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.ReservedQuantity, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.DateCreated, htmlAttributes: new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.DateCreated, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.DateModified, htmlAttributes: new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.DateModified, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

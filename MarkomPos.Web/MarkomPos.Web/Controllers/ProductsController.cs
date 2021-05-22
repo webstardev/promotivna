@@ -45,20 +45,23 @@ namespace MarkomPos.Web.Controllers
         {
             ViewBag.ProductGroupId = new SelectList(db.ProductGroups, "ID", "Name");
             ViewBag.UnitOfMeasureId = new SelectList(db.UnitOfMeasures, "ID", "Name");
-            return PartialView("_AddProduct", null);
+            Product product = new Product();
+            return PartialView("_AddProduct", product);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Product product)
         {
-            using (var productRepository = new ProductRepository())
+            if (ModelState.IsValid)
             {
-                var result = productRepository.AddUpdateProduct(product);
-                if (result)
-                    return RedirectToAction("Index");
+                using (var productRepository = new ProductRepository())
+                {
+                    var result = productRepository.AddUpdateProduct(product);
+                    if (result)
+                        return RedirectToAction("Index");
+                }
             }
-
             return RedirectToAction("Index");
         }
 

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,5 +49,7 @@ namespace MarkomPos.Model.Model
         public string Username { get; set; } // korisničko ime
         public int PasswordSalt { get; set; } // salt
         public string PasswordHash { get; set; } // passHash
+        [NotMapped]
+        public string Password { get; set; }
     }
 }

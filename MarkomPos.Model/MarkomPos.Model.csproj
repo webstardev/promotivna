@@ -54,11 +54,21 @@
     <Compile Include="Model\Contact.cs" />
     <Compile Include="Model\ContactInfo.cs" />
     <Compile Include="Model\ContactStatus.cs" />
+    <Compile Include="Model\DeliveryTerm.cs" />
+    <Compile Include="Model\DocumentParity.cs" />
+    <Compile Include="Model\Offer.cs" />
+    <Compile Include="Model\OfferItem.cs" />
+    <Compile Include="Model\OfferValidation.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderItem.cs" />
+    <Compile Include="Model\PaymentMethod.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\ProductGroup.cs" />
     <Compile Include="Model\ProductInfo.cs" />
     <Compile Include="Model\UnitOfMeasure.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Warehouse.cs" />
+    <Compile Include="Model\WarehouseItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\UserVm.cs" />
   </ItemGroup>

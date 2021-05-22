@@ -40,18 +40,22 @@ namespace MarkomPos.Web.Controllers
         public ActionResult Create()
         {
             ViewBag.ParrentGroupId = new SelectList(db.ProductGroups, "ID", "Name");
-            return PartialView("_AddProductGroup", null);
+            var productGroup = new ProductGroup();
+            return PartialView("_AddProductGroup", productGroup);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ProductGroup productGroup)
         {
-            using (var productGroupRepository = new ProductGroupRepository())
+            if (ModelState.IsValid)
             {
-                var result = productGroupRepository.AddUpdateProductGroups(productGroup);
-                if (result)
-                    return RedirectToAction("Index");
+                using (var productGroupRepository = new ProductGroupRepository())
+                {
+                    var result = productGroupRepository.AddUpdateProductGroups(productGroup);
+                    if (result)
+                        return RedirectToAction("Index");
+                }
             }
 
             return RedirectToAction("Index");
@@ -68,7 +72,7 @@ namespace MarkomPos.Web.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ParrentGroupId = new SelectList(db.ProductGroups.Where(w=>w.ID != id), "ID", "Name", productGroup.ParrentGroupId);
+            ViewBag.ParrentGroupId = new SelectList(db.ProductGroups.Where(w => w.ID != id), "ID", "Name", productGroup.ParrentGroupId);
             return PartialView("_AddProductGroup", productGroup);
         }
 

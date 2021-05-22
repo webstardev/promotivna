@@ -32,18 +32,22 @@ namespace MarkomPos.Repository.Repository
                     }
                     else
                     {
-                        unitOfMeasure.DateCreated = DateTime.Now;
-                        unitOfMeasure.DateModified = DateTime.Now;
-                        context.UnitOfMeasures.Add(unitOfMeasure);
-                    }                    
+                        var isExist = context.UnitOfMeasures.Any(f => f.Name == unitOfMeasure.Name);
+                        if (!isExist)
+                        {
+                            unitOfMeasure.DateCreated = DateTime.Now;
+                            unitOfMeasure.DateModified = DateTime.Now;
+                            context.UnitOfMeasures.Add(unitOfMeasure);
+                        }
+                    }
                     context.SaveChanges();
                     return true;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     return false;
                 }
-                
+
             }
         }
 
@@ -54,7 +58,7 @@ namespace MarkomPos.Repository.Repository
                 try
                 {
                     var dbData = context.UnitOfMeasures.Find(unitOfMeasure.ID);
-                    if(dbData != null)
+                    if (dbData != null)
                     {
                         dbData.ID = unitOfMeasure.ID;
                         dbData.Name = unitOfMeasure.Name;

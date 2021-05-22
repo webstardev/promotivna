@@ -16,3 +16,5 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repos
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.csproj.CopyComplete
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.pdb
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.Add_WareHouse.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.AddTable_Offers_Orders.resources

@@ -1,0 +1,67 @@
+﻿@model MarkomPos.Model.Model.WarehouseItem
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content footerBg">
+            <form method="post" action="@Url.Action("Create", "WarehouseItems")">
+                @Html.AntiForgeryToken()
+                <div class="modal-header txtColor">
+                    <h4 class="modal-title">Warehouse Items</h4>
+                    <button type="button" class="close txtColor" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body formBg">
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <!-- left column -->
+                                <div class="col-md-12">
+                                    @Html.HiddenFor(model => model.ID)
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.ProductId, "ProductId", htmlAttributes: new { @class = "control-label" })
+                                                    @Html.DropDownList("ProductId", null, "Select Product Group", htmlAttributes: new { @class = "form-control", required = "required" })
+                                                    @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.WarehouseId, "WarehouseId", htmlAttributes: new { @class = "control-label" })
+                                                    @Html.DropDownList("WarehouseId", null, "Select Unit of Measure", htmlAttributes: new { @class = "form-control", required = "required" })
+                                                    @Html.ValidationMessageFor(model => model.WarehouseId, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.CurrentQuantity, htmlAttributes: new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.CurrentQuantity, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                                    @Html.ValidationMessageFor(model => model.CurrentQuantity, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.ReservedQuantity, htmlAttributes: new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.ReservedQuantity, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.ReservedQuantity, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer footerBg">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

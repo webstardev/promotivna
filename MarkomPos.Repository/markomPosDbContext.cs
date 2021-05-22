@@ -21,5 +21,15 @@ namespace MarkomPos.Repository
         public DbSet<ProductGroup> ProductGroups { get; set; }
         public DbSet<ProductInfo> ProductInfos { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Warehouse> warehouses { get; set; }
+        public DbSet<WarehouseItem> warehouseItems { get; set; }
+        public DbSet<Offer> Offers { get; set; }
+        public DbSet<DeliveryTerm> DeliveryTerms { get; set; }
+        public DbSet<DocumentParity> DocumentParities { get; set; }
+        public DbSet<PaymentMethod> PaymentMethods { get; set; }
+        public DbSet<OfferItem> OfferItems { get; set; }
+        public DbSet<OfferValidation> OfferValidations { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
     }
 }
