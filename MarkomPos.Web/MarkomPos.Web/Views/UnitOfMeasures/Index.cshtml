@@ -116,15 +116,32 @@
 
 <script>
     $(document).ready(function () {
+        //$('#tblUnitOfMeasure thead tr').clone(true).appendTo('#tblUnitOfMeasure thead');
+        //$('#tblUnitOfMeasure thead tr:eq(1) th').each(function (i) {
+        //    var title = $(this).text();
+        //    $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+
+        //    $('input', this).on('keyup change', function () {
+        //        if (table.column(i).search() !== this.value) {
+        //            table
+        //                .column(i)
+        //                .search(this.value)
+        //                .draw();
+        //        }
+        //    });
+        //});
+
         $('#tblUnitOfMeasure').DataTable({
             paging: true,
             lengthChange: false,
-            searching: false,
+            searching: true,
             ordering: true,
             info: true,
             autoWidth: false,
             responsive: true,
-            colReorder: true
+            colReorder: true,
+            orderCellsTop: true,
+            fixedHeader: true
         });
     });
 
