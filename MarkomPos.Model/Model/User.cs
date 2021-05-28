@@ -47,7 +47,7 @@ namespace MarkomPos.Model.Model
 
         [DisplayName("Korisničko ime")]
         public string Username { get; set; } // korisničko ime
-        public int PasswordSalt { get; set; } // salt
+        public string PasswordSalt { get; set; } // salt
         public string PasswordHash { get; set; } // passHash
         [NotMapped]
         public string Password { get; set; }

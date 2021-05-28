@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel\DbEntity.cs" />
+    <Compile Include="Model\CodeBook.cs" />
+    <Compile Include="Model\CodePrefix.cs" />
     <Compile Include="Model\Contact.cs" />
     <Compile Include="Model\ContactInfo.cs" />
     <Compile Include="Model\ContactStatus.cs" />
@@ -65,11 +67,15 @@
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\ProductGroup.cs" />
     <Compile Include="Model\ProductInfo.cs" />
+    <Compile Include="Model\Roles.cs" />
     <Compile Include="Model\UnitOfMeasure.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Model\UserRoleMapping.cs" />
     <Compile Include="Model\Warehouse.cs" />
     <Compile Include="Model\WarehouseItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\HashSaltVm.cs" />
+    <Compile Include="ViewModel\LoginVm.cs" />
     <Compile Include="ViewModel\UserVm.cs" />
   </ItemGroup>
   <ItemGroup>

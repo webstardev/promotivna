@@ -126,6 +126,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CodeBooksController.cs" />
+    <Compile Include="Controllers\CodePrefixesController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\DeliveryTermsController.cs" />
     <Compile Include="Controllers\DocumentParitiesController.cs" />
@@ -136,7 +139,9 @@
     <Compile Include="Controllers\PaymentMethodsController.cs" />
     <Compile Include="Controllers\ProductGroupsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\UnitOfMeasuresController.cs" />
+    <Compile Include="Controllers\UserRoleMappingsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\WarehouseItemsController.cs" />
     <Compile Include="Controllers\WarehousesController.cs" />
@@ -320,6 +325,31 @@
     <Content Include="Views\OfferItems\_Details.cshtml" />
     <Content Include="Views\OfferValidations\_AddOfferValidation.cshtml" />
     <Content Include="Views\OfferValidations\_Details.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\_AddRole.cshtml" />
+    <Content Include="Views\Roles\_Details.cshtml" />
+    <Content Include="Views\UserRoleMappings\Create.cshtml" />
+    <Content Include="Views\UserRoleMappings\Delete.cshtml" />
+    <Content Include="Views\UserRoleMappings\Details.cshtml" />
+    <Content Include="Views\UserRoleMappings\Edit.cshtml" />
+    <Content Include="Views\UserRoleMappings\Index.cshtml" />
+    <Content Include="Views\UserRoleMappings\_AddRoleMapping.cshtml" />
+    <Content Include="Views\UserRoleMappings\_Details.cshtml" />
+    <Content Include="Views\CodeBooks\Create.cshtml" />
+    <Content Include="Views\CodeBooks\Delete.cshtml" />
+    <Content Include="Views\CodeBooks\Details.cshtml" />
+    <Content Include="Views\CodeBooks\Edit.cshtml" />
+    <Content Include="Views\CodeBooks\Index.cshtml" />
+    <Content Include="Views\CodePrefixes\Create.cshtml" />
+    <Content Include="Views\CodePrefixes\Delete.cshtml" />
+    <Content Include="Views\CodePrefixes\Details.cshtml" />
+    <Content Include="Views\CodePrefixes\Edit.cshtml" />
+    <Content Include="Views\CodePrefixes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

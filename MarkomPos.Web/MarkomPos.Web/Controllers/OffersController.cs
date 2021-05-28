@@ -12,6 +12,7 @@ using MarkomPos.Repository.Repository;
 
 namespace MarkomPos.Web.Controllers
 {
+    [Authorize(Roles = "Super Admin")]
     public class OffersController : Controller
     {
         private markomPosDbContext db = new markomPosDbContext();

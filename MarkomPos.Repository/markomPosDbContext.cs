@@ -12,6 +12,7 @@ namespace MarkomPos.Repository
     {
         public markomPosDbContext() : base("markonPosDbConn")
         {
+            //Database.SetInitializer(new dbInitializerSeed());
         }
         public DbSet<UnitOfMeasure> UnitOfMeasures { get; set; }
         public DbSet<Contact> Contacts { get; set; }
@@ -31,5 +32,9 @@ namespace MarkomPos.Repository
         public DbSet<OfferValidation> OfferValidations { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Roles> Roles { get; set; }
+        public DbSet<UserRoleMapping> UserRoleMappings { get; set; }
+        public DbSet<CodePrefix> CodePrefixes { get; set; }
+        public DbSet<CodeBook> CodeBooks { get; set; }
     }
 }

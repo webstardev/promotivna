@@ -11,10 +11,15 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\bin\Debug\EntityFramework
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.csprojAssemblyReference.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.InitDB.resources
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.Add_Tables.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.Add_WareHouse.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.AddTable_Offers_Orders.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.ChangeSaltPasswordReturnType.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.RoleAndRoleMappind_Add.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.CodeBook.resources
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.csproj.GenerateResource.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.csproj.CoreCompileInputs.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.csproj.CopyComplete
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.pdb
-D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.Add_WareHouse.resources
-D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.AddTable_Offers_Orders.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.RemoveRole_RoleMapping.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.AddRole_RoleMapping.resources

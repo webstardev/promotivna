@@ -12,6 +12,7 @@ using MarkomPos.Repository.Repository;
 
 namespace MarkomPos.Web.Controllers
 {
+    [Authorize(Roles = "Super Admin")]
     public class UsersController : Controller
     {
         private markomPosDbContext db = new markomPosDbContext();
@@ -19,7 +20,11 @@ namespace MarkomPos.Web.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            using (var userRepository = new UserRepository())
+            {
+                var result = userRepository.getAllUser();
+                return View(result);
+            }
         }
 
         // GET: Users/Details/5
@@ -44,11 +49,8 @@ namespace MarkomPos.Web.Controllers
             return PartialView("_AddUsers", user);
         }
 
-        // POST: Users/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(User user)
         {
             if (ModelState.IsValid)
@@ -79,9 +81,6 @@ namespace MarkomPos.Web.Controllers
             return PartialView("_AddUsers", user);
         }
 
-        // POST: Users/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(User user)

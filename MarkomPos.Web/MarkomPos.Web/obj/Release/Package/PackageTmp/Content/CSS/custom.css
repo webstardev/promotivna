@@ -29,11 +29,43 @@ button.close {
     opacity: 1;
 }
 
-button.close span {
-    color: #fff !important;
-    opacity: 1;
-}
+    button.close span {
+        color: #fff !important;
+        opacity: 1;
+    }
 
 .btn-create-wrap {
     text-align: right;
+}
+
+.btn-primary {
+    background-color: #a8d6ef !important;
+    color: #28323a !important;
+    border-color: #a8d6ef !important;
+}
+
+a {
+    color: #28323a;
+}
+
+.page-item.active .page-link {
+    background-color: #558cac;
+    border-color: #558cac;
+}
+
+.main-footer a {
+    color: #a8d6ef;
+}
+
+footer.main-footer {
+    text-align: center;
+    color: #fff;
+}
+
+a.nav-link {
+    transition: all .2s linear;
+}
+
+a.nav-link:hover {
+    color: #7db8e1 !important;
 }

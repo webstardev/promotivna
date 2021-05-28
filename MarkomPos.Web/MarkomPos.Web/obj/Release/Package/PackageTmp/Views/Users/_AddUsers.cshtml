@@ -4,6 +4,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content footerBg">
             <form method="post" action="@Url.Action("Create", "Users")">
+                @Html.AntiForgeryToken()
                 <div class="modal-header txtColor">
                     <h4 class="modal-title">User</h4>
                     <button type="button" class="close txtColor" data-dismiss="modal" aria-label="Close">
@@ -103,22 +104,22 @@
                                             </div>
                                         </div>
 
-                                        @*<div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
-                                                        @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", required = "required" } })
-                                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                                                    </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @id = "lblPassword", @class = "control-label" })
+                                                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", required = "required" })
+                                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        @Html.Label("Confirm Password", htmlAttributes: new { @class = "control-label" })
-                                                        @Html.Password("ConfirmPassword", "", new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessage("ConfirmPassword", "", new { @id = "ValidConfirmPassword", @class = "text-danger", required = "required" })
-                                                    </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.Label("Confirm Password", htmlAttributes: new { @id = "lblCnfPassword", @class = "control-label" })
+                                                    @Html.Password("ConfirmPassword", "", new { @class = "form-control", required = "required" })
+                                                    @Html.ValidationMessage("ConfirmPassword", "", new { @id = "ValidConfirmPassword", @class = "text-danger" })
                                                 </div>
-                                            </div>*@
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +127,7 @@
                     </section>
                 </div>
                 <div class="modal-footer footerBg">
-                    <button type="submit" class="btn btn-primary" id="btnSubmit">Submit</button>
+                    <button type="submit" class="btn btn-primary" id="btnSubmit" disabled>Submit</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </form>
@@ -137,32 +138,32 @@
     <!-- /.modal-dialog -->
 </div>
 
-@*<script>
-        $(document).ready(function () {
-            $("#Password").keyup(function () {
-                passwordMatch();
-            });
-            $("#ConfirmPassword").keyup(function () {
-                passwordMatch();
-            });
+<script>
+    $(document).ready(function () {
+        $("#Password").keyup(function () {
+            passwordMatch();
         });
+        $("#ConfirmPassword").keyup(function () {
+            passwordMatch();
+        });
+    });
 
-        function passwordMatch() {
-            if (document.getElementById('Password').value == "" && document.getElementById('ConfirmPassword').value == "") {
-                $(':input[type="submit"]').prop('disabled', true);
-                document.getElementById('ValidConfirmPassword').style.color = 'red';
-                document.getElementById('ValidConfirmPassword').innerHTML = 'Please enter password';
-            }
-            else if (document.getElementById('Password').value ==
-                document.getElementById('ConfirmPassword').value) {
-                $(':input[type="submit"]').prop('disabled', false);
-                document.getElementById('ValidConfirmPassword').style.color = 'green';
-                document.getElementById('ValidConfirmPassword').innerHTML = '';
-            } else {
-                $(':input[type="submit"]').prop('disabled', true);
-                document.getElementById('ValidConfirmPassword').style.color = 'red';
-                document.getElementById('ValidConfirmPassword').innerHTML = 'not matching';
-            }
+    function passwordMatch() {
+        if (document.getElementById('Password').value == "" && document.getElementById('ConfirmPassword').value == "") {
+            $(':input[type="submit"]').prop('disabled', true);
+            document.getElementById('ValidConfirmPassword').style.color = 'red';
+            document.getElementById('ValidConfirmPassword').innerHTML = 'Please enter password';
         }
+        else if (document.getElementById('Password').value ==
+            document.getElementById('ConfirmPassword').value) {
+            $(':input[type="submit"]').prop('disabled', false);
+            document.getElementById('ValidConfirmPassword').style.color = 'green';
+            document.getElementById('ValidConfirmPassword').innerHTML = '';
+        } else {
+            $(':input[type="submit"]').prop('disabled', true);
+            document.getElementById('ValidConfirmPassword').style.color = 'red';
+            document.getElementById('ValidConfirmPassword').innerHTML = 'not matching';
+        }
+    }
 
-    </script>*@
+</script>

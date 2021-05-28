@@ -1,0 +1,65 @@
+﻿@model MarkomPos.Model.ViewModel.LoginVm
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MarkomPos | Log in</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="~/Content/CSS/all.min.css" rel="stylesheet" />
+    <link href="~/Content/CSS/icheck-bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/CSS/adminlte.min.css" rel="stylesheet" />
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="card card-outline card-primary">
+            @if (ViewBag.IsValid == false)
+            {
+                <script type="text/javascript">
+                    alert("Username or Password is invalid!");
+                </script>
+            }
+
+            <div class="card-header text-center">
+                <a href="../../index2.html" class="h1"><b>Markom</b>POS</a>
+            </div>
+            <div class="card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+
+                <form method="post" action="@Url.Action("Authenticate", "Account")">
+                    <div class="input-group mb-3">
+                        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @placeholder = "Username" } })
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Password" })
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="~/Content/JS/jquery.min.js"></script>
+    <script src="~/Content/JS/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/JS/adminlte.min.js"></script>
+</body>
+</html>

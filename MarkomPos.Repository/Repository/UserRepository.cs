@@ -1,4 +1,5 @@
 ﻿using MarkomPos.Model.Model;
+using MarkomPos.Repository.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,9 +38,17 @@ namespace MarkomPos.Repository.Repository
                     }
                     else
                     {
-                        user.DateCreated = DateTime.Now;
-                        user.DateModified = DateTime.Now;
-                        context.Users.Add(user);
+                        var isExist = context.Users.Any(f => f.Username == user.Username);
+                        if (!isExist)
+                        {
+                            var getHashSaltPassword = PasswordUtil.GetHashSaltPassword(user.Password);
+                            user.PasswordHash = getHashSaltPassword.Hash;
+                            user.PasswordSalt = getHashSaltPassword.Salt;
+
+                            user.DateCreated = DateTime.Now;
+                            user.DateModified = DateTime.Now;
+                            context.Users.Add(user);
+                        }
                     }
                     context.SaveChanges();
                     return true;
@@ -51,6 +60,20 @@ namespace MarkomPos.Repository.Repository
 
             }
         }
+        public List<User> getAllUser()
+        {
+            using (var context = new markomPosDbContext())
+            {
+                var users = new List<User>();
+                users = (from user in context.Users
+                         join urm in context.UserRoleMappings on user.ID equals urm.UserId into userRole
+                         from urm in userRole.DefaultIfEmpty()
+                         where urm.RolesId != 1
+                         select user).ToList();
+                return users;
+            }
+        }
+
         public void Dispose()
         {
         }

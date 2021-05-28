@@ -242,21 +242,13 @@
 
                     var id = $('#ID').val();
                     if (id != null && id > 0) {
-                        if (document.getElementById('Password').value == "" && document.getElementById('ConfirmPassword').value == "") {
-                            $(':input[type="submit"]').prop('disabled', true);
-                            document.getElementById('ValidConfirmPassword').style.color = 'red';
-                            document.getElementById('ValidConfirmPassword').innerHTML = 'Please enter password';
-                        }
-                        else if (document.getElementById('Password').value ==
-                            document.getElementById('ConfirmPassword').value) {
-                            $(':input[type="submit"]').prop('disabled', false);
-                            document.getElementById('ValidConfirmPassword').style.color = 'green';
-                            document.getElementById('ValidConfirmPassword').innerHTML = '';
-                        } else {
-                            $(':input[type="submit"]').prop('disabled', true);
-                            document.getElementById('ValidConfirmPassword').style.color = 'red';
-                            document.getElementById('ValidConfirmPassword').innerHTML = 'not matching';
-                        }
+                        $('#Password').removeAttr('required');
+                        $('#ConfirmPassword').removeAttr('required');
+                        $('#lblPassword').hide();
+                        $('#lblCnfPassword').hide();
+                        $('#Password').hide();
+                        $('#ConfirmPassword').hide();
+                        $(':input[type="submit"]').prop('disabled', false);
                     }
                 },
                 error: function () {

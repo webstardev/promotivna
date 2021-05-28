@@ -29,6 +29,8 @@
     <link href="~/Content/CSS/summernote-bs4.min.css" rel="stylesheet" />
     <link href="~/Content/CSS/custom.css" rel="stylesheet" />
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/colreorder/1.5.3/css/colReorder.dataTables.min.css">
+
     @*@Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")*@
 </head>
@@ -51,8 +53,13 @@
                         <li class="nav-item">
                             <a href="~/" class="nav-link txtColor">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/Users/Index" class="nav-link txtColor">Users</a>
+                        <li class="nav-item dropdown">
+                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">User</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow footerBg">
+                                <li><a href="/Users/Index" class="nav-link txtColor">Users</a></li>
+                                <li><a href="/Roles/Index" class="nav-link txtColor">Role</a></li>
+                                <li><a href="/UserRoleMappings/Index" class="nav-link txtColor">Role Mapping</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Product</a>
@@ -86,6 +93,11 @@
                         </li>
                     </ul>
                 </div>
+                <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+                    <li class="nav-item">
+                        <a href="/Account/Logout" class="nav-link txtColor">Logout</a>
+                    </li>
+                </ul>
             </div>
         </nav>
         <!-- /.navbar -->
@@ -194,6 +206,7 @@
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)*@
 
+    <script src="https://cdn.datatables.net/colreorder/1.5.3/js/dataTables.colReorder.min.js"></script>
     <script>
         $(function () {
             $("#example1").DataTable({
