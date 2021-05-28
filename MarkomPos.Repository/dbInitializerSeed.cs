@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MarkomPos.Repository
 {
-    public class dbInitializerSeed : DropCreateDatabaseAlways<markomPosDbContext>
+    public class dbInitializerSeed : CreateDatabaseIfNotExists<markomPosDbContext>
     {
         protected override void Seed(markomPosDbContext context)
         {

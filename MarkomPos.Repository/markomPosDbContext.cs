@@ -12,7 +12,7 @@ namespace MarkomPos.Repository
     {
         public markomPosDbContext() : base("markonPosDbConn")
         {
-            //Database.SetInitializer(new dbInitializerSeed());
+            Database.SetInitializer(new dbInitializerSeed());
         }
         public DbSet<UnitOfMeasure> UnitOfMeasures { get; set; }
         public DbSet<Contact> Contacts { get; set; }

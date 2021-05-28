@@ -16,10 +16,10 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repos
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.ChangeSaltPasswordReturnType.resources
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.RoleAndRoleMappind_Add.resources
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.CodeBook.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.RemoveRole_RoleMapping.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.AddRole_RoleMapping.resources
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.csproj.GenerateResource.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.csproj.CoreCompileInputs.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.csproj.CopyComplete
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.pdb
-D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.RemoveRole_RoleMapping.resources
-D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.AddRole_RoleMapping.resources

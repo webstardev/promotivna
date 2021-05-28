@@ -46,8 +46,8 @@ namespace MarkomPos.Web.Controllers
         {
             ViewBag.ProductId = new SelectList(db.Products, "ID", "Name");
             ViewBag.WarehouseId = new SelectList(db.warehouses, "ID", "Name");
-            //WarehouseItem warehouseItem = new WarehouseItem();
-            return PartialView("_AddWarehouseItem", null);
+            var warehouseItem = new WarehouseItem();
+            return PartialView("_AddWarehouseItem", warehouseItem);
         }
 
         // POST: WarehouseItems/Create
