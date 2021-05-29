@@ -116,22 +116,7 @@
 
 <script>
     $(document).ready(function () {
-        //$('#tblUnitOfMeasure thead tr').clone(true).appendTo('#tblUnitOfMeasure thead');
-        //$('#tblUnitOfMeasure thead tr:eq(1) th').each(function (i) {
-        //    var title = $(this).text();
-        //    $(this).html('<input type="text" placeholder="Search ' + title + '" />');
-
-        //    $('input', this).on('keyup change', function () {
-        //        if (table.column(i).search() !== this.value) {
-        //            table
-        //                .column(i)
-        //                .search(this.value)
-        //                .draw();
-        //        }
-        //    });
-        //});
-
-        $('#tblUnitOfMeasure').DataTable({
+        var table = $('#tblUnitOfMeasure').DataTable({
             paging: true,
             lengthChange: false,
             searching: true,
@@ -141,8 +126,33 @@
             responsive: true,
             colReorder: true,
             orderCellsTop: true,
-            fixedHeader: true
+            fixedHeader: true,
+            columnDefs: [
+                { orderable: false, targets: -1 }
+            ]
         });
+
+        $('#tblUnitOfMeasure thead tr').clone(true).appendTo('#tblUnitOfMeasure thead');
+        $('#tblUnitOfMeasure thead tr:eq(1) th').each(function (i) {
+            var title = $(this).text();
+
+            var length = $("table").find("tr:last td").length
+            if (i == length - 1) {
+                return;
+            }
+
+            $(this).html('<input type="text" class="form-control text-box single-line"/>');
+
+            $('input', this).on('keyup change', function () {
+                if (table.column(i).search() !== this.value) {
+                    table
+                        .column(i)
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+
     });
 
     $(function () {
