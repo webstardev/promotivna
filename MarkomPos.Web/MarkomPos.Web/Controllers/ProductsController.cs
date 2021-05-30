@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MarkomPos.Model.Model;
+using MarkomPos.Model.ViewModel;
 using MarkomPos.Repository;
 using MarkomPos.Repository.Repository;
 
@@ -20,8 +21,11 @@ namespace MarkomPos.Web.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            var products = db.Products.Include(p => p.ProductGroup).Include(p => p.UnitOfMeasure);
-            return View(products.ToList());
+            using (var productRepository = new ProductRepository())
+            {
+                var products = productRepository.GetAll();
+                return View(products.ToList());
+            }
         }
 
         // GET: Products/Details/5
@@ -31,28 +35,33 @@ namespace MarkomPos.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
-            if (product == null)
+            using (var productRepository = new ProductRepository())
             {
-                return HttpNotFound();
+                var product = productRepository.GetById(id.GetValueOrDefault(0));
+                if (product == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_Details", product);
             }
-            ViewBag.ProductGroupId = new SelectList(db.ProductGroups, "ID", "Name", product.ProductGroupId);
-            ViewBag.UnitOfMeasureId = new SelectList(db.UnitOfMeasures, "ID", "Name", product.UnitOfMeasureId);
-            return PartialView("_Details", product);
         }
 
-        // GET: Products/Create
         public ActionResult Create()
         {
-            ViewBag.ProductGroupId = new SelectList(db.ProductGroups, "ID", "Name");
-            ViewBag.UnitOfMeasureId = new SelectList(db.UnitOfMeasures, "ID", "Name");
-            Product product = new Product();
-            return PartialView("_AddProduct", product);
+            using (var productRepository = new ProductRepository())
+            {
+                var product = productRepository.GetById(0);
+                if (product == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_AddProduct", product);
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Product product)
+        public ActionResult Create(ProductVm product)
         {
             if (ModelState.IsValid)
             {
@@ -72,14 +81,15 @@ namespace MarkomPos.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
-            if (product == null)
+            using (var productRepository = new ProductRepository())
             {
-                return HttpNotFound();
+                var productGroup = productRepository.GetById(id.GetValueOrDefault(0));
+                if (productGroup == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_AddProduct", productGroup);
             }
-            ViewBag.ProductGroupId = new SelectList(db.ProductGroups, "ID", "Name", product.ProductGroupId);
-            ViewBag.UnitOfMeasureId = new SelectList(db.UnitOfMeasures, "ID", "Name", product.UnitOfMeasureId);
-            return PartialView("_AddProduct", product);
         }
 
         [HttpGet, ActionName("DeleteConfirmed")]

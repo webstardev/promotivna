@@ -73,7 +73,7 @@
                                         <td>
                                             <a class="edit" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
                                             <a class="details" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
-                                            @Html.ActionLink(".", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
+                                            @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
                                         </td>
                                     </tr>
                                 }
@@ -90,12 +90,11 @@
 </div>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/jquery-ui.js" type="text/javascript"></script>
 
 <script>
     $(document).ready(function () {
 
-        var groupColumn;
+        var groupColumn = 0;
         $('#tblUnitOfMeasure thead tr:eq(0) th').each(function (i) {
 
             if ($(this).text().trim() == "Jed.mj.") {
@@ -155,9 +154,7 @@
                     }
                 });
             }
-
         });
-
 
     });
 

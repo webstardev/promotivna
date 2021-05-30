@@ -10,3 +10,16 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Release\MarkomPos.Model.cs
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Release\MarkomPos.Model.csproj.CopyComplete
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Release\MarkomPos.Model.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Release\MarkomPos.Model.pdb
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Release\System.Web.Helpers.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Release\System.Web.Mvc.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Release\System.Web.Razor.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Release\System.Web.WebPages.Deployment.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Release\System.Web.WebPages.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Release\System.Web.WebPages.Razor.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Release\System.Web.Helpers.xml
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Release\System.Web.Mvc.xml
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Release\System.Web.Razor.xml
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Release\System.Web.WebPages.xml
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Release\System.Web.WebPages.Deployment.xml
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Release\System.Web.WebPages.Razor.xml

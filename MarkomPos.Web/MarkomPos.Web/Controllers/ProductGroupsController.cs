@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using MarkomPos.Model.Model;
+using MarkomPos.Model.ViewModel;
 using MarkomPos.Repository;
 using MarkomPos.Repository.Repository;
 
@@ -19,8 +15,11 @@ namespace MarkomPos.Web.Controllers
 
         public ActionResult Index()
         {
-            var productGroups = db.ProductGroups.Include(p => p.ParrentGroup);
-            return View(productGroups.ToList());
+            using (var productGroupRepository = new ProductGroupRepository())
+            {
+                var productGroups = productGroupRepository.GetAll();
+                return View(productGroups.ToList());
+            }
         }
 
         public ActionResult Details(int? id)
@@ -29,25 +28,30 @@ namespace MarkomPos.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var productGroup = db.ProductGroups.Find(id);
-            if (productGroup == null)
+            using (var productGroupRepository = new ProductGroupRepository())
             {
-                return HttpNotFound();
+                var productGroup = productGroupRepository.GetById(id.GetValueOrDefault(0));
+                if (productGroup == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_Details", productGroup);
             }
-            ViewBag.ParrentGroupId = new SelectList(db.ProductGroups, "ID", "Name", productGroup.ParrentGroupId);
-            return PartialView("_Details", productGroup);
         }
 
         public ActionResult Create()
         {
-            ViewBag.ParrentGroupId = new SelectList(db.ProductGroups, "ID", "Name");
-            var productGroup = new ProductGroup();
-            return PartialView("_AddProductGroup", productGroup);
+            using (var productGroupRepository = new ProductGroupRepository())
+            {
+                var productGroup = new ProductGroupVm();
+                productGroup.productGroupVms = productGroupRepository.GetSelectListItems();
+                return PartialView("_AddProductGroup", productGroup);
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ProductGroup productGroup)
+        public ActionResult Create(ProductGroupVm productGroup)
         {
             if (ModelState.IsValid)
             {
@@ -68,13 +72,15 @@ namespace MarkomPos.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductGroup productGroup = db.ProductGroups.Find(id);
-            if (productGroup == null)
+            using (var productGroupRepository = new ProductGroupRepository())
             {
-                return HttpNotFound();
+                var productGroup = productGroupRepository.GetEditRecord(id.GetValueOrDefault(0));
+                if (productGroup == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_AddProductGroup", productGroup);
             }
-            ViewBag.ParrentGroupId = new SelectList(db.ProductGroups.Where(w => w.ID != id), "ID", "Name", productGroup.ParrentGroupId);
-            return PartialView("_AddProductGroup", productGroup);
         }
 
         [HttpGet, ActionName("DeleteConfirmed")]

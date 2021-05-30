@@ -1,15 +1,44 @@
 ﻿using MarkomPos.Model.Model;
+using MarkomPos.Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity;
+using Mapster;
+using System.Web.Mvc;
 
 namespace MarkomPos.Repository.Repository
 {
     public class ProductRepository : IDisposable
     {
-        public bool AddUpdateProduct(Product product)
+        public List<ProductVm> GetAll()
+        {
+            using (var context = new markomPosDbContext())
+            {
+                return context.Products.Include(p => p.ProductGroup).Include(i => i.UnitOfMeasure).Adapt<List<ProductVm>>().ToList();
+            }
+        }
+        public ProductVm GetById(int id)
+        {
+            using (var context = new markomPosDbContext())
+            {
+                var productVm = new ProductVm();
+                var productData = context.Products.Include(p => p.ProductGroup).Include(i => i.UnitOfMeasure).FirstOrDefault(f => f.ID == id).Adapt<ProductVm>();
+                if (productData != null)
+                {
+                    productVm = productData;
+                    productVm.ProductGroups = new SelectList(context.ProductGroups, "ID", "Name", productData.ProductGroupId).ToList();
+                    productVm.UnitOfMeasures = new SelectList(context.UnitOfMeasures, "ID", "Name", productData.UnitOfMeasureId).ToList();
+                }
+                else
+                {
+                    productVm.ProductGroups = new SelectList(context.ProductGroups, "ID", "Name").ToList();
+                    productVm.UnitOfMeasures = new SelectList(context.UnitOfMeasures, "ID", "Name").ToList();
+                }
+                return productVm;
+            }
+        }
+        public bool AddUpdateProduct(ProductVm product)
         {
             using (var context = new markomPosDbContext())
             {
@@ -35,7 +64,8 @@ namespace MarkomPos.Repository.Repository
                     {
                         product.DateCreated = DateTime.Now;
                         product.DateModified = DateTime.Now;
-                        context.Products.Add(product);
+                        var productData = product.Adapt<Product>();
+                        context.Products.Add(productData);
                     }
                     context.SaveChanges();
                     return true;

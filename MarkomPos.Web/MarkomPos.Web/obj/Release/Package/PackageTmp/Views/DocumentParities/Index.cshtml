@@ -83,7 +83,7 @@
                                         <td>
                                             <a class="edit" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
                                             <a class="details" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
-                                            @Html.ActionLink(".", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
+                                            @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
                                         </td>
                                     </tr>
                                 }

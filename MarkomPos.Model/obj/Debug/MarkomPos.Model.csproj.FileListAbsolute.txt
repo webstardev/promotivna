@@ -9,3 +9,17 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.cspr
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.csproj.CopyComplete
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.pdb
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.Helpers.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.Mvc.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.Razor.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.WebPages.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.WebPages.Razor.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.Helpers.xml
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.Mvc.xml
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.Razor.xml
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.WebPages.xml
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.WebPages.Razor.xml
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.csprojAssemblyReference.cache

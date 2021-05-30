@@ -1,15 +1,54 @@
 ﻿using MarkomPos.Model.Model;
+using MarkomPos.Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity;
+using Mapster;
+using System.Web.Mvc;
 
 namespace MarkomPos.Repository.Repository
 {
     public class ProductGroupRepository : IDisposable
     {
-        public bool AddUpdateProductGroups(ProductGroup productGroup)
+        public List<ProductGroupVm> GetAll()
+        {
+            using (var context = new markomPosDbContext())
+            {
+                return context.ProductGroups.Include(p => p.ParrentGroup).OrderBy(o => o.ParrentGroupId).Adapt<List<ProductGroupVm>>().ToList();
+            }
+        }
+        public ProductGroupVm GetById(int productGroupId)
+        {
+            using (var context = new markomPosDbContext())
+            {
+                var productGroupVm = new ProductGroupVm();
+                productGroupVm = context.ProductGroups.Include(p => p.ParrentGroup).FirstOrDefault(f => f.ID == productGroupId).Adapt<ProductGroupVm>();
+                productGroupVm.productGroupVms = new SelectList(context.ProductGroups, "ID", "Name", productGroupVm.ParrentGroupId).ToList();
+
+                return productGroupVm;
+            }
+        }
+        public ProductGroupVm GetEditRecord(int productGroupId)
+        {
+            using (var context = new markomPosDbContext())
+            {
+                var productGroupVm = new ProductGroupVm();
+                productGroupVm = context.ProductGroups.Include(p => p.ParrentGroup).FirstOrDefault(f => f.ID == productGroupId).Adapt<ProductGroupVm>();
+                productGroupVm.productGroupVms = new SelectList(context.ProductGroups.Where(w => w.ID != productGroupId), "ID", "Name", productGroupVm.ParrentGroupId).ToList();
+
+                return productGroupVm;
+            }
+        }
+        public List<SelectListItem> GetSelectListItems()
+        {
+            using (var context = new markomPosDbContext())
+            {
+                var productGroupListItem = new SelectList(context.ProductGroups, "ID", "Name");
+                return productGroupListItem.ToList();
+            }
+        }
+        public bool AddUpdateProductGroups(ProductGroupVm productGroup)
         {
             using (var context = new markomPosDbContext())
             {
@@ -34,7 +73,8 @@ namespace MarkomPos.Repository.Repository
                         {
                             productGroup.DateCreated = DateTime.Now;
                             productGroup.DateModified = DateTime.Now;
-                            context.ProductGroups.Add(productGroup);
+                            var productGroupData = productGroup.Adapt<ProductGroup>();
+                            context.ProductGroups.Add(productGroupData);
                         }
                     }
                     context.SaveChanges();

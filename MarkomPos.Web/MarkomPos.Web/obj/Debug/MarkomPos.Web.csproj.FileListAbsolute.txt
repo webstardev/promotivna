@@ -87,3 +87,5 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Debug\MarkomPo
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Debug\MarkomPos.Web.csproj.CopyComplete
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Debug\MarkomPos.Web.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Debug\MarkomPos.Web.pdb
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\Mapster.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\Mapster.Core.dll

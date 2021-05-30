@@ -1,4 +1,4 @@
-﻿@model MarkomPos.Model.Model.Product
+﻿@model MarkomPos.Model.ViewModel.ProductVm
 
 <div class="modal fade" id="detailsModal" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -37,13 +37,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.ProductGroupId, "ProductGroupId", htmlAttributes: new { @class = "control-label" })
-                                                    @Html.DropDownList("ProductGroupId", null, "Select Product Group", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.DropDownListFor(m => m.ProductGroupId, Model.ProductGroups, "Select Product Group", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.UnitOfMeasureId, "UnitOfMeasureId", htmlAttributes: new { @class = "control-label" })
-                                                    @Html.DropDownList("UnitOfMeasureId", null, "Select Unit of Measure", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.DropDownListFor(m => m.UnitOfMeasureId, Model.UnitOfMeasures, "Select Unit of Measure", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
                                                 </div>
                                             </div>
                                         </div>

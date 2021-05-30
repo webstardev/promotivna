@@ -11,10 +11,6 @@
                 <h1 class="txtColor">Users</h1>
             </div>
             <div class="col-sm-6">
-                @*<ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item txtColor">Unit of measure</li>
-                        <li class="breadcrumb-item txtColor active">List</li>
-                    </ol>*@
             </div>
         </div>
     </div><!-- /.container-fluid -->
@@ -26,12 +22,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        @*<div class="pull-left">
-                                <h3 class="card-title">Unit of Measure</h3>
-                            </div>*@
                         <div class="btn-create-wrap">
                             <a class="btn btn-default create" href="javascript:void(0)">Create New</a>
-                            @*@Html.ActionLink("Create New", "Create")*@
                         </div>
                     </div>
                     <div class="card-body">
@@ -44,54 +36,18 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Name)
                                     </th>
-                                    @*<th>
-                                            @Html.DisplayNameFor(model => model.Surname)
-                                        </th>*@
-                                    @*<th>
-                                            @Html.DisplayNameFor(model => model.Address)
-                                        </th>*@
                                     <th>
                                         @Html.DisplayNameFor(model => model.JobDescription)
                                     </th>
-                                    @*<th>
-                                            @Html.DisplayNameFor(model => model.Active)
-                                        </th>*@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Email)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.MobilePhone)
                                     </th>
-                                    @*<th>
-                                            @Html.DisplayNameFor(model => model.Note)
-                                        </th>*@
-                                    @*<th>
-                                            @Html.DisplayNameFor(model => model.Note2)
-                                        </th>*@
-                                    @*<th>
-                                            @Html.DisplayNameFor(model => model.ColorHex)
-                                        </th>*@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Username)
                                     </th>
-                                    @*<th>
-                                            @Html.DisplayNameFor(model => model.PasswordSalt)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.PasswordHash)
-                                        </th>*@
-                                    @*<th>
-                                            @Html.DisplayNameFor(model => model.DateCreated)
-                                        </th>*@
-                                    @*<th>
-                                            @Html.DisplayNameFor(model => model.CreatedBy)
-                                        </th>*@
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.DateModified)
-                                    </th>
-                                    @*<th>
-                                            @Html.DisplayNameFor(model => model.ModifiedBy)
-                                        </th>*@
                                     <th></th>
                                 </tr>
                             </thead>
@@ -105,58 +61,22 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Name)  @Html.DisplayFor(modelItem => item.Surname)
                                         </td>
-                                        @*<td>
-                                                @Html.DisplayFor(modelItem => item.Surname)
-                                            </td>*@
-                                        @*<td>
-                                                @Html.DisplayFor(modelItem => item.Address)
-                                            </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.JobDescription)
                                         </td>
-                                        @*<td>
-                                                @Html.DisplayFor(modelItem => item.Active)
-                                            </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Email)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.MobilePhone)
                                         </td>
-                                        @*<td>
-                                                @Html.DisplayFor(modelItem => item.Note)
-                                            </td>*@
-                                        @*<td>
-                                                @Html.DisplayFor(modelItem => item.Note2)
-                                            </td>*@
-                                        @*<td>
-                                                @Html.DisplayFor(modelItem => item.ColorHex)
-                                            </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Username)
                                         </td>
-                                        @*<td>
-                                                @Html.DisplayFor(modelItem => item.PasswordSalt)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.PasswordHash)
-                                            </td>*@
-                                        @*<td>
-                                                @Html.DisplayFor(modelItem => item.DateCreated)
-                                            </td>*@
-                                        @*<td>
-                                                @Html.DisplayFor(modelItem => item.CreatedBy)
-                                            </td>*@
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.DateModified)
-                                        </td>
-                                        @*<td>
-                                                @Html.DisplayFor(modelItem => item.ModifiedBy)
-                                            </td>*@
                                         <td>
                                             <a class="edit" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
                                             <a class="details" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
-                                            @Html.ActionLink(".", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
+                                            @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
                                         </td>
                                     </tr>
                                 }
