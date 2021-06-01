@@ -98,6 +98,8 @@
     <Compile Include="ViewModel\BaseVm.cs" />
     <Compile Include="ViewModel\HashSaltVm.cs" />
     <Compile Include="ViewModel\LoginVm.cs" />
+    <Compile Include="ViewModel\OfferItemVm.cs" />
+    <Compile Include="ViewModel\OfferVm.cs" />
     <Compile Include="ViewModel\ProductGroupVm.cs" />
     <Compile Include="ViewModel\ProductVm.cs" />
     <Compile Include="ViewModel\UserVm.cs" />

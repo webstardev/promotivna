@@ -1,15 +1,68 @@
 ﻿using MarkomPos.Model.Model;
+using MarkomPos.Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity;
+using Mapster;
+using System.Web.Mvc;
 
 namespace MarkomPos.Repository.Repository
 {
     public class OfferRepository : IDisposable
     {
-        public bool AddUpdateOffer(Offer offer)
+        public List<OfferVm> GetAll()
+        {
+            using (var context = new markomPosDbContext())
+            {
+                return context.Offers
+                    .Include(i => i.DeliveryTerm)
+                    .Include(i => i.DocumentParity)
+                    .Include(i => i.PaymentMethod)
+                    .Include(i => i.ResponsibleUser)
+                    .Adapt<List<OfferVm>>().ToList();
+            }
+        }
+        public OfferVm GetById(int id)
+        {
+            using (var context = new markomPosDbContext())
+            {
+                var offerVm = new OfferVm();
+                var offerData = context.Offers
+                    .Include(i => i.DeliveryTerm)
+                    .Include(i => i.DocumentParity)
+                    .Include(i => i.PaymentMethod)
+                    .Include(i => i.ResponsibleUser)
+                    .FirstOrDefault(f => f.ID == id)
+                    .Adapt<OfferVm>();
+
+                if (offerData != null)
+                {
+                    offerVm = offerData;
+                    offerVm.Contacts = new SelectList(context.Contacts, "ID", "Name", offerData.ContactId).ToList();
+                    offerVm.DeliveryTerms = new SelectList(context.DeliveryTerms, "ID", "Name", offerData.DeliveryTermId).ToList();
+                    offerVm.DocumentParities = new SelectList(context.DocumentParities, "ID", "Name", offerData.DocumentParityId).ToList();
+                    offerVm.PaymentMethods = new SelectList(context.PaymentMethods, "ID", "Name", offerData.PaymentMethodId).ToList();
+                    using (var userRepository = new UserRepository())
+                    {
+                        offerVm.Users = new SelectList(userRepository.getAllUser(), "ID", "Name", offerData.ResponsibleUserId).ToList();
+                    }
+                }
+                else
+                {
+                    offerVm.Contacts = new SelectList(context.Contacts, "ID", "Name").ToList();
+                    offerVm.DeliveryTerms = new SelectList(context.DeliveryTerms, "ID", "Name").ToList();
+                    offerVm.DocumentParities = new SelectList(context.DocumentParities, "ID", "Name").ToList();
+                    offerVm.PaymentMethods = new SelectList(context.PaymentMethods, "ID", "Name").ToList();
+                    using (var userRepository = new UserRepository())
+                    {
+                        offerVm.Users = new SelectList(userRepository.getAllUser(), "ID", "Name").ToList();
+                    }
+                }
+                return offerVm;
+            }
+        }
+        public bool AddUpdateOffer(OfferVm offer)
         {
             using (var context = new markomPosDbContext())
             {
@@ -42,7 +95,8 @@ namespace MarkomPos.Repository.Repository
                     {
                         offer.DateCreated = DateTime.Now;
                         offer.DateModified = DateTime.Now;
-                        context.Offers.Add(offer);
+                        var offerData = offer.Adapt<Offer>();
+                        context.Offers.Add(offerData);
                     }
                     context.SaveChanges();
                     return true;

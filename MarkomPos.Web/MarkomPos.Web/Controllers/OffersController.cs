@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MarkomPos.Model.Model;
+using MarkomPos.Model.ViewModel;
 using MarkomPos.Repository;
 using MarkomPos.Repository.Repository;
 
@@ -20,46 +21,47 @@ namespace MarkomPos.Web.Controllers
         // GET: Offers
         public ActionResult Index()
         {
-            var offers = db.Offers.Include(o => o.Contact).Include(o => o.DeliveryTerm).Include(o => o.DocumentParity).Include(o => o.PaymentMethod).Include(o => o.ResponsibleUser);
-            return View(offers.ToList());
+            using (var offerRepository = new OfferRepository())
+            {
+                var offers = offerRepository.GetAll();
+                return View(offers);
+            }
         }
 
-        // GET: Offers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Offer offer = db.Offers.Find(id);
-            if (offer == null)
-            {
-                return HttpNotFound();
-            }
 
-            ViewBag.ContactId = new SelectList(db.Contacts, "ID", "Name");
-            ViewBag.DeliveryTermId = new SelectList(db.DeliveryTerms, "ID", "Name");
-            ViewBag.DocumentParityId = new SelectList(db.DocumentParities, "ID", "Name");
-            ViewBag.PaymentMethodId = new SelectList(db.PaymentMethods, "ID", "Name");
-            ViewBag.ResponsibleUserId = new SelectList(db.Users, "ID", "Name");
-            return PartialView("_Details", offer);
+            using (var offerRepository = new OfferRepository())
+            {
+                var offer = offerRepository.GetById(id.GetValueOrDefault(0));
+                if (offer == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_Details", offer);
+            }
         }
 
-        // GET: Offers/Create
         public ActionResult Create()
         {
-            ViewBag.ContactId = new SelectList(db.Contacts, "ID", "Name");
-            ViewBag.DeliveryTermId = new SelectList(db.DeliveryTerms, "ID", "Name");
-            ViewBag.DocumentParityId = new SelectList(db.DocumentParities, "ID", "Name");
-            ViewBag.PaymentMethodId = new SelectList(db.PaymentMethods, "ID", "Name");
-            ViewBag.ResponsibleUserId = new SelectList(db.Users, "ID", "Name");
-            Offer offer = new Offer();
-            return PartialView("_AddOffer", offer);
+            using (var offerRepository = new OfferRepository())
+            {
+                var offer = offerRepository.GetById(0);
+                if (offer == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_AddOffer", offer);
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Offer offer)
+        public ActionResult Create(OfferVm offer)
         {
             if (ModelState.IsValid)
             {
@@ -71,12 +73,6 @@ namespace MarkomPos.Web.Controllers
                 }
             }
 
-            ViewBag.ContactId = new SelectList(db.Contacts, "ID", "Name", offer.ContactId);
-            ViewBag.DeliveryTermId = new SelectList(db.DeliveryTerms, "ID", "Name", offer.DeliveryTermId);
-            ViewBag.DocumentParityId = new SelectList(db.DocumentParities, "ID", "Name", offer.DocumentParityId);
-            ViewBag.PaymentMethodId = new SelectList(db.PaymentMethods, "ID", "Name", offer.PaymentMethodId);
-            ViewBag.ResponsibleUserId = new SelectList(db.Users, "ID", "Name", offer.ResponsibleUserId);
-
             return RedirectToAction("Index");
         }
 
@@ -87,21 +83,17 @@ namespace MarkomPos.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Offer offer = db.Offers.Find(id);
-            if (offer == null)
+            using (var offerRepository = new OfferRepository())
             {
-                return HttpNotFound();
+                var offer = offerRepository.GetById(id.GetValueOrDefault(0));
+                if (offer == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_AddOffer", offer);
             }
-            ViewBag.ContactId = new SelectList(db.Contacts, "ID", "Name", offer.ContactId);
-            ViewBag.DeliveryTermId = new SelectList(db.DeliveryTerms, "ID", "Name", offer.DeliveryTermId);
-            ViewBag.DocumentParityId = new SelectList(db.DocumentParities, "ID", "Name", offer.DocumentParityId);
-            ViewBag.PaymentMethodId = new SelectList(db.PaymentMethods, "ID", "Name", offer.PaymentMethodId);
-            ViewBag.ResponsibleUserId = new SelectList(db.Users, "ID", "Name", offer.ResponsibleUserId);
-
-            return PartialView("_AddOffer", offer);
         }
 
-        // Get: Offers/DeleteConfirmed/5
         [HttpGet, ActionName("DeleteConfirmed")]
         public ActionResult DeleteConfirmed(int id)
         {

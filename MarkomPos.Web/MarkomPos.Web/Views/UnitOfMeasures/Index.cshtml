@@ -11,76 +11,53 @@
     }
 </style>
 
-<section class="content-header">
+<section class="um-wrap">
     <div class="container">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="txtColor">Unit of measure</h1>
-            </div>
-            <div class="col-sm-6">
-                @*<ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item txtColor">Unit of measure</li>
-                        <li class="breadcrumb-item txtColor active">List</li>
-                    </ol>*@
-            </div>
-        </div>
-    </div><!-- /.container-fluid -->
-</section>
-
-<section class="container">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        @*<div class="pull-left">
-                                <h3 class="card-title">Unit of Measure</h3>
-                            </div>*@
-                        <div class="btn-create-wrap">
-                            <a class="btn btn-default create" href="javascript:void(0)">Create New</a>
-                            @*@Html.ActionLink("Create New", "Create")*@
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <table id="tblUnitOfMeasure" class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.ID)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Name)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.DisplayName)
-                                    </th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ID)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Name)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.DisplayName)
-                                        </td>
-                                        <td>
-                                            <a class="edit" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
-                                            <a class="details" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
-                                            @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="btn-create-wrap">
+                    @*<input type="text" id="searchID" />*@
+                    <a class="btn btn-default create" href="javascript:void(0)">Create New</a>
                 </div>
+            </div>
+            <div class="card-body">
+                <table id="tblUnitOfMeasure" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DisplayName)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DisplayName)
+                                </td>
+                                <td>
+                                    <a class="edit" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                                    <a class="details" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                                    @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -94,13 +71,13 @@
 <script>
     $(document).ready(function () {
 
-        var groupColumn = 0;
-        $('#tblUnitOfMeasure thead tr:eq(0) th').each(function (i) {
+        //var groupColumn = 0;
+        //$('#tblUnitOfMeasure thead tr:eq(0) th').each(function (i) {
 
-            if ($(this).text().trim() == "Jed.mj.") {
-                groupColumn = i;
-            }
-        });
+        //    if ($(this).text().trim() == "Jed.mj.") {
+        //        groupColumn = i;
+        //    }
+        //});
 
         $('#tblUnitOfMeasure thead tr').clone(true).appendTo('#tblUnitOfMeasure thead');
         $('#tblUnitOfMeasure thead tr:eq(1) th').each(function (i) {
@@ -123,6 +100,14 @@
             });
         });
 
+        //$("#searchID", this).on('keyup change', function () {
+        //    if (table.column(1).search() !== this.value) {
+        //        table
+        //            .column(1)
+        //            .search(this.value)
+        //            .draw();
+        //    }
+        //});
 
         var table = $('#tblUnitOfMeasure').DataTable({
             paging: true,
@@ -134,7 +119,7 @@
             responsive: true,
             colReorder: true,
             orderCellsTop: true,
-            fixedHeader: true,
+            fixedHeader: false,
             columnDefs: [
                 { orderable: false, targets: -1 }
             ],

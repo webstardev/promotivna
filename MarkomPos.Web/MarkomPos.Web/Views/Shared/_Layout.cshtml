@@ -37,80 +37,82 @@
 </head>
 <body class="hold-transition layout-top-nav">
     <div class="wrapper">
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand-md navbar-light navbar-white footerBg">
-            <div class="container">
-                <a href="~/" class="navbar-brand">
-                    <img src="~/Content/Image/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light txtColor">Markom</span>
-                </a>
-
-                <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="~/" class="nav-link txtColor">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">User</a>
-                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow footerBg">
-                                <li><a href="/Users/Index" class="nav-link txtColor">Users</a></li>
-                                <li><a href="/Roles/Index" class="nav-link txtColor">Role</a></li>
-                                <li><a href="/UserRoleMappings/Index" class="nav-link txtColor">Role Mapping</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Product</a>
-                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow footerBg">
-                                <li><a href="/UnitOfMeasures/Index" class="nav-link txtColor">Unit Of Measures</a></li>
-                                <li><a href="/ProductGroups/Index" class="nav-link txtColor">Product Group</a></li>
-                                <li><a href="/Products/Index" class="nav-link txtColor">Product</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="dropdownSubMenu2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Warehouse</a>
-                            <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow footerBg">
-                                <li><a href="/Warehouses/Index" class="nav-link txtColor">Warehouse</a></li>
-                                <li><a href="/WarehouseItems/Index" class="nav-link txtColor">Warehouse Item</a></li>
-                                <li><a href="/Contacts/Index" class="nav-link txtColor">Contact</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="dropdownSubMenu3" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Offer</a>
-                            <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow footerBg">
-                                <li><a href="/PaymentMethods/Index" class="nav-link txtColor">PaymentMethods</a></li>
-                                <li><a href="/DeliveryTerms/Index" class="nav-link txtColor">Delivery Term</a></li>
-                                <li><a href="/DocumentParities/Index" class="nav-link txtColor">Document Parity</a></li>
-                                <li><a href="/Offers/Index" class="nav-link txtColor">Offer</a></li>
-                                <li><a href="/OfferItems/Index" class="nav-link txtColor">Offer Item</a></li>
-                                <li><a href="/OfferValidations/Index" class="nav-link txtColor">Offer Validation</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-
-                        </li>
-                    </ul>
-                </div>
-                <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+        <div class="content-wrapper dashboard marginLayout">
+            <div class="cnt-wrapper-inner">
+                <ul class="cnt-logout-link">
                     <li class="nav-item">
-                        <a href="/Account/Logout" class="nav-link txtColor">Logout</a>
+                        <a href="/Account/Logout" class="user-nav-link">aaa bbb</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Account/Logout" class="nav-link">odjava</a>
                     </li>
                 </ul>
+                <!-- Navbar -->
+                <div class="navigation-wrapper">
+                    <div class="container">
+                        <nav class="main-header navbar navbar-expand-md navbar-light navbar-white footerBg">
+
+                            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item active">
+                                        <a href="~/" class="nav-link txtColor">Home</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">User</a>
+                                        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow footerBg">
+                                            <li class="toggle-icon"><i class="fa fa-chevron-down"></i></li>
+                                            <li><a href="/Users/Index" class="nav-link txtColor">Users</a></li>
+                                            <li><a href="/Roles/Index" class="nav-link txtColor">Role</a></li>
+                                            <li><a href="/UserRoleMappings/Index" class="nav-link txtColor">Role Mapping</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Product</a>
+                                        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow footerBg">
+                                            <li class="toggle-icon"><i class="fa fa-chevron-down"></i></li>
+                                            <li><a href="/UnitOfMeasures/Index" class="nav-link txtColor">Unit Of Measures</a></li>
+                                            <li><a href="/ProductGroups/Index" class="nav-link txtColor">Product Group</a></li>
+                                            <li><a href="/Products/Index" class="nav-link txtColor">Product</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a id="dropdownSubMenu2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Warehouse</a>
+                                        <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow footerBg">
+                                            <li class="toggle-icon"><i class="fa fa-chevron-down"></i></li>
+                                            <li><a href="/Warehouses/Index" class="nav-link txtColor">Warehouse</a></li>
+                                            <li><a href="/WarehouseItems/Index" class="nav-link txtColor">Warehouse Item</a></li>
+                                            <li><a href="/Contacts/Index" class="nav-link txtColor">Contact</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a id="dropdownSubMenu3" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Offer</a>
+                                        <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow footerBg">
+                                            <li class="toggle-icon"><i class="fa fa-chevron-down"></i></li>
+                                            <li><a href="/PaymentMethods/Index" class="nav-link txtColor">PaymentMethods</a></li>
+                                            <li><a href="/DeliveryTerms/Index" class="nav-link txtColor">Delivery Term</a></li>
+                                            <li><a href="/DocumentParities/Index" class="nav-link txtColor">Document Parity</a></li>
+                                            <li><a href="/Offers/Index" class="nav-link txtColor">Offer</a></li>
+                                            <li><a href="/OfferItems/Index" class="nav-link txtColor">Offer Item</a></li>
+                                            <li><a href="/OfferValidations/Index" class="nav-link txtColor">Offer Validation</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </nav>
+                    </div>
+                </div>
+                <!-- /.navbar -->
+                <div class="table-content-wrapper">
+                    @RenderBody()
+                </div>
             </div>
-        </nav>
-        <!-- /.navbar -->
-        <div class="content-wrapper dashboard marginLayout">
-            @RenderBody()
         </div>
-        <footer class="main-footer footerBg marginLayout">
-            @*<div class="float-right d-none d-sm-block">
-                    <p>&copy; @DateTime.Now.Year - Markom Pos</p>
-                </div>*@
-            <strong>Copyright &copy; 2014-2020 <a href="#">Markom Pos</a>.</strong>
-        </footer>
     </div>
 
     <!-- jQuery -->

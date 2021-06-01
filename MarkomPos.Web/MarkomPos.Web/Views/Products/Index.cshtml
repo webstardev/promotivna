@@ -5,91 +5,76 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section class="content-header">
+<section class="um-wrap">
     <div class="container">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="txtColor">Product Groups</h1>
-            </div>
-            <div class="col-sm-6">
-            </div>
-        </div>
-    </div>
-</section>
-<section class="container">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="btn-create-wrap">
-                            <a class="btn btn-default create" href="javascript:void(0)">Create New</a>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <table id="tblProduct" class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th width="8%">
-                                        @Html.DisplayNameFor(model => model.ID)
-                                    </th>
-                                    <th width="10%">
-                                        @Html.DisplayNameFor(model => model.ProductGroup.Name)
-                                    </th>
-                                    <th width="10%">
-                                        @Html.DisplayNameFor(model => model.UnitOfMeasure.Name)
-                                    </th>
-                                    <th width="20%">
-                                        @Html.DisplayNameFor(model => model.Name)
-                                    </th>
-                                    <th width="10%">
-                                        @Html.DisplayNameFor(model => model.DisplayName)
-                                    </th>
-                                    <th width="20%">
-                                        @Html.DisplayNameFor(model => model.Note)
-                                    </th>
-                                    <th width="10%">
-                                        @Html.DisplayNameFor(model => model.Code)
-                                    </th>
-                                    <th width="12%"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ID)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ProductGroup.Name)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.UnitOfMeasure.Name)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Name)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.DisplayName)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Note)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Code)
-                                        </td>
-                                        <td>
-                                            <a class="edit" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
-                                            <a class="details" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
-                                            @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="btn-create-wrap">
+                    <a class="btn btn-default create" href="javascript:void(0)">Create New</a>
                 </div>
+            </div>
+            <div class="card-body">
+                <table id="tblProduct" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th width="8%">
+                                @Html.DisplayNameFor(model => model.ID)
+                            </th>
+                            <th width="10%">
+                                @Html.DisplayNameFor(model => model.ProductGroup.Name)
+                            </th>
+                            <th width="10%">
+                                @Html.DisplayNameFor(model => model.UnitOfMeasure.Name)
+                            </th>
+                            <th width="20%">
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th width="10%">
+                                @Html.DisplayNameFor(model => model.DisplayName)
+                            </th>
+                            <th width="20%">
+                                @Html.DisplayNameFor(model => model.Note)
+                            </th>
+                            <th width="10%">
+                                @Html.DisplayNameFor(model => model.Code)
+                            </th>
+                            <th width="12%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProductGroup.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UnitOfMeasure.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DisplayName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Note)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Code)
+                                </td>
+                                <td>
+                                    <a class="edit" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                                    <a class="details" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                                    @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

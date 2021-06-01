@@ -83,12 +83,12 @@ namespace MarkomPos.Web.Controllers
             }
             using (var productRepository = new ProductRepository())
             {
-                var productGroup = productRepository.GetById(id.GetValueOrDefault(0));
-                if (productGroup == null)
+                var product = productRepository.GetById(id.GetValueOrDefault(0));
+                if (product == null)
                 {
                     return HttpNotFound();
                 }
-                return PartialView("_AddProduct", productGroup);
+                return PartialView("_AddProduct", product);
             }
         }
 
