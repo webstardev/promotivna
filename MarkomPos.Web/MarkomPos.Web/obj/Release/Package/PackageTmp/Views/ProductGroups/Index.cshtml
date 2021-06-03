@@ -1,61 +1,134 @@
-﻿@model IEnumerable<MarkomPos.Model.ViewModel.ProductGroupVm>
+﻿@model MarkomPos.Model.ViewModel.ProductGroupsListVm
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <section class="um-wrap">
     <div class="container">
         <div class="card">
-            <div class="card-header">
-                <div class="btn-create-wrap">
-                    <a class="btn btn-default create" href="javascript:void(0)">Create New</a>
-                </div>
-            </div>
+            @*<div class="card-header">
+                    <div class="btn-create-wrap">
+                        <a class="btn btn-default create" data-title="main" href="javascript:void(0)">Create Main</a>
+                    </div>
+                </div>*@
             <div class="card-body">
-                <table id="tblProductGrp" class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th width="8%">
-                                @Html.DisplayNameFor(model => model.ID)
-                            </th>
-                            <th>
-                                @Html.DisplayName("Parent")
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Name)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.DisplayName)
-                            </th>
-                            <th width="12%"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ID)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ParrentGroup.Name)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Name)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.DisplayName)
-                                </td>
-                                <td>
-                                    <a class="edit" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
-                                    <a class="details" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
-                                    @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+                <div class="row">
+                    <div class="col-md-4 tblCustom">
+                        <div class="row heading">
+                            <div class="col-md-4"><label>Main Group</label></div>
+                            <div class="col-md-8 createBtn"><a class="btn btn-default create" data-title="main" href="javascript:void(0)">Create</a></div>
+                        </div>
+
+                        <table id="tblProductGrpMain" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayName("Name")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("DisplayName")
+                                    </th>
+                                    <th width="30%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.MainGroup)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DisplayName)
+                                        </td>
+                                        <td class="icons-list">
+                                            <a class="edit" data-id="@item.ID" data-title="main" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                                            <a class="details" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                                            @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-4 tblCustom">
+                        <div class="row heading">
+                            <div class="col-md-4"><label>Sub Group</label></div>
+                            <div class="col-md-8 createBtn"><a class="btn btn-default create" data-title="sub" href="javascript:void(0)">Create</a></div>
+                        </div>
+                        <table id="tblProductGrpSub" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayName("Name")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("DisplayName")
+                                    </th>
+                                    <th width="30%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.SubGroup)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DisplayName)
+                                        </td>
+                                        <td class="icons-list">
+                                            <a class="edit" data-id="@item.ID" data-title="sub" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                                            <a class="details" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                                            @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-4 tblCustom">
+                        <div class="row heading">
+                            <div class="col-md-4"><label>Basic Group</label></div>
+                            <div class="col-md-8 createBtn"><a class="btn btn-default create" data-title="basic" href="javascript:void(0)">Create</a></div>
+                        </div>
+                        <table id="tblProductGrpBasic" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayName("Name")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("DisplayName")
+                                    </th>
+                                    <th width="30%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.BasicGroup)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DisplayName)
+                                        </td>
+                                        <td class="icons-list">
+                                            <a class="edit" data-id="@item.ID" data-title="basic" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                                            <a class="details" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                                            @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -69,19 +142,19 @@
 <script>
     $(document).ready(function () {
 
-        var groupColumn = 0;
-        $('#tblProductGrp thead tr:eq(0) th').each(function (i) {
+        //var groupColumn = 0;
+        //$('#tblProductGrp thead tr:eq(0) th').each(function (i) {
 
-            if ($(this).text().trim() == "Parent") {
-                groupColumn = i;
-            }
-        });
+        //    if ($(this).text().trim() == "Parent") {
+        //        groupColumn = i;
+        //    }
+        //});
 
-        $('#tblProductGrp thead tr').clone(true).appendTo('#tblProductGrp thead');
-        $('#tblProductGrp thead tr:eq(1) th').each(function (i) {
+        $('#tblProductGrpMain thead tr').clone(true).appendTo('#tblProductGrpMain thead');
+        $('#tblProductGrpMain thead tr:eq(1) th').each(function (i) {
             var title = $(this).text();
-
-            var length = $("table").find("tr:last td").length;
+            //var columnCount = $("#tblProductGrpMain th").length;
+            var length = ($("#tblProductGrpMain tr th").length) / 2;
             if (i == length - 1) {
                 return;
             }
@@ -89,8 +162,8 @@
             $(this).html('<input type="text" class="form-control text-box single-line"/>');
 
             $('input', this).on('keyup change', function () {
-                if (table.column(i).search() !== this.value) {
-                    table
+                if (tableMain.column(i).search() !== this.value) {
+                    tableMain
                         .column(i)
                         .search(this.value)
                         .draw();
@@ -98,8 +171,49 @@
             });
         });
 
+        $('#tblProductGrpSub thead tr').clone(true).appendTo('#tblProductGrpSub thead');
+        $('#tblProductGrpSub thead tr:eq(1) th').each(function (i) {
+            var title = $(this).text();
 
-        var table = $('#tblProductGrp').DataTable({
+            var length = ($("#tblProductGrpSub tr th").length) / 2;
+            if (i == length - 1) {
+                return;
+            }
+
+            $(this).html('<input type="text" class="form-control text-box single-line"/>');
+
+            $('input', this).on('keyup change', function () {
+                if (tableSub.column(i).search() !== this.value) {
+                    tableSub
+                        .column(i)
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+
+        $('#tblProductGrpBasic thead tr').clone(true).appendTo('#tblProductGrpBasic thead');
+        $('#tblProductGrpBasic thead tr:eq(1) th').each(function (i) {
+            var title = $(this).text();
+
+            var length = ($("#tblProductGrpBasic tr th").length) / 2;
+            if (i == length - 1) {
+                return;
+            }
+
+            $(this).html('<input type="text" class="form-control text-box single-line"/>');
+
+            $('input', this).on('keyup change', function () {
+                if (tableBasic.column(i).search() !== this.value) {
+                    tableBasic
+                        .column(i)
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+
+        var tableMain = $('#tblProductGrpMain').DataTable({
             paging: true,
             lengthChange: true,
             searching: true,
@@ -109,26 +223,57 @@
             responsive: true,
             colReorder: true,
             orderCellsTop: true,
-            fixedHeader: true,
+            fixedHeader: false,
             columnDefs: [
                 { orderable: false, targets: -1 }
-            ],
-            drawCallback: function (settings) {
-                var api = this.api();
-                var rows = api.rows({ page: 'current' }).nodes();
-                var last = null;
+            ]
+            //,
+            //drawCallback: function (settings) {
+            //    var api = this.api();
+            //    var rows = api.rows({ page: 'current' }).nodes();
+            //    var last = null;
 
-                api.column(groupColumn, { page: 'current' }).data().each(function (group, i) {
-                    if (last !== group) {
-                        var length = $("table").find("tr:last td").length;
-                        $(rows).eq(i).before(
-                            '<tr class="group"><td colspan="' + length + '">' + group + '</td></tr>'
-                        );
+            //    api.column(groupColumn, { page: 'current' }).data().each(function (group, i) {
+            //        if (last !== group) {
+            //            var length = $("table").find("tr:last td").length;
+            //            $(rows).eq(i).before(
+            //                '<tr class="group"><td colspan="' + length + '">' + group + '</td></tr>'
+            //            );
 
-                        last = group;
-                    }
-                });
-            }
+            //            last = group;
+            //        }
+            //    });
+            //}
+        });
+        var tableSub = $('#tblProductGrpSub').DataTable({
+            paging: true,
+            lengthChange: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            autoWidth: false,
+            responsive: true,
+            colReorder: true,
+            orderCellsTop: true,
+            fixedHeader: false,
+            columnDefs: [
+                { orderable: false, targets: -1 }
+            ]
+        });
+        var tableBasic = $('#tblProductGrpBasic').DataTable({
+            paging: true,
+            lengthChange: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            autoWidth: false,
+            responsive: true,
+            colReorder: true,
+            //orderCellsTop: true,
+            fixedHeader: false,
+            columnDefs: [
+                { orderable: false, targets: -1 }
+            ]
         });
     });
 
@@ -139,7 +284,7 @@
                 "backdrop": "static",
                 keyboard: true
             };
-            var id = $(this).closest("tr").find("td").eq(0).html();
+            var id = $(this).attr("data-id");
             var ajaxCallURL = '/ProductGroups/Details?id=' + id;
             $.ajax({
                 type: "GET",
@@ -158,11 +303,13 @@
         });
         $(".create").click(function () {
             var $buttonClicked = $(this);
+
+            var title = $(this).attr("data-title");
             var options = {
                 "backdrop": "static",
                 keyboard: true
             };
-            var ajaxCallURL = '/ProductGroups/Create';
+            var ajaxCallURL = '/ProductGroups/Create?type=' + title;
             $.ajax({
                 type: "GET",
                 url: ajaxCallURL,
@@ -172,6 +319,9 @@
                     $('#dialog').html(data);
                     $('#myModal').modal(options);
                     $('#myModal').modal('show');
+                    if (title == "main") {
+                        $(".parent").hide();
+                    }
                 },
                 error: function () {
                     alert("Content load failed.");
@@ -180,11 +330,12 @@
         });
         $(".edit").click(function () {
             var $buttonClicked = $(this);
+            var title = $(this).attr("data-title");
             var options = {
                 "backdrop": "static",
                 keyboard: true
             };
-            var id = $(this).closest("tr").find("td").eq(0).html();
+            var id = $(this).attr("data-id");
             var ajaxCallURL = '/ProductGroups/Edit?id=' + id;
             $.ajax({
                 type: "GET",
@@ -195,6 +346,10 @@
                     $('#dialog').html(data);
                     $('#myModal').modal(options);
                     $('#myModal').modal('show');
+
+                    if (title == "main") {
+                        $(".parent").hide();
+                    }
                 },
                 error: function () {
                     alert("Content load failed.");

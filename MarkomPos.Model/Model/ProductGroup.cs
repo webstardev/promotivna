@@ -1,4 +1,5 @@
 ﻿using MarkomPos.Model.BaseModel;
+using MarkomPos.Model.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace MarkomPos.Model.Model
         public string DisplayName { get; set; }
         public int? ParrentGroupId { get; set; }
         public ProductGroup ParrentGroup { get; set; }
+        public ProductGroupTypeEnum productGroupType { get; set; }
     }
 }

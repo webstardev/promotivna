@@ -1,4 +1,4 @@
-﻿@model MarkomPos.Model.Model.OfferItem
+﻿@model MarkomPos.Model.ViewModel.OfferItemVm
 
 <div class="modal fade" id="detailsModal" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -22,7 +22,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.OfferId, "OfferId", htmlAttributes: new { @class = "control-label" })
-                                                    @Html.DropDownList("OfferId", null, "Select Offer", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.DropDownListFor(m => m.OfferId, Model.Offers, "Select Offerr", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -36,7 +36,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.ProductId, "ProductId", htmlAttributes: new { @class = "control-label" })
-                                                    @Html.DropDownList("ProductId", null, "Select Product", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.DropDownListFor(m => m.ProductId, Model.Products, "Select Product", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -50,7 +50,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.UnitOfMeasureId, "UnitOfMeasureId", htmlAttributes: new { @class = "control-label" })
-                                                    @Html.DropDownList("UnitOfMeasureId", null, "Select Unit Of Measure", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                                    @Html.DropDownListFor(m => m.UnitOfMeasureId, Model.UnitOfMeasures, "Select Unit Of Measure", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
                                                 </div>
                                             </div>
                                             <div class="col-md-6">

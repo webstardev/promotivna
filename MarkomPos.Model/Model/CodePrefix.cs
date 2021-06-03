@@ -1,4 +1,5 @@
 ﻿using MarkomPos.Model.BaseModel;
+using MarkomPos.Model.Enum;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace MarkomPos.Model.Model
 
         [Required(ErrorMessage = "Prefix se mora odnositi na vrstu dokumenta !")]
         [DisplayName("Vrsta dokumenta")]
-        public int DocumentTypeEnum { get; set; }
+        public DocumentTypeEnum DocumentTypeEnum { get; set; }
 
         [Required(ErrorMessage = "Prefix mora imati početni broj!")]
         [DisplayName("Početni broj dokumenta")]

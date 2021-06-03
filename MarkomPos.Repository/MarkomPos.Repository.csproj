@@ -119,6 +119,10 @@
     <Compile Include="Migrations\202105270326233_AddRole_RoleMapping.Designer.cs">
       <DependentUpon>202105270326233_AddRole_RoleMapping.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106030304307_Add_enum_ProductGroupTypeEnum.cs" />
+    <Compile Include="Migrations\202106030304307_Add_enum_ProductGroupTypeEnum.Designer.cs">
+      <DependentUpon>202106030304307_Add_enum_ProductGroupTypeEnum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AccountRepository.cs" />
@@ -126,6 +130,7 @@
     <Compile Include="Repository\ContactRepository.cs" />
     <Compile Include="Repository\DeliveryTermRepository.cs" />
     <Compile Include="Repository\DocumentParityRepository.cs" />
+    <Compile Include="Repository\OfferItemRepository.cs" />
     <Compile Include="Repository\OfferRepository.cs" />
     <Compile Include="Repository\PaymentMethodRepository.cs" />
     <Compile Include="Repository\ProductGroupRepository.cs" />
@@ -172,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105270326233_AddRole_RoleMapping.resx">
       <DependentUpon>202105270326233_AddRole_RoleMapping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106030304307_Add_enum_ProductGroupTypeEnum.resx">
+      <DependentUpon>202106030304307_Add_enum_ProductGroupTypeEnum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

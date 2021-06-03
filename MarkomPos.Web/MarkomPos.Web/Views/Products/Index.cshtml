@@ -17,9 +17,6 @@
                 <table id="tblProduct" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th width="8%">
-                                @Html.DisplayNameFor(model => model.ID)
-                            </th>
                             <th width="10%">
                                 @Html.DisplayNameFor(model => model.ProductGroup.Name)
                             </th>
@@ -46,9 +43,6 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.ID)
-                                </td>
-                                <td>
                                     @Html.DisplayFor(modelItem => item.ProductGroup.Name)
                                 </td>
                                 <td>
@@ -67,8 +61,8 @@
                                     @Html.DisplayFor(modelItem => item.Code)
                                 </td>
                                 <td>
-                                    <a class="edit" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
-                                    <a class="details" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                                    <a class="edit" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                                    <a class="details" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
                                     @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
                                 </td>
                             </tr>
@@ -85,7 +79,6 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/jquery-ui.js" type="text/javascript"></script>
-
 <script>
 
 
@@ -152,6 +145,7 @@
                 });
             }
         });
+
     });
 
 
@@ -162,7 +156,7 @@
                 "backdrop": "static",
                 keyboard: true
             };
-            var id = $(this).closest("tr").find("td").eq(0).html();
+            var id = $(this).attr("data-id");
             var ajaxCallURL = '/Products/Details?id=' + id;
             $.ajax({
                 type: "GET",
@@ -207,7 +201,7 @@
                 "backdrop": "static",
                 keyboard: true
             };
-            var id = $(this).closest("tr").find("td").eq(0).html();
+            var id = $(this).attr("data-id");
             var ajaxCallURL = '/Products/Edit?id=' + id;
             $.ajax({
                 type: "GET",

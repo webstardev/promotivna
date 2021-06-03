@@ -1,15 +1,50 @@
 ﻿using MarkomPos.Model.Model;
+using MarkomPos.Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
+using Mapster;
+using System.Web.Mvc;
 
 namespace MarkomPos.Repository.Repository
 {
     public class CodeRepository : IDisposable
     {
-        public bool AddUpdateCodeBook(CodeBook codeBook)
+        public List<CodeBookVm> GetAll()
+        {
+            using (var context = new markomPosDbContext())
+            {
+                return context.CodeBooks
+                    .Include(i => i.CodePrefix)
+                    .Adapt<List<CodeBookVm>>().ToList();
+            }
+        }
+        public CodeBookVm GetById(int id)
+        {
+            using (var context = new markomPosDbContext())
+            {
+                var codeBookVm = new CodeBookVm();
+                var codeBookData = context.CodeBooks
+                    .Include(i => i.CodePrefix)
+                    .FirstOrDefault(f => f.ID == id)
+                    .Adapt<CodeBookVm>();
+
+                if (codeBookData != null)
+                {
+                    codeBookVm = codeBookData;
+                    codeBookVm.CodePrefixes = new SelectList(context.CodePrefixes, "ID", "Name", codeBookData.CodePrefix).ToList();
+                }
+                else
+                {
+                    codeBookVm.CodePrefixes = new SelectList(context.CodePrefixes, "ID", "Name").ToList();
+                }
+                return codeBookVm;
+            }
+        }
+        public bool AddUpdateCodeBook(CodeBookVm codeBook)
         {
             using (var context = new markomPosDbContext())
             {
@@ -34,7 +69,8 @@ namespace MarkomPos.Repository.Repository
                         {
                             codeBook.DateCreated = DateTime.Now;
                             codeBook.DateModified = DateTime.Now;
-                            context.CodeBooks.Add(codeBook);
+                            var codeBookData = codeBook.Adapt<CodeBook>();
+                            context.CodeBooks.Add(codeBookData);
                         }
                     }
                     context.SaveChanges();

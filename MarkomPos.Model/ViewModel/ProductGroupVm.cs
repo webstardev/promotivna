@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarkomPos.Model.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,6 @@ namespace MarkomPos.Model.ViewModel
         public int? ParrentGroupId { get; set; }
         public ProductGroupVm ParrentGroup { get; set; }
         public List<SelectListItem> productGroupVms { get; set; }
+        public ProductGroupTypeEnum productGroupType { get; set; }
     }
 }

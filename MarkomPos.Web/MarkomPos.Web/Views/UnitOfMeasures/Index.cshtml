@@ -16,7 +16,6 @@
         <div class="card">
             <div class="card-header">
                 <div class="btn-create-wrap">
-                    @*<input type="text" id="searchID" />*@
                     <a class="btn btn-default create" href="javascript:void(0)">Create New</a>
                 </div>
             </div>
@@ -24,9 +23,6 @@
                 <table id="tblUnitOfMeasure" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.ID)
-                            </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.Name)
                             </th>
@@ -41,17 +37,14 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.ID)
-                                </td>
-                                <td>
                                     @Html.DisplayFor(modelItem => item.Name)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.DisplayName)
                                 </td>
                                 <td>
-                                    <a class="edit" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
-                                    <a class="details" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                                    <a class="edit" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                                    <a class="details" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
                                     @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
                                 </td>
                             </tr>
@@ -92,15 +85,6 @@
             });
         });
 
-        //$("#searchID", this).on('keyup change', function () {
-        //    if (table.column(1).search() !== this.value) {
-        //        table
-        //            .column(1)
-        //            .search(this.value)
-        //            .draw();
-        //    }
-        //});
-
         var table = $('#tblUnitOfMeasure').DataTable({
             paging: true,
             lengthChange: true,
@@ -126,7 +110,7 @@
                 "backdrop": "static",
                 keyboard: true
             };
-            var id = $(this).closest("tr").find("td").eq(0).html();
+            var id = $(this).attr("data-id");
             var ajaxCallURL = '/UnitOfMeasures/Details?id=' + id;
             $.ajax({
                 type: "GET",
@@ -171,7 +155,7 @@
                 "backdrop": "static",
                 keyboard: true
             };
-            var id = $(this).closest("tr").find("td").eq(0).html();
+            var id = $(this).attr("data-id");
             var ajaxCallURL = '/UnitOfMeasures/Edit?id=' + id;
             $.ajax({
                 type: "GET",

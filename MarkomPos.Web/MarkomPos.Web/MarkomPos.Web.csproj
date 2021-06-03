@@ -169,6 +169,8 @@
     <Content Include="Content\CSS\tempusdominus-bootstrap-4.min.css" />
     <Content Include="Content\Image\AdminLTELogo.png" />
     <Content Include="Content\Image\bg.png" />
+    <Content Include="Content\Image\minus.png" />
+    <Content Include="Content\Image\plus.png" />
     <Content Include="Content\JS\adminlte.js" />
     <Content Include="Content\JS\adminlte.min.js" />
     <Content Include="Content\JS\bootstrap.bundle.min.js" />
@@ -285,11 +287,9 @@
     <Content Include="Views\CodeBooks\Details.cshtml" />
     <Content Include="Views\CodeBooks\Edit.cshtml" />
     <Content Include="Views\CodeBooks\Index.cshtml" />
-    <Content Include="Views\CodePrefixes\Create.cshtml" />
-    <Content Include="Views\CodePrefixes\Delete.cshtml" />
-    <Content Include="Views\CodePrefixes\Details.cshtml" />
-    <Content Include="Views\CodePrefixes\Edit.cshtml" />
     <Content Include="Views\CodePrefixes\Index.cshtml" />
+    <Content Include="Views\CodePrefixes\_AddCodePrefix.cshtml" />
+    <Content Include="Views\CodePrefixes\_Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

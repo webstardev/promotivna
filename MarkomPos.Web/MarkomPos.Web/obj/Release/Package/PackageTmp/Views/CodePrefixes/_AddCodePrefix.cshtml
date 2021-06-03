@@ -1,0 +1,79 @@
+﻿@model MarkomPos.Model.Model.CodePrefix
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content footerBg">
+            <form method="post" action="@Url.Action("Create", "CodePrefixes")">
+                @Html.AntiForgeryToken()
+                <div class="modal-header txtColor">
+                    <h4 class="modal-title">Code Prefix</h4>
+                    <button type="button" class="close txtColor" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body formBg">
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @Html.HiddenFor(model => model.ID)
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.DisplayName, htmlAttributes: new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.DisplayName, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                                    @Html.ValidationMessageFor(model => model.DisplayName, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.DocumentTypeEnum, htmlAttributes: new { @class = "control-label" })
+                                                    @Html.EnumDropDownListFor(x => x.DocumentTypeEnum, "Select Type", new { @class = "form-control", required = "required" })
+                                                    @Html.ValidationMessageFor(model => model.DocumentTypeEnum, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.StartNumber, htmlAttributes: new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.StartNumber, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                                    @Html.ValidationMessageFor(model => model.StartNumber, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        @Html.LabelFor(model => model.NewStartNumberEachYear, htmlAttributes: new { @class = "control-label" })
+                                                        @Html.EditorFor(model => model.NewStartNumberEachYear)
+                                                        @Html.ValidationMessageFor(model => model.NewStartNumberEachYear, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer footerBg">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

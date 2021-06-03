@@ -21,8 +21,9 @@ namespace MarkomPos.Repository.Repository
                 {
                     if (unitOfMeasure.ID > 0)
                     {
+                        var isExist = context.UnitOfMeasures.Any(f => f.Name == unitOfMeasure.Name && f.ID != unitOfMeasure.ID);
                         var dbData = context.UnitOfMeasures.Find(unitOfMeasure.ID);
-                        if (dbData != null)
+                        if (dbData != null && !isExist)
                         {
                             dbData.ID = unitOfMeasure.ID;
                             dbData.Name = unitOfMeasure.Name;

@@ -38,3 +38,4 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\bin\Release\System.Web.Ra
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\bin\Release\System.Web.WebPages.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\bin\Release\System.Web.WebPages.Deployment.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\bin\Release\System.Web.WebPages.Razor.xml
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.Migrations.Add_enum_ProductGroupTypeEnum.resources

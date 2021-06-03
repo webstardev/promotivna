@@ -6,16 +6,22 @@ using System.Linq;
 using System.Data.Entity;
 using Mapster;
 using System.Web.Mvc;
+using MarkomPos.Model.Enum;
 
 namespace MarkomPos.Repository.Repository
 {
     public class ProductGroupRepository : IDisposable
     {
-        public List<ProductGroupVm> GetAll()
+        public ProductGroupsListVm GetAll()
         {
+            var ProductGroupListVm = new ProductGroupsListVm();
             using (var context = new markomPosDbContext())
             {
-                return context.ProductGroups.Include(p => p.ParrentGroup).OrderBy(o => o.ParrentGroupId).Adapt<List<ProductGroupVm>>().ToList();
+                ProductGroupListVm.MainGroup = context.ProductGroups.Include(i => i.ParrentGroup).Where(w => w.productGroupType == ProductGroupTypeEnum.Main).Adapt<List<ProductGroupVm>>().ToList();
+                ProductGroupListVm.SubGroup = context.ProductGroups.Include(i => i.ParrentGroup).Where(w => w.productGroupType == ProductGroupTypeEnum.Sub).Adapt<List<ProductGroupVm>>().ToList();
+                ProductGroupListVm.BasicGroup = context.ProductGroups.Include(i => i.ParrentGroup).Where(w => w.productGroupType == ProductGroupTypeEnum.Basic).Adapt<List<ProductGroupVm>>().ToList();
+
+                return ProductGroupListVm;
             }
         }
         public ProductGroupVm GetById(int productGroupId)
@@ -35,17 +41,28 @@ namespace MarkomPos.Repository.Repository
             {
                 var productGroupVm = new ProductGroupVm();
                 productGroupVm = context.ProductGroups.Include(p => p.ParrentGroup).FirstOrDefault(f => f.ID == productGroupId).Adapt<ProductGroupVm>();
-                productGroupVm.productGroupVms = new SelectList(context.ProductGroups.Where(w => w.ID != productGroupId), "ID", "Name", productGroupVm.ParrentGroupId).ToList();
+
+
+                if (productGroupVm.productGroupType == ProductGroupTypeEnum.Sub)
+                    productGroupVm.productGroupVms = new SelectList(context.ProductGroups.Where(w => w.productGroupType == ProductGroupTypeEnum.Main), "ID", "Name").ToList();
+                else if (productGroupVm.productGroupType == ProductGroupTypeEnum.Basic)
+                    productGroupVm.productGroupVms = new SelectList(context.ProductGroups.Where(w => w.productGroupType == ProductGroupTypeEnum.Sub), "ID", "Name").ToList();
+                else
+                    productGroupVm.productGroupVms = new List<SelectListItem>();
 
                 return productGroupVm;
             }
         }
-        public List<SelectListItem> GetSelectListItems()
+        public List<SelectListItem> GetSelectListItems(ProductGroupTypeEnum productGroupType)
         {
             using (var context = new markomPosDbContext())
             {
-                var productGroupListItem = new SelectList(context.ProductGroups, "ID", "Name");
-                return productGroupListItem.ToList();
+                var productGroupListItem = new List<SelectListItem>();
+                if (productGroupType == ProductGroupTypeEnum.Sub)
+                    productGroupListItem = new SelectList(context.ProductGroups.Where(w => w.productGroupType == ProductGroupTypeEnum.Main), "ID", "Name").ToList();
+                else if (productGroupType == ProductGroupTypeEnum.Basic)
+                    productGroupListItem = new SelectList(context.ProductGroups.Where(w => w.productGroupType == ProductGroupTypeEnum.Sub), "ID", "Name").ToList();
+                return productGroupListItem;
             }
         }
         public bool AddUpdateProductGroups(ProductGroupVm productGroup)
@@ -63,6 +80,7 @@ namespace MarkomPos.Repository.Repository
                             dbData.Name = productGroup.Name;
                             dbData.DisplayName = productGroup.DisplayName;
                             dbData.ParrentGroupId = productGroup.ParrentGroupId;
+                            dbData.productGroupType = productGroup.productGroupType;
                             dbData.DateModified = DateTime.Now;
                         }
                     }

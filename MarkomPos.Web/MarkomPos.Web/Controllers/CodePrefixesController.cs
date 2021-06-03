@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using MarkomPos.Model.Model;
 using MarkomPos.Repository;
+using MarkomPos.Repository.Repository;
 
 namespace MarkomPos.Web.Controllers
 {
@@ -16,102 +17,71 @@ namespace MarkomPos.Web.Controllers
     {
         private markomPosDbContext db = new markomPosDbContext();
 
-        // GET: CodePrefixes
         public ActionResult Index()
         {
             return View(db.CodePrefixes.ToList());
         }
 
-        // GET: CodePrefixes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CodePrefix codePrefix = db.CodePrefixes.Find(id);
+            var codePrefix = db.CodePrefixes.Find(id);
             if (codePrefix == null)
             {
                 return HttpNotFound();
             }
-            return View(codePrefix);
+            return PartialView("_Details", codePrefix);
         }
 
-        // GET: CodePrefixes/Create
         public ActionResult Create()
         {
-            return View();
+            var codePrefix = new CodePrefix();
+            return PartialView("_AddCodePrefix", codePrefix);
         }
 
-        // POST: CodePrefixes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,DisplayName,DocumentTypeEnum,StartNumber,NewStartNumberEachYear,DateCreated,CreatedBy,DateModified,ModifiedBy")] CodePrefix codePrefix)
+        public ActionResult Create(CodePrefix codePrefix)
         {
             if (ModelState.IsValid)
             {
-                db.CodePrefixes.Add(codePrefix);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                using (var codeRepository = new CodeRepository())
+                {
+                    var result = codeRepository.AddUpdateCodePrefix(codePrefix);
+                    if (result)
+                        return RedirectToAction("Index");
+                }
             }
 
-            return View(codePrefix);
+            return RedirectToAction("Index");
         }
 
-        // GET: CodePrefixes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CodePrefix codePrefix = db.CodePrefixes.Find(id);
+            var codePrefix = db.CodePrefixes.Find(id);
             if (codePrefix == null)
             {
                 return HttpNotFound();
             }
-            return View(codePrefix);
+            return PartialView("_AddCodePrefix", codePrefix);
         }
 
-        // POST: CodePrefixes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,DisplayName,DocumentTypeEnum,StartNumber,NewStartNumberEachYear,DateCreated,CreatedBy,DateModified,ModifiedBy")] CodePrefix codePrefix)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(codePrefix).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(codePrefix);
-        }
 
-        // GET: CodePrefixes/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            CodePrefix codePrefix = db.CodePrefixes.Find(id);
-            if (codePrefix == null)
-            {
-                return HttpNotFound();
-            }
-            return View(codePrefix);
-        }
-
-        // POST: CodePrefixes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        [HttpGet, ActionName("DeleteConfirmed")]
         public ActionResult DeleteConfirmed(int id)
         {
             CodePrefix codePrefix = db.CodePrefixes.Find(id);
+            if (codePrefix == null)
+            {
+                return HttpNotFound();
+            }
             db.CodePrefixes.Remove(codePrefix);
             db.SaveChanges();
             return RedirectToAction("Index");

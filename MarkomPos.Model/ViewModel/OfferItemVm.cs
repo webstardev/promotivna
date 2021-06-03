@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace MarkomPos.Model.ViewModel
 {
@@ -43,5 +44,8 @@ namespace MarkomPos.Model.ViewModel
 
         [DisplayName("Porez")]
         public decimal Porez { get; set; }
+        public List<SelectListItem> Offers { get; set; }
+        public List<SelectListItem> Products { get; set; }
+        public List<SelectListItem> UnitOfMeasures { get; set; }
     }
 }

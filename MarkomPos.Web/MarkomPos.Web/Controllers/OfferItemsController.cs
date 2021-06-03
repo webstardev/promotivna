@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MarkomPos.Model.Model;
+using MarkomPos.Model.ViewModel;
 using MarkomPos.Repository;
 using MarkomPos.Repository.Repository;
 
@@ -17,79 +18,77 @@ namespace MarkomPos.Web.Controllers
     {
         private markomPosDbContext db = new markomPosDbContext();
 
-        // GET: OfferItems
         public ActionResult Index()
         {
-            var offerItems = db.OfferItems.Include(o => o.Offer).Include(o => o.Product).Include(o => o.UnitOfMeasure);
-            return View(offerItems.ToList());
+            using (var offerItemRepository = new OfferItemRepository())
+            {
+                var offerItems = offerItemRepository.GetAll();
+                return View(offerItems);
+            }
         }
 
-        // GET: OfferItems/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OfferItem offerItem = db.OfferItems.Find(id);
-            if (offerItem == null)
+            using (var offerItemRepository = new OfferItemRepository())
             {
-                return HttpNotFound();
+                var offerItem = offerItemRepository.GetById(id.GetValueOrDefault(0), 0);
+                if (offerItem == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_Details", offerItem);
             }
-            ViewBag.OfferId = new SelectList(db.Offers, "ID", "ContactName", offerItem.OfferId);
-            ViewBag.ProductId = new SelectList(db.Products, "ID", "Name", offerItem.ProductId);
-            ViewBag.UnitOfMeasureId = new SelectList(db.UnitOfMeasures, "ID", "Name", offerItem.UnitOfMeasureId);
-            return PartialView("_Details", offerItem);
         }
 
-        // GET: OfferItems/Create
-        public ActionResult Create()
+        public ActionResult Create(int OfferId = 0)
         {
-            ViewBag.OfferId = new SelectList(db.Offers, "ID", "ContactName");
-            ViewBag.ProductId = new SelectList(db.Products, "ID", "Name");
-            ViewBag.UnitOfMeasureId = new SelectList(db.UnitOfMeasures, "ID", "Name");
-            OfferItem offerItem = new OfferItem();
-            return PartialView("_AddOfferItem", offerItem);
+            using (var offerItemRepository = new OfferItemRepository())
+            {
+                var offerItem = offerItemRepository.GetById(0, OfferId);
+                if (offerItem == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_AddOfferItem", offerItem);
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(OfferItem offerItem)
+        public ActionResult Create(OfferItemVm offerItem)
         {
             if (ModelState.IsValid)
             {
-                using (var offerRepository = new OfferRepository())
+                using (var offerItemRepository = new OfferItemRepository())
                 {
-                    var result = offerRepository.AddUpdateOfferItem(offerItem);
+                    var result = offerItemRepository.AddUpdateOfferItem(offerItem);
                     if (result)
-                        return RedirectToAction("Index");
+                        return Redirect(Request.UrlReferrer.ToString());
                 }
             }
 
-            ViewBag.OfferId = new SelectList(db.Offers, "ID", "ContactName", offerItem.OfferId);
-            ViewBag.ProductId = new SelectList(db.Products, "ID", "Name", offerItem.ProductId);
-            ViewBag.UnitOfMeasureId = new SelectList(db.UnitOfMeasures, "ID", "Name", offerItem.UnitOfMeasureId);
-
-            return RedirectToAction("Index");
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
-        // GET: OfferItems/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OfferItem offerItem = db.OfferItems.Find(id);
-            if (offerItem == null)
+            using (var offerItemRepository = new OfferItemRepository())
             {
-                return HttpNotFound();
+                var offer = offerItemRepository.GetById(id.GetValueOrDefault(0), 0);
+                if (offer == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_AddOfferItem", offer);
             }
-            ViewBag.OfferId = new SelectList(db.Offers, "ID", "ContactName", offerItem.OfferId);
-            ViewBag.ProductId = new SelectList(db.Products, "ID", "Name", offerItem.ProductId);
-            ViewBag.UnitOfMeasureId = new SelectList(db.UnitOfMeasures, "ID", "Name", offerItem.UnitOfMeasureId);
-
-            return PartialView("_AddOfferItem", offerItem);
         }
 
         [HttpGet, ActionName("DeleteConfirmed")]
@@ -102,7 +101,7 @@ namespace MarkomPos.Web.Controllers
             }
             db.OfferItems.Remove(offerItem);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
         protected override void Dispose(bool disposing)

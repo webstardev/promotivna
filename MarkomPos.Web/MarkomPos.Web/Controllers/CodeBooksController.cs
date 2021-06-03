@@ -7,7 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MarkomPos.Model.Model;
+using MarkomPos.Model.ViewModel;
 using MarkomPos.Repository;
+using MarkomPos.Repository.Repository;
 
 namespace MarkomPos.Web.Controllers
 {
@@ -16,11 +18,13 @@ namespace MarkomPos.Web.Controllers
     {
         private markomPosDbContext db = new markomPosDbContext();
 
-        // GET: CodeBooks
         public ActionResult Index()
         {
-            var codeBooks = db.CodeBooks.Include(c => c.CodePrefix);
-            return View(codeBooks.ToList());
+            using (var codeRepository = new CodeRepository())
+            {
+                var codeBooks = codeRepository.GetAll();
+                return View(codeBooks);
+            }
         }
 
         // GET: CodeBooks/Details/5
@@ -30,93 +34,75 @@ namespace MarkomPos.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CodeBook codeBook = db.CodeBooks.Find(id);
-            if (codeBook == null)
+            using (var codeRepository = new CodeRepository())
             {
-                return HttpNotFound();
+                var codeBook = codeRepository.GetById(id.GetValueOrDefault(0));
+                if (codeBook == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_Details", codeBook);
             }
-            return View(codeBook);
         }
 
         // GET: CodeBooks/Create
         public ActionResult Create()
         {
-            ViewBag.CodePrefixId = new SelectList(db.CodePrefixes, "ID", "Name");
-            return View();
+            using (var codeRepository = new CodeRepository())
+            {
+                var codeBook = codeRepository.GetById(0);
+                if (codeBook == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_AddCodeBook", codeBook);
+            }
         }
 
-        // POST: CodeBooks/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,CodePrefixId,NextNumber,Year,DateCreated,CreatedBy,DateModified,ModifiedBy")] CodeBook codeBook)
+        public ActionResult Create(CodeBookVm codeBook)
         {
             if (ModelState.IsValid)
             {
-                db.CodeBooks.Add(codeBook);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                using (var codeRepository = new CodeRepository())
+                {
+                    var result = codeRepository.AddUpdateCodeBook(codeBook);
+                    if (result)
+                        return RedirectToAction("Index");
+                }
             }
 
-            ViewBag.CodePrefixId = new SelectList(db.CodePrefixes, "ID", "Name", codeBook.CodePrefixId);
-            return View(codeBook);
+            return RedirectToAction("Index");
         }
 
-        // GET: CodeBooks/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CodeBook codeBook = db.CodeBooks.Find(id);
-            if (codeBook == null)
+            using (var codeRepository = new CodeRepository())
             {
-                return HttpNotFound();
+                var codeBook = codeRepository.GetById(id.GetValueOrDefault(0));
+                if (codeBook == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_AddCodeBook", codeBook);
             }
-            ViewBag.CodePrefixId = new SelectList(db.CodePrefixes, "ID", "Name", codeBook.CodePrefixId);
-            return View(codeBook);
         }
 
-        // POST: CodeBooks/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,CodePrefixId,NextNumber,Year,DateCreated,CreatedBy,DateModified,ModifiedBy")] CodeBook codeBook)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(codeBook).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.CodePrefixId = new SelectList(db.CodePrefixes, "ID", "Name", codeBook.CodePrefixId);
-            return View(codeBook);
-        }
 
-        // GET: CodeBooks/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            CodeBook codeBook = db.CodeBooks.Find(id);
-            if (codeBook == null)
-            {
-                return HttpNotFound();
-            }
-            return View(codeBook);
-        }
-
-        // POST: CodeBooks/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpGet, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             CodeBook codeBook = db.CodeBooks.Find(id);
+            if (codeBook == null)
+            {
+                return HttpNotFound();
+            }
             db.CodeBooks.Remove(codeBook);
             db.SaveChanges();
             return RedirectToAction("Index");

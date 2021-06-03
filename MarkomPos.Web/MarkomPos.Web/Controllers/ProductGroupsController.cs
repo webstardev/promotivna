@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using MarkomPos.Model.Enum;
 using MarkomPos.Model.Model;
 using MarkomPos.Model.ViewModel;
 using MarkomPos.Repository;
@@ -18,7 +19,7 @@ namespace MarkomPos.Web.Controllers
             using (var productGroupRepository = new ProductGroupRepository())
             {
                 var productGroups = productGroupRepository.GetAll();
-                return View(productGroups.ToList());
+                return View(productGroups);
             }
         }
 
@@ -39,12 +40,20 @@ namespace MarkomPos.Web.Controllers
             }
         }
 
-        public ActionResult Create()
+        public ActionResult Create(string type)
         {
             using (var productGroupRepository = new ProductGroupRepository())
             {
                 var productGroup = new ProductGroupVm();
-                productGroup.productGroupVms = productGroupRepository.GetSelectListItems();
+                if (type == "main")
+                    productGroup.productGroupType = ProductGroupTypeEnum.Main;
+                else if (type == "sub")
+                    productGroup.productGroupType = ProductGroupTypeEnum.Sub;
+                else
+                    productGroup.productGroupType = ProductGroupTypeEnum.Basic;
+
+                productGroup.productGroupVms = productGroupRepository.GetSelectListItems(productGroup.productGroupType);
+
                 return PartialView("_AddProductGroup", productGroup);
             }
         }
