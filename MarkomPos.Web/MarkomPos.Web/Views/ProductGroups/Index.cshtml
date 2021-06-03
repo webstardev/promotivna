@@ -321,6 +321,10 @@
                     $('#myModal').modal('show');
                     if (title == "main") {
                         $(".parent").hide();
+                        $('#ParrentGroupId').removeAttr('required');
+                    }
+                    else {
+                        $('#ParrentGroupId').attr('required', 'required');
                     }
                 },
                 error: function () {
