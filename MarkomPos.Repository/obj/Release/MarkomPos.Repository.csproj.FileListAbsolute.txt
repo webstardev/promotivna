@@ -8,7 +8,6 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\bin\Release\MarkomPos.Mod
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\bin\Release\MarkomPos.Model.dll.config
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\bin\Release\EntityFramework.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\bin\Release\EntityFramework.SqlServer.xml
-D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.csprojAssemblyReference.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.Migrations.InitDB.resources
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.Migrations.Add_Tables.resources
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.Migrations.Add_WareHouse.resources
@@ -39,3 +38,4 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\bin\Release\System.Web.We
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\bin\Release\System.Web.WebPages.Deployment.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\bin\Release\System.Web.WebPages.Razor.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.Migrations.Add_enum_ProductGroupTypeEnum.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.csproj.AssemblyReference.cache

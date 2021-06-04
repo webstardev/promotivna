@@ -132,12 +132,15 @@
     <Compile Include="Repository\DocumentParityRepository.cs" />
     <Compile Include="Repository\OfferItemRepository.cs" />
     <Compile Include="Repository\OfferRepository.cs" />
+    <Compile Include="Repository\OfferValidationRepository.cs" />
     <Compile Include="Repository\PaymentMethodRepository.cs" />
     <Compile Include="Repository\ProductGroupRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\RoleMappingRepository.cs" />
     <Compile Include="Repository\RoleRepository.cs" />
     <Compile Include="Repository\UnitOfMeasuresRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Repository\WarehouseItemRepository.cs" />
     <Compile Include="Repository\WarehouseRepository.cs" />
   </ItemGroup>
   <ItemGroup>

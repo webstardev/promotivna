@@ -1,4 +1,3 @@
-D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Debug\MarkomPos.Web.csproj.CoreCompileInputs.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\MarkomPos.Web.dll.config
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\MarkomPos.Web.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\MarkomPos.Web.pdb
@@ -85,7 +84,8 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\System.Web.Web
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\Newtonsoft.Json.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\Antlr3.Runtime.pdb
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Debug\MarkomPos.Web.csprojAssemblyReference.cache
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Debug\MarkomPos.Web.csproj.AssemblyReference.cache
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Debug\MarkomPos.Web.csproj.CoreCompileInputs.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Debug\MarkomPos.Web.csproj.CopyComplete
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Debug\MarkomPos.Web.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Debug\MarkomPos.Web.pdb

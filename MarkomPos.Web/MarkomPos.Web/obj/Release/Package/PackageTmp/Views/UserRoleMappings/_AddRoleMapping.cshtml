@@ -1,4 +1,4 @@
-﻿@model MarkomPos.Model.Model.UserRoleMapping
+﻿@model MarkomPos.Model.ViewModel.UserRoleMappingVm
 
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -23,14 +23,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.UserId, "UserId", htmlAttributes: new { @class = "control-label" })
-                                                    @Html.DropDownList("UserId", null, "Select User", htmlAttributes: new { @class = "form-control", required = "required" })
+                                                    @Html.DropDownListFor(m => m.UserId, Model.Users, "Select User", htmlAttributes: new { @class = "form-control", required = "required" })
                                                     @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.RolesId, "RolesId", htmlAttributes: new { @class = "control-label" })
-                                                    @Html.DropDownList("RolesId", null, "Select Role", htmlAttributes: new { @class = "form-control", required = "required" })
+                                                    @Html.DropDownListFor(m => m.RolesId, Model.UserRoles, "Select Role", htmlAttributes: new { @class = "form-control", required = "required" })
                                                     @Html.ValidationMessageFor(model => model.RolesId, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>

@@ -12,7 +12,7 @@ using MarkomPos.Repository.Repository;
 
 namespace MarkomPos.Web.Controllers
 {
-    [Authorize(Roles = "Super Admin")]
+    [Authorize(Roles = "Super Admin,Manager")]
     public class UnitOfMeasuresController : Controller
     {
         private markomPosDbContext db = new markomPosDbContext();

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MarkomPos.Model.Model;
+using MarkomPos.Model.ViewModel;
 using MarkomPos.Repository;
 using MarkomPos.Repository.Repository;
 
@@ -16,12 +17,13 @@ namespace MarkomPos.Web.Controllers
     public class UserRoleMappingsController : Controller
     {
         private markomPosDbContext db = new markomPosDbContext();
+        private RoleMappingRepository roleMappingRepository = new RoleMappingRepository();
 
         // GET: UserRoleMappings
         public ActionResult Index()
         {
-            var userRoleMappings = db.UserRoleMappings.Where(w => w.RolesId != 1).Include(u => u.User).Include(u => u.Roles);
-            return View(userRoleMappings.ToList());
+            var offerValidation = roleMappingRepository.GetAll();
+            return View(offerValidation.ToList());
         }
 
         // GET: UserRoleMappings/Details/5
@@ -31,81 +33,49 @@ namespace MarkomPos.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserRoleMapping userRoleMapping = db.UserRoleMappings.Find(id);
-            if (userRoleMapping == null)
+            var offerValidation = roleMappingRepository.GetById(id.GetValueOrDefault(0));
+            if (offerValidation == null)
             {
                 return HttpNotFound();
             }
-            using (var roleRepository = new RoleRepository())
-            {
-                ViewBag.RolesId = new SelectList(roleRepository.getAllRole(), "ID", "Name", userRoleMapping.RolesId);
-            }
-            using (var userRepository = new UserRepository())
-            {
-                ViewBag.UserId = new SelectList(userRepository.getAllUser(), "ID", "Name", userRoleMapping.UserId);
-            }
-            return PartialView("_Details", userRoleMapping);
+            return PartialView("_Details", offerValidation);
         }
 
         // GET: UserRoleMappings/Create
         public ActionResult Create()
         {
-            using (var userRepository = new UserRepository())
+            var offerValidation = roleMappingRepository.GetById(0);
+            if (offerValidation == null)
             {
-                ViewBag.UserId = new SelectList(userRepository.getAllUser(), "ID", "Name");
+                return HttpNotFound();
             }
-            using (var roleRepository = new RoleRepository())
-            {
-                ViewBag.RolesId = new SelectList(roleRepository.getAllRole(), "ID", "Name");
-            }
-
-            var userRoleMapping = new UserRoleMapping();
-            return PartialView("_AddRoleMapping", userRoleMapping);
+            return PartialView("_AddRoleMapping", offerValidation);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(UserRoleMapping userRoleMapping)
+        public ActionResult Create(UserRoleMappingVm userRoleMapping)
         {
             if (ModelState.IsValid)
             {
-                using (var roleRepository = new RoleRepository())
-                {
-                    var result = roleRepository.AddUpdateUserRoleMapping(userRoleMapping);
-                    if (result)
-                        return RedirectToAction("Index");
-
-                    ViewBag.RolesId = new SelectList(roleRepository.getAllRole(), "ID", "Name", userRoleMapping.RolesId);
-                }
-                using (var userRepository = new UserRepository())
-                {
-                    ViewBag.UserId = new SelectList(userRepository.getAllUser(), "ID", "Name", userRoleMapping.UserId);
-                }
+                var result = roleMappingRepository.AddUpdateUserRoleMapping(userRoleMapping);
+                if (result)
+                    return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
         }
 
-        // GET: UserRoleMappings/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserRoleMapping userRoleMapping = db.UserRoleMappings.Find(id);
+            var userRoleMapping = roleMappingRepository.GetById(id.GetValueOrDefault(0));
             if (userRoleMapping == null)
             {
                 return HttpNotFound();
             }
-            using (var userRepository = new UserRepository())
-            {
-                ViewBag.UserId = new SelectList(userRepository.getAllUser(), "ID", "Name", userRoleMapping.UserId);
-            }
-            using (var roleRepository = new RoleRepository())
-            {
-                ViewBag.RolesId = new SelectList(roleRepository.getAllRole(), "ID", "Name", userRoleMapping.RolesId);
-            }
-
             return PartialView("_AddRoleMapping", userRoleMapping);
         }
 

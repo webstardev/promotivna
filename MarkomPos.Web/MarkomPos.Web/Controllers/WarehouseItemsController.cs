@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MarkomPos.Model.Model;
+using MarkomPos.Model.ViewModel;
 using MarkomPos.Repository;
 using MarkomPos.Repository.Repository;
 
@@ -16,55 +17,47 @@ namespace MarkomPos.Web.Controllers
     public class WarehouseItemsController : Controller
     {
         private markomPosDbContext db = new markomPosDbContext();
-
+        private WarehouseItemRepository warehouseItemRepository = new WarehouseItemRepository();
         // GET: WarehouseItems
         public ActionResult Index()
         {
-            var warehouseItems = db.warehouseItems.Include(w => w.Product).Include(w => w.Warehouse);
-            return View(warehouseItems.ToList());
+            var warehouseItem = warehouseItemRepository.GetAll();
+            return View(warehouseItem.ToList());
         }
 
-        // GET: WarehouseItems/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WarehouseItem warehouseItem = db.warehouseItems.Find(id);
+            var warehouseItem = warehouseItemRepository.GetById(id.GetValueOrDefault(0));
             if (warehouseItem == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ProductId = new SelectList(db.Products, "ID", "Name", warehouseItem.ProductId);
-            ViewBag.WarehouseId = new SelectList(db.warehouses, "ID", "Name", warehouseItem.WarehouseId);
             return PartialView("_Details", warehouseItem);
         }
 
-        // GET: WarehouseItems/Create
         public ActionResult Create()
         {
-            ViewBag.ProductId = new SelectList(db.Products, "ID", "Name");
-            ViewBag.WarehouseId = new SelectList(db.warehouses, "ID", "Name");
-            var warehouseItem = new WarehouseItem();
+            var warehouseItem = warehouseItemRepository.GetById(0);
+            if (warehouseItem == null)
+            {
+                return HttpNotFound();
+            }
             return PartialView("_AddWarehouseItem", warehouseItem);
         }
 
-        // POST: WarehouseItems/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(WarehouseItem warehouseItem)
+        public ActionResult Create(WarehouseItemVm warehouseItem)
         {
             if (ModelState.IsValid)
             {
-                using (var warehouseRepository = new WarehouseRepository())
-                {
-                    var result = warehouseRepository.AddUpdateWareHouseItem(warehouseItem);
-                    if (result)
-                        return RedirectToAction("Index");
-                }
+                var result = warehouseItemRepository.AddUpdateWareHouseItem(warehouseItem);
+                if (result)
+                    return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
         }
@@ -76,13 +69,11 @@ namespace MarkomPos.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WarehouseItem warehouseItem = db.warehouseItems.Find(id);
+            var warehouseItem = warehouseItemRepository.GetById(id.GetValueOrDefault(0));
             if (warehouseItem == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ProductId = new SelectList(db.Products, "ID", "Name", warehouseItem.ProductId);
-            ViewBag.WarehouseId = new SelectList(db.warehouses, "ID", "Name", warehouseItem.WarehouseId);
             return PartialView("_AddWarehouseItem", warehouseItem);
         }
 

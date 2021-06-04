@@ -82,10 +82,10 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\System.Web.Web
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\Newtonsoft.Json.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\Antlr3.Runtime.pdb
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Release\MarkomPos.Web.csprojAssemblyReference.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Release\MarkomPos.Web.csproj.CoreCompileInputs.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Release\MarkomPos.Web.csproj.CopyComplete
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Release\MarkomPos.Web.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Release\MarkomPos.Web.pdb
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\Mapster.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\bin\Mapster.Core.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Web\MarkomPos.Web\obj\Release\MarkomPos.Web.csproj.AssemblyReference.cache

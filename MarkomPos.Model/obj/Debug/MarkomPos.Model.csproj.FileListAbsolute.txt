@@ -22,3 +22,4 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.cspr
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.csproj.CopyComplete
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.pdb
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.csproj.AssemblyReference.cache

@@ -40,40 +40,6 @@ namespace MarkomPos.Repository.Repository
                 }
             }
         }
-        public bool AddUpdateWareHouseItem(WarehouseItem warehouseItem)
-        {
-            using (var context = new markomPosDbContext())
-            {
-                try
-                {
-                    if (warehouseItem.ID > 0)
-                    {
-                        var dbData = context.warehouseItems.Find(warehouseItem.ID);
-                        if (dbData != null)
-                        {
-                            dbData.ID = warehouseItem.ID;
-                            dbData.WarehouseId = warehouseItem.WarehouseId;
-                            dbData.ProductId = warehouseItem.ProductId;
-                            dbData.CurrentQuantity = warehouseItem.CurrentQuantity;
-                            dbData.ReservedQuantity = warehouseItem.ReservedQuantity;
-                            dbData.DateModified = DateTime.Now;
-                        }
-                    }
-                    else
-                    {
-                        warehouseItem.DateCreated = DateTime.Now;
-                        warehouseItem.DateModified = DateTime.Now;
-                        context.warehouseItems.Add(warehouseItem);
-                    }
-                    context.SaveChanges();
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    return false;
-                }
-            }
-        }
         public void Dispose()
         {
         }

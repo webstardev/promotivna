@@ -102,11 +102,14 @@
     <Compile Include="ViewModel\HashSaltVm.cs" />
     <Compile Include="ViewModel\LoginVm.cs" />
     <Compile Include="ViewModel\OfferItemVm.cs" />
+    <Compile Include="ViewModel\OfferValidationVm.cs" />
     <Compile Include="ViewModel\OfferVm.cs" />
     <Compile Include="ViewModel\ProductGroupsListVm.cs" />
     <Compile Include="ViewModel\ProductGroupVm.cs" />
     <Compile Include="ViewModel\ProductVm.cs" />
+    <Compile Include="ViewModel\UserRoleMappingVm.cs" />
     <Compile Include="ViewModel\UserVm.cs" />
+    <Compile Include="ViewModel\WarehouseItemVm.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

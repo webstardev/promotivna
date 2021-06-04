@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MarkomPos.Model.Model;
+using MarkomPos.Model.ViewModel;
 using MarkomPos.Repository;
 using MarkomPos.Repository.Repository;
 
@@ -17,56 +18,58 @@ namespace MarkomPos.Web.Controllers
     {
         private markomPosDbContext db = new markomPosDbContext();
 
-        // GET: OfferValidations
         public ActionResult Index()
         {
-            var offerValidations = db.OfferValidations.Include(o => o.Offer).Include(o => o.User);
-            return View(offerValidations.ToList());
+            using (var offerValidationRepository = new OfferValidationRepository())
+            {
+                var offerValidation = offerValidationRepository.GetAll();
+                return View(offerValidation.ToList());
+            }
         }
 
-        // GET: OfferValidations/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OfferValidation offerValidation = db.OfferValidations.Find(id);
-            if (offerValidation == null)
+            using (var offerValidationRepository = new OfferValidationRepository())
             {
-                return HttpNotFound();
+                var offerValidation = offerValidationRepository.GetById(id.GetValueOrDefault(0));
+                if (offerValidation == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_Details", offerValidation);
             }
-            ViewBag.OfferId = new SelectList(db.Offers, "ID", "ContactName", offerValidation.OfferId);
-            ViewBag.UserId = new SelectList(db.Users, "ID", "Name", offerValidation.UserId);
-            return PartialView("_Details", offerValidation);
         }
 
-        // GET: OfferValidations/Create
         public ActionResult Create()
         {
-            ViewBag.OfferId = new SelectList(db.Offers, "ID", "ContactName");
-            ViewBag.UserId = new SelectList(db.Users, "ID", "Name");
-            OfferValidation offerValidation = new OfferValidation();
-            return PartialView("_AddOfferValidation", offerValidation);
+            using (var offerValidationRepository = new OfferValidationRepository())
+            {
+                var offerValidation = offerValidationRepository.GetById(0);
+                if (offerValidation == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_AddOfferValidation", offerValidation);
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(OfferValidation offerValidation)
+        public ActionResult Create(OfferValidationVm offerValidation)
         {
             if (ModelState.IsValid)
             {
-                using (var offerRepository = new OfferRepository())
+                using (var offerValidationRepository = new OfferValidationRepository())
                 {
-                    var result = offerRepository.AddUpdateOfferValidation(offerValidation);
+                    var result = offerValidationRepository.AddUpdateOfferValidation(offerValidation);
                     if (result)
                         return RedirectToAction("Index");
                 }
             }
-
-            ViewBag.OfferId = new SelectList(db.Offers, "ID", "ContactName", offerValidation.OfferId);
-            ViewBag.UserId = new SelectList(db.Users, "ID", "Name", offerValidation.UserId);
-
             return RedirectToAction("Index");
         }
 
@@ -77,15 +80,15 @@ namespace MarkomPos.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OfferValidation offerValidation = db.OfferValidations.Find(id);
-            if (offerValidation == null)
+            using (var offerValidationRepository = new OfferValidationRepository())
             {
-                return HttpNotFound();
+                var offerValidation = offerValidationRepository.GetById(id.GetValueOrDefault(0));
+                if (offerValidation == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView("_AddOfferValidation", offerValidation);
             }
-            ViewBag.OfferId = new SelectList(db.Offers, "ID", "ContactName", offerValidation.OfferId);
-            ViewBag.UserId = new SelectList(db.Users, "ID", "Name", offerValidation.UserId);
-
-            return PartialView("_AddOfferValidation", offerValidation);
         }
 
         [HttpGet, ActionName("DeleteConfirmed")]

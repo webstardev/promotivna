@@ -17,7 +17,7 @@ namespace MarkomPos.Repository.Repository
                 {
                     if (role.ID > 0)
                     {
-                        var dbData = context.DeliveryTerms.Find(role.ID);
+                        var dbData = context.Roles.Find(role.ID);
                         if (dbData != null)
                         {
                             dbData.ID = role.ID;
