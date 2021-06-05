@@ -13,17 +13,16 @@ using MarkomPos.Repository.Repository;
 
 namespace MarkomPos.Web.Controllers
 {
-    [Authorize(Roles = "Super Admin")]
-    public class CodeBooksController : Controller
+    public class OrdersController : Controller
     {
         private markomPosDbContext db = new markomPosDbContext();
 
         public ActionResult Index()
         {
-            using (var codeRepository = new CodeRepository())
+            using (var orderRepository = new OrderRepository())
             {
-                var codeBooks = codeRepository.GetAll();
-                return View(codeBooks);
+                var orders = orderRepository.GetAll();
+                return View(orders);
             }
         }
 
@@ -33,39 +32,40 @@ namespace MarkomPos.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            using (var codeRepository = new CodeRepository())
+
+            using (var orderRepository = new OrderRepository())
             {
-                var codeBook = codeRepository.GetById(id.GetValueOrDefault(0));
-                if (codeBook == null)
+                var order = orderRepository.GetById(id.GetValueOrDefault(0));
+                if (order == null)
                 {
                     return HttpNotFound();
                 }
-                return PartialView("_Details", codeBook);
+                return PartialView("_Details", order);
             }
         }
 
         public ActionResult Create()
         {
-            using (var codeRepository = new CodeRepository())
+            using (var orderRepository = new OrderRepository())
             {
-                var codeBook = codeRepository.GetById(0);
-                if (codeBook == null)
+                var order = orderRepository.GetById(0);
+                if (order == null)
                 {
                     return HttpNotFound();
                 }
-                return PartialView("_AddCodeBook", codeBook);
+                return PartialView("_AddOrder", order);
             }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CodeBookVm codeBook)
+        public ActionResult Create(OrderVm order)
         {
             if (ModelState.IsValid)
             {
-                using (var codeRepository = new CodeRepository())
+                using (var orderRepository = new OrderRepository())
                 {
-                    var result = codeRepository.AddUpdateCodeBook(codeBook);
+                    var result = orderRepository.AddUpdateOrder(order);
                     if (result)
                         return RedirectToAction("Index");
                 }
@@ -80,27 +80,26 @@ namespace MarkomPos.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            using (var codeRepository = new CodeRepository())
+            using (var orderRepository = new OrderRepository())
             {
-                var codeBook = codeRepository.GetById(id.GetValueOrDefault(0));
-                if (codeBook == null)
+                var order = orderRepository.GetById(id.GetValueOrDefault(0));
+                if (order == null)
                 {
                     return HttpNotFound();
                 }
-                return PartialView("_AddCodeBook", codeBook);
+                return PartialView("_AddOrder", order);
             }
         }
-
 
         [HttpGet, ActionName("DeleteConfirmed")]
         public ActionResult DeleteConfirmed(int id)
         {
-            CodeBook codeBook = db.CodeBooks.Find(id);
-            if (codeBook == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            db.CodeBooks.Remove(codeBook);
+            db.Orders.Remove(order);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

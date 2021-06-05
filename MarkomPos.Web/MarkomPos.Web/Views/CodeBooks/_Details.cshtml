@@ -1,10 +1,10 @@
-﻿@model MarkomPos.Model.ViewModel.ProductGroupVm
+﻿@model MarkomPos.Model.ViewModel.CodeBookVm
 
 <div class="modal fade" id="detailsModal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content footerBg">
             <div class="modal-header txtColor">
-                <h4 class="modal-title">Product Group</h4>
+                <h4 class="modal-title">Code Book</h4>
                 <button type="button" class="close txtColor" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -21,31 +21,27 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
-                                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                    @Html.LabelFor(model => model.CodePrefixId, "CodePrefixId", htmlAttributes: new { @class = "control-label" })
+                                                    @Html.DropDownListFor(m => m.CodePrefixId, Model.CodePrefixes, "Select CodePrefix", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.NextNumber, htmlAttributes: new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.NextNumber, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    @Html.LabelFor(model => model.DisplayName, htmlAttributes: new { @class = "control-label" })
-                                                    @Html.EditorFor(model => model.DisplayName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                    @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                                                 </div>
                                             </div>
                                         </div>
-
-                                        @if (Model.ParrentGroupId != null && Model.ParrentGroupId != 0)
-                                        {
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.ParrentGroupId, "ParrentGroupId", htmlAttributes: new { @class = "control-label" })
-                                                        @Html.DropDownListFor(m => m.ParrentGroupId, Model.productGroupVms, "Select Product Group", htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                </div>
-                                            </div>
-                                        }
 
                                         <div class="row">
                                             <div class="col-md-6">

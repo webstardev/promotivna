@@ -1,8 +1,7 @@
-﻿@model IEnumerable<MarkomPos.Model.ViewModel.OfferVm>
+﻿@model IEnumerable<MarkomPos.Model.ViewModel.OrderVm>
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <section class="um-wrap">
@@ -14,12 +13,10 @@
                 </div>
             </div>
             <div class="card-body">
-                <table id="tblOffer" class="table table-bordered table-hover">
+                <table id="tblOrder" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>
-
-                            </th>
+                            <th></th>
                             <th>
                                 @Html.DisplayName("povezani kupac")
                             </th>
@@ -36,9 +33,9 @@
                                 @Html.DisplayName("odgovorna osoba")
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.OfferNumber)
+                                @Html.DisplayNameFor(model => model.OrderNumber)
                             </th>
-                            <th>@Html.DisplayName("stavka ponude")</th>
+                            <th>@Html.DisplayName("stavka narudžbe")</th>
                             <th width="8%"></th>
                         </tr>
                     </thead>
@@ -78,41 +75,41 @@
                                                 <th></th>
                                             </tr>
                                             @{
-                                                var offerIRepositorytem = new MarkomPos.Repository.Repository.OfferItemRepository();
-                                                var getOfferItemlist = offerIRepositorytem.getOfferItemList(item.ID);
-                                                if (getOfferItemlist != null && getOfferItemlist.Count > 0)
+                                                var orderItemRepository = new MarkomPos.Repository.Repository.OrderItemRepository();
+                                                var getOrderItemlist = orderItemRepository.getOrderItemList(item.ID);
+                                                if (getOrderItemlist != null && getOrderItemlist.Count > 0)
                                                 {
-                                                    foreach (var offerItem in getOfferItemlist)
+                                                    foreach (var orderItem in getOrderItemlist)
                                                     {
                                                         <tr>
                                                             <td>
-                                                                @Html.DisplayFor(modelItem => offerItem.Offer.ContactName)
+                                                                @Html.DisplayFor(modelItem => orderItem.Order.ContactName)
                                                             </td>
                                                             <td>
-                                                                @Html.DisplayFor(modelItem => offerItem.Product.Name)
+                                                                @Html.DisplayFor(modelItem => orderItem.Product.Name)
                                                             </td>
                                                             <td>
-                                                                @Html.DisplayFor(modelItem => offerItem.UnitOfMeasure.Name)
+                                                                @Html.DisplayFor(modelItem => orderItem.UnitOfMeasure.Name)
                                                             </td>
                                                             <td>
-                                                                @Html.DisplayFor(modelItem => offerItem.Ordinal)
+                                                                @Html.DisplayFor(modelItem => orderItem.Ordinal)
                                                             </td>
                                                             <td>
-                                                                @Html.DisplayFor(modelItem => offerItem.ProductName)
+                                                                @Html.DisplayFor(modelItem => orderItem.ProductName)
                                                             </td>
                                                             <td>
-                                                                @Html.DisplayFor(modelItem => offerItem.UnitOfMeasureName)
+                                                                @Html.DisplayFor(modelItem => orderItem.UnitOfMeasureName)
                                                             </td>
                                                             <td>
-                                                                @Html.DisplayFor(modelItem => offerItem.Quantity)
+                                                                @Html.DisplayFor(modelItem => orderItem.Quantity)
                                                             </td>
                                                             <td>
-                                                                @Html.DisplayFor(modelItem => offerItem.Price)
+                                                                @Html.DisplayFor(modelItem => orderItem.Price)
                                                             </td>
                                                             <td>
-                                                                <a class="editOfferItem" onclick="OpenEditOfferItemPage(@offerItem.ID)" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
-                                                                <a class="detailsOfferItem" onclick="OpenDetailsOfferItemPage(@offerItem.ID)" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
-                                                                @Html.ActionLink(" ", "DeleteConfirmed", "OfferItems", new { id = offerItem.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove to list ?');" })
+                                                                <a class="editOrderItem" onclick="OpenEditOrderItemPage(@orderItem.ID)" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                                                                <a class="detailsOrderItem" onclick="OpenDetailsOrderItemPage(@orderItem.ID)" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                                                                @Html.ActionLink(" ", "DeleteConfirmed", "OrderItems", new { id = orderItem.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove to list ?');" })
                                                             </td>
                                                         </tr>
                                                     }
@@ -145,12 +142,12 @@
                                     @Html.DisplayFor(modelItem => item.ResponsibleUser.Name)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.OfferNumber)
+                                    @Html.DisplayFor(modelItem => item.OrderNumber)
                                 </td>
-                                <td><a class="btn btn-default offerItem" onclick="OpenAddOfferItem(@item.ID)" href="javascript:void(0)">stavka ponude</a></td>
+                                <td><a class="btn btn-default orderItem" onclick="OpenAddOrderItem(@item.ID)" href="javascript:void(0)">stavka narudžbe</a></td>
                                 <td>
-                                    <a class="edit" onclick="OpenEditOfferPage(@item.ID)" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
-                                    <a class="details" onclick="OpenDetailsOfferPage(@item.ID)" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                                    <a class="edit" onclick="OpenEditOrderPage(@item.ID)" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                                    <a class="details" onclick="OpenDetailsOrderPage(@item.ID)" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
                                     @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove to list ?');" })
                                 </td>
                             </tr>
@@ -171,8 +168,8 @@
 <script>
     $(document).ready(function () {
 
-        $('#tblOffer thead tr').clone(true).appendTo('#tblOffer thead');
-        $('#tblOffer thead tr:eq(1) th').each(function (i) {
+        $('#tblOrder thead tr').clone(true).appendTo('#tblOrder thead');
+        $('#tblOrder thead tr:eq(1) th').each(function (i) {
             var title = $(this).text();
 
             var length = $("table").find("tr:first th").length;
@@ -192,7 +189,7 @@
             });
         });
 
-        var table = $('#tblOffer').DataTable({
+        var table = $('#tblOrder').DataTable({
             paging: true,
             lengthChange: true,
             searching: true,
@@ -217,7 +214,7 @@
                 "backdrop": "static",
                 keyboard: true
             };
-            var ajaxCallURL = '/Offers/Create';
+            var ajaxCallURL = '/Orders/Create';
             $.ajax({
                 type: "GET",
                 url: ajaxCallURL,
@@ -243,12 +240,12 @@
             $(this).closest("tr").next().remove();
         });
     });
-    function OpenEditOfferPage(Id) {
+    function OpenEditOrderPage(Id) {
         var options = {
             "backdrop": "static",
             keyboard: true
         };
-        var ajaxCallURL = '/Offers/Edit?id=' + Id;
+        var ajaxCallURL = '/Orders/Edit?id=' + Id;
         $.ajax({
             type: "GET",
             url: ajaxCallURL,
@@ -264,13 +261,13 @@
             }
         });
     }
-    function OpenDetailsOfferPage(Id) {
+    function OpenDetailsOrderPage(Id) {
         var $buttonClicked = $(this);
         var options = {
             "backdrop": "static",
             keyboard: true
         };
-        var ajaxCallURL = '/Offers/Details?id=' + Id;
+        var ajaxCallURL = '/Orders/Details?id=' + Id;
         $.ajax({
             type: "GET",
             url: ajaxCallURL,
@@ -287,13 +284,13 @@
         });
     }
 
-    function OpenAddOfferItem(Id) {
+    function OpenAddOrderItem(Id) {
         var $buttonClicked = $(this);
         var options = {
             "backdrop": "static",
             keyboard: true
         };
-        var ajaxCallURL = '/OfferItems/Create?OfferId=' + Id;
+        var ajaxCallURL = '/OrderItems/Create?orderId=' + Id;
         $.ajax({
             type: "GET",
             url: ajaxCallURL,
@@ -309,12 +306,12 @@
             }
         });
     }
-    function OpenEditOfferItemPage(Id) {
+    function OpenEditOrderItemPage(Id) {
         var options = {
             "backdrop": "static",
             keyboard: true
         };
-        var ajaxCallURL = '/OfferItems/Edit?id=' + Id;
+        var ajaxCallURL = '/OrderItems/Edit?id=' + Id;
         $.ajax({
             type: "GET",
             url: ajaxCallURL,
@@ -330,12 +327,12 @@
             }
         });
     }
-    function OpenDetailsOfferItemPage(Id) {
+    function OpenDetailsOrderItemPage(Id) {
         var options = {
             "backdrop": "static",
             keyboard: true
         };
-        var ajaxCallURL = '/OfferItems/Details?id=' + Id;
+        var ajaxCallURL = '/OrderItems/Details?id=' + Id;
         $.ajax({
             type: "GET",
             url: ajaxCallURL,

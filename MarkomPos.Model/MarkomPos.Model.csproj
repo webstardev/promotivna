@@ -104,6 +104,8 @@
     <Compile Include="ViewModel\OfferItemVm.cs" />
     <Compile Include="ViewModel\OfferValidationVm.cs" />
     <Compile Include="ViewModel\OfferVm.cs" />
+    <Compile Include="ViewModel\OrderItemVm.cs" />
+    <Compile Include="ViewModel\OrderVm.cs" />
     <Compile Include="ViewModel\ProductGroupsListVm.cs" />
     <Compile Include="ViewModel\ProductGroupVm.cs" />
     <Compile Include="ViewModel\ProductVm.cs" />

@@ -136,6 +136,8 @@
     <Compile Include="Controllers\OfferItemsController.cs" />
     <Compile Include="Controllers\OffersController.cs" />
     <Compile Include="Controllers\OfferValidationsController.cs" />
+    <Compile Include="Controllers\OrderItemsController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PaymentMethodsController.cs" />
     <Compile Include="Controllers\ProductGroupsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -282,14 +284,26 @@
     <Content Include="Views\UserRoleMappings\Index.cshtml" />
     <Content Include="Views\UserRoleMappings\_AddRoleMapping.cshtml" />
     <Content Include="Views\UserRoleMappings\_Details.cshtml" />
-    <Content Include="Views\CodeBooks\Create.cshtml" />
-    <Content Include="Views\CodeBooks\Delete.cshtml" />
-    <Content Include="Views\CodeBooks\Details.cshtml" />
-    <Content Include="Views\CodeBooks\Edit.cshtml" />
     <Content Include="Views\CodeBooks\Index.cshtml" />
     <Content Include="Views\CodePrefixes\Index.cshtml" />
     <Content Include="Views\CodePrefixes\_AddCodePrefix.cshtml" />
     <Content Include="Views\CodePrefixes\_Details.cshtml" />
+    <Content Include="Views\CodeBooks\_AddCodeBook.cshtml" />
+    <Content Include="Views\CodeBooks\_Details.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\OrderItems\Create.cshtml" />
+    <Content Include="Views\OrderItems\Delete.cshtml" />
+    <Content Include="Views\OrderItems\Details.cshtml" />
+    <Content Include="Views\OrderItems\Edit.cshtml" />
+    <Content Include="Views\OrderItems\Index.cshtml" />
+    <Content Include="Views\Orders\_AddOrder.cshtml" />
+    <Content Include="Views\Orders\_Details.cshtml" />
+    <Content Include="Views\OrderItems\_AddOrderItem.cshtml" />
+    <Content Include="Views\OrderItems\_Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

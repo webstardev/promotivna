@@ -13,17 +13,17 @@ using MarkomPos.Repository.Repository;
 
 namespace MarkomPos.Web.Controllers
 {
-    [Authorize(Roles = "Super Admin")]
-    public class CodeBooksController : Controller
+    public class OrderItemsController : Controller
     {
         private markomPosDbContext db = new markomPosDbContext();
 
+        // GET: OrderItems
         public ActionResult Index()
         {
-            using (var codeRepository = new CodeRepository())
+            using (var orderItemRepository = new OrderItemRepository())
             {
-                var codeBooks = codeRepository.GetAll();
-                return View(codeBooks);
+                var orderItems = orderItemRepository.GetAll();
+                return View(orderItems);
             }
         }
 
@@ -33,45 +33,45 @@ namespace MarkomPos.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            using (var codeRepository = new CodeRepository())
+            using (var orderItemRepository = new OrderItemRepository())
             {
-                var codeBook = codeRepository.GetById(id.GetValueOrDefault(0));
-                if (codeBook == null)
+                var orderItem = orderItemRepository.GetById(id.GetValueOrDefault(0), 0);
+                if (orderItem == null)
                 {
                     return HttpNotFound();
                 }
-                return PartialView("_Details", codeBook);
+                return PartialView("_Details", orderItem);
             }
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int orderId = 0)
         {
-            using (var codeRepository = new CodeRepository())
+            using (var orderItemRepository = new OrderItemRepository())
             {
-                var codeBook = codeRepository.GetById(0);
-                if (codeBook == null)
+                var orderItem = orderItemRepository.GetById(0, orderId);
+                if (orderItem == null)
                 {
                     return HttpNotFound();
                 }
-                return PartialView("_AddCodeBook", codeBook);
+                return PartialView("_AddOrderItem", orderItem);
             }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CodeBookVm codeBook)
+        public ActionResult Create(OrderItemVm orderItem)
         {
             if (ModelState.IsValid)
             {
-                using (var codeRepository = new CodeRepository())
+                using (var orderItemRepository = new OrderItemRepository())
                 {
-                    var result = codeRepository.AddUpdateCodeBook(codeBook);
+                    var result = orderItemRepository.AddUpdateOrderItem(orderItem);
                     if (result)
-                        return RedirectToAction("Index");
+                        return Redirect(Request.UrlReferrer.ToString());
                 }
             }
 
-            return RedirectToAction("Index");
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
         public ActionResult Edit(int? id)
@@ -80,29 +80,28 @@ namespace MarkomPos.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            using (var codeRepository = new CodeRepository())
+            using (var orderItemRepository = new OrderItemRepository())
             {
-                var codeBook = codeRepository.GetById(id.GetValueOrDefault(0));
-                if (codeBook == null)
+                var orderItem = orderItemRepository.GetById(id.GetValueOrDefault(0), 0);
+                if (orderItem == null)
                 {
                     return HttpNotFound();
                 }
-                return PartialView("_AddCodeBook", codeBook);
+                return PartialView("_AddOrderItem", orderItem);
             }
         }
-
 
         [HttpGet, ActionName("DeleteConfirmed")]
         public ActionResult DeleteConfirmed(int id)
         {
-            CodeBook codeBook = db.CodeBooks.Find(id);
-            if (codeBook == null)
+            OrderItem orderItem = db.OrderItems.Find(id);
+            if (orderItem == null)
             {
                 return HttpNotFound();
             }
-            db.CodeBooks.Remove(codeBook);
+            db.OrderItems.Remove(orderItem);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
         protected override void Dispose(bool disposing)

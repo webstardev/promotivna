@@ -1,4 +1,4 @@
-﻿using MarkomPos.Model.BaseModel;
+﻿using MarkomPos.Model.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,18 +6,19 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
-namespace MarkomPos.Model.Model
+namespace MarkomPos.Model.ViewModel
 {
-    public class OrderItem : DbEntity
+    public class OrderItemVm : BaseVm
     {
         public int OrderId { get; set; } // povezana narudžba
-        public Order Order { get; set; }
+        public OrderVm Order { get; set; }
 
         public decimal Ordinal { get; set; } // poredak u prikazu
 
         public int ProductId { get; set; } // povezani artikl
-        public Product Product { get; set; }
+        public ProductVm Product { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Naziv artikla mora biti popunjen !")]
         [DisplayName("Naziv artikla")]
@@ -46,5 +47,9 @@ namespace MarkomPos.Model.Model
 
         [DisplayName("Porez")]
         public decimal Porez { get; set; }
+
+        public List<SelectListItem> Orders { get; set; }
+        public List<SelectListItem> Products { get; set; }
+        public List<SelectListItem> UnitOfMeasures { get; set; }
     }
 }

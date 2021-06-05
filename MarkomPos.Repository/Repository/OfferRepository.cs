@@ -24,13 +24,6 @@ namespace MarkomPos.Repository.Repository
                     .Adapt<List<OfferVm>>().ToList();
             }
         }
-        public List<OfferItem> getOfferItemList(int OfferId)
-        {
-            using (var context = new markomPosDbContext())
-            {
-                return context.OfferItems.Where(x => x.OfferId == OfferId).Include(o => o.Offer).Include(o => o.Product).Include(o => o.UnitOfMeasure).Adapt<List<OfferItem>>().ToList();
-            }
-        }
         public OfferVm GetById(int id)
         {
             using (var context = new markomPosDbContext())
@@ -114,7 +107,7 @@ namespace MarkomPos.Repository.Repository
                     return false;
                 }
             }
-        }        
+        }
         public void Dispose()
         {
         }
