@@ -1,0 +1,351 @@
+﻿@model IEnumerable<MarkomPos.Model.ViewModel.OrderVm>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="um-wrap">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <div class="btn-create-wrap">
+                    <a class="btn btn-default create" href="javascript:void(0)">Create New</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <table id="tblOrder" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>
+                                @Html.DisplayName("povezani kupac")
+                            </th>
+                            <th>
+                                @Html.DisplayName("rok isporuke")
+                            </th>
+                            <th>
+                                @Html.DisplayName("paritet")
+                            </th>
+                            <th>
+                                @Html.DisplayName("način plaćanja")
+                            </th>
+                            <th>
+                                @Html.DisplayName("odgovorna osoba")
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OrderNumber)
+                            </th>
+                            <th>@Html.DisplayName("stavka narudžbe")</th>
+                            <th width="8%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="~/Content/Image/plus.png" />
+                                    <div style="display:none">
+                                        <table cellpadding="0" cellspacing="0" class="ChildGrid">
+                                            <tr>
+                                                <th>
+                                                    ContactName
+                                                </th>
+                                                <th>
+                                                    Product Name
+                                                </th>
+                                                <th>
+                                                    UnitOfMeasure
+                                                </th>
+                                                <th>
+                                                    Ordinal
+                                                </th>
+                                                <th>
+                                                    ProductName
+                                                </th>
+                                                <th>
+                                                    UnitOfMeasureName
+                                                </th>
+                                                <th>
+                                                    Quantity
+                                                </th>
+                                                <th>
+                                                    Price
+                                                </th>
+                                                <th></th>
+                                            </tr>
+                                            @{
+                                                var orderItemRepository = new MarkomPos.Repository.Repository.OrderItemRepository();
+                                                var getOrderItemlist = orderItemRepository.getOrderItemList(item.ID);
+                                                if (getOrderItemlist != null && getOrderItemlist.Count > 0)
+                                                {
+                                                    foreach (var orderItem in getOrderItemlist)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => orderItem.Order.ContactName)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => orderItem.Product.Name)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => orderItem.UnitOfMeasure.Name)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => orderItem.Ordinal)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => orderItem.ProductName)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => orderItem.UnitOfMeasureName)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => orderItem.Quantity)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => orderItem.Price)
+                                                            </td>
+                                                            <td>
+                                                                <a class="editOrderItem" onclick="OpenEditOrderItemPage(@orderItem.ID)" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                                                                <a class="detailsOrderItem" onclick="OpenDetailsOrderItemPage(@orderItem.ID)" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                                                                @Html.ActionLink(" ", "DeleteConfirmed", "OrderItems", new { id = orderItem.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove to list ?');" })
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <tr>
+                                                        <td colspan="10">No Records found</td>
+                                                    </tr>
+                                                }
+
+                                            }
+
+                                        </table>
+                                    </div>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Contact.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DeliveryTerm.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DocumentParity.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PaymentMethod.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ResponsibleUser.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.OrderNumber)
+                                </td>
+                                <td><a class="btn btn-default orderItem" onclick="OpenAddOrderItem(@item.ID)" href="javascript:void(0)">stavka narudžbe</a></td>
+                                <td>
+                                    <a class="edit" onclick="OpenEditOrderPage(@item.ID)" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                                    <a class="details" onclick="OpenDetailsOrderPage(@item.ID)" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                                    @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove to list ?');" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="dialog">
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/jquery-ui.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#tblOrder thead tr').clone(true).appendTo('#tblOrder thead');
+        $('#tblOrder thead tr:eq(1) th').each(function (i) {
+            var title = $(this).text();
+
+            var length = $("table").find("tr:first th").length;
+            if (i == 0 || i == 8) {
+                return;
+            }
+
+            $(this).html('<input type="text" class="form-control text-box single-line"/>');
+
+            $('input', this).on('keyup change', function () {
+                if (table.column(i).search() !== this.value) {
+                    table
+                        .column(i)
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+
+        var table = $('#tblOrder').DataTable({
+            paging: true,
+            lengthChange: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            autoWidth: false,
+            responsive: true,
+            colReorder: true,
+            orderCellsTop: true,
+            fixedHeader: false,
+            columnDefs: [
+                { orderable: false, targets: -1 }
+            ]
+        });
+
+    });
+
+    $(function () {
+        $(".create").click(function () {
+            var $buttonClicked = $(this);
+            var options = {
+                "backdrop": "static",
+                keyboard: true
+            };
+            var ajaxCallURL = '/Orders/Create';
+            $.ajax({
+                type: "GET",
+                url: ajaxCallURL,
+                contentType: "application/json; charset=utf-8",
+                datatype: "json",
+                success: function (data) {
+                    $('#dialog').html(data);
+                    $('#myModal').modal(options);
+                    $('#myModal').modal('show');
+                },
+                error: function () {
+                    alert("Content load failed.");
+                }
+            });
+        });
+        $("body").on("click", "img[src*='plus.png']", function () {
+            $(this).closest("tr").after("<tr><td></td><td colspan = '999'>" + $(this).next().html() + "</td></tr>");
+            $(this).attr("src", "/Content/Image/minus.png");
+        });
+        //Assign Click event to Minus Image.
+        $("body").on("click", "img[src*='minus.png']", function () {
+            $(this).attr("src", "/Content/Image/plus.png");
+            $(this).closest("tr").next().remove();
+        });
+    });
+    function OpenEditOrderPage(Id) {
+        var options = {
+            "backdrop": "static",
+            keyboard: true
+        };
+        var ajaxCallURL = '/Orders/Edit?id=' + Id;
+        $.ajax({
+            type: "GET",
+            url: ajaxCallURL,
+            contentType: "application/json; charset=utf-8",
+            datatype: "json",
+            success: function (data) {
+                $('#dialog').html(data);
+                $('#myModal').modal(options);
+                $('#myModal').modal('show');
+            },
+            error: function () {
+                alert("Content load failed.");
+            }
+        });
+    }
+    function OpenDetailsOrderPage(Id) {
+        var $buttonClicked = $(this);
+        var options = {
+            "backdrop": "static",
+            keyboard: true
+        };
+        var ajaxCallURL = '/Orders/Details?id=' + Id;
+        $.ajax({
+            type: "GET",
+            url: ajaxCallURL,
+            contentType: "application/json; charset=utf-8",
+            datatype: "json",
+            success: function (data) {
+                $('#dialog').html(data);
+                $('#detailsModal').modal(options);
+                $('#detailsModal').modal('show');
+            },
+            error: function () {
+                alert("Content load failed.");
+            }
+        });
+    }
+
+    function OpenAddOrderItem(Id) {
+        var $buttonClicked = $(this);
+        var options = {
+            "backdrop": "static",
+            keyboard: true
+        };
+        var ajaxCallURL = '/OrderItems/Create?orderId=' + Id;
+        $.ajax({
+            type: "GET",
+            url: ajaxCallURL,
+            contentType: "application/json; charset=utf-8",
+            datatype: "json",
+            success: function (data) {
+                $('#dialog').html(data);
+                $('#myModal').modal(options);
+                $('#myModal').modal('show');
+            },
+            error: function () {
+                alert("Content load failed.");
+            }
+        });
+    }
+    function OpenEditOrderItemPage(Id) {
+        var options = {
+            "backdrop": "static",
+            keyboard: true
+        };
+        var ajaxCallURL = '/OrderItems/Edit?id=' + Id;
+        $.ajax({
+            type: "GET",
+            url: ajaxCallURL,
+            contentType: "application/json; charset=utf-8",
+            datatype: "json",
+            success: function (data) {
+                $('#dialog').html(data);
+                $('#myModal').modal(options);
+                $('#myModal').modal('show');
+            },
+            error: function () {
+                alert("Content load failed.");
+            }
+        });
+    }
+    function OpenDetailsOrderItemPage(Id) {
+        var options = {
+            "backdrop": "static",
+            keyboard: true
+        };
+        var ajaxCallURL = '/OrderItems/Details?id=' + Id;
+        $.ajax({
+            type: "GET",
+            url: ajaxCallURL,
+            contentType: "application/json; charset=utf-8",
+            datatype: "json",
+            success: function (data) {
+                $('#dialog').html(data);
+                $('#detailsModal').modal(options);
+                $('#detailsModal').modal('show');
+            },
+            error: function () {
+                alert("Content load failed.");
+            }
+        });
+    }
+</script>

@@ -1,0 +1,194 @@
+﻿@model IEnumerable<MarkomPos.Model.ViewModel.ProductGroupVm>
+
+<table id="tblProductGrpSub" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>
+                @Html.DisplayName("ID")
+            </td>
+            <th>
+                @Html.DisplayNameFor(m => m.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.DisplayName)
+            </th>
+            <th width="30%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DisplayName)
+                </td>
+                <td class="icons-list">
+                    <a class="editSubGroup" data-id="@item.ID" data-title="sub" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                    <a class="detailsSubGroup" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                    @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function () {
+
+        $('#tblProductGrpSub thead tr').clone(true).appendTo('#tblProductGrpSub thead');
+        $('#tblProductGrpSub thead tr:eq(1) th').each(function (i) {
+            var title = $(this).text();
+
+            var length = ($("#tblProductGrpSub tr th").length) / 2;
+            if (i == length - 1) {
+                return;
+            }
+
+            $(this).html('<input type="text" class="form-control text-box single-line"/>');
+
+            $('input', this).on('keyup change', function () {
+                if (tableSub.column(i).search() !== this.value) {
+                    tableSub
+                        .column(i)
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+
+        var tableSub = $('#tblProductGrpSub').DataTable({
+            paging: true,
+            lengthChange: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            autoWidth: false,
+            responsive: true,
+            colReorder: true,
+            orderCellsTop: true,
+            fixedHeader: false,
+            columnDefs: [
+                { orderable: false, targets: -1 },
+                { data: "ID", visible: false, targets: 0 }
+            ]
+        });
+
+        $('#tblProductGrpSub tbody').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                tableSub.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+            var row = $(this).closest('tr');
+            var data = $('#tblProductGrpSub').dataTable().fnGetData(row);
+            var id = parseInt(0);
+            if (data != null && data != undefined && data.ID != null && data.ID != undefined && data.ID != "") {
+                id = parseInt(data.ID);
+            }
+
+            $.ajax({
+                url: '/ProductGroups/GetBasicGroups?id=' + id,
+                datatype: "json",
+                type: "post",
+                contenttype: 'application/json; charset=utf-8',
+                async: true,
+                success: function (data) {
+                    $("#dvBasicGroupList").html(data);
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
+            });
+        });
+
+        $(".detailsSubGroup").click(function () {
+            var $buttonClicked = $(this);
+            var options = {
+                "backdrop": "static",
+                keyboard: true
+            };
+            var id = $(this).attr("data-id");
+            var ajaxCallURL = '/ProductGroups/Details?id=' + id;
+            $.ajax({
+                type: "GET",
+                url: ajaxCallURL,
+                contentType: "application/json; charset=utf-8",
+                datatype: "json",
+                success: function (data) {
+                    $('#dialog').html(data);
+                    $('#detailsModal').modal(options);
+                    $('#detailsModal').modal('show');
+                    $(".dvMain").hide();
+                    $(".blankRow").show();
+                },
+                error: function () {
+                    alert("Content load failed.");
+                }
+            });
+        });
+
+        $(".editSubGroup").click(function () {
+            var $buttonClicked = $(this);
+            var title = $(this).attr("data-title");
+            var options = {
+                "backdrop": "static",
+                keyboard: true
+            };
+            var id = $(this).attr("data-id");
+            var ajaxCallURL = '/ProductGroups/Edit?id=' + id;
+            $.ajax({
+                type: "GET",
+                url: ajaxCallURL,
+                contentType: "application/json; charset=utf-8",
+                datatype: "json",
+                success: function (data) {
+                    $('#dialog').html(data);
+                    $('#myModal').modal(options);
+                    $('#myModal').modal('show');
+
+                    if (title == "main") {
+                        $(".parent").hide();
+                        $(".dvMain").hide();
+                        $(".dvSub").hide();
+                        $('#ParrentGroupId').removeAttr('required');
+                    }
+                    else if (title == "sub") {
+                        $(".dvMain").hide();
+                        $(".dvSub").hide();
+                        $('#ParrentGroupId').attr('required', 'required');
+
+                        var rows = $('#tblProductGrpMain > tbody > tr.selected');
+                        if (rows.length > 0) {
+                            var data = $('#tblProductGrpMain').dataTable().fnGetData(rows);
+                            $('#ParrentGroupId').val(parseInt(data.ID));
+                        }
+
+                        //var selData = tableMain.rows(".selected").data();
+                        //$('#ParrentGroupId').val(selData[0].ID);
+                    }
+                    else {
+                        $('#ParrentGroupId').attr('required', 'required');
+                        var rows = $('#tblProductGrpSub > tbody > tr.selected');
+                        if (rows.length > 0) {
+                            var data = $('#tblProductGrpSub').dataTable().fnGetData(rows);
+                            $('#ParrentGroupId').val(parseInt(data.ID));
+                        }
+                    }
+                },
+                error: function () {
+                    alert("Content load failed.");
+                }
+            });
+        });
+
+    });
+
+</script>

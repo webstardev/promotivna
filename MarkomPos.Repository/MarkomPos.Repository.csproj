@@ -127,6 +127,10 @@
     <Compile Include="Migrations\202106051829052_AddOrderReference_OrderItem.Designer.cs">
       <DependentUpon>202106051829052_AddOrderReference_OrderItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106080317476_ChangeDataTypeProductCode.cs" />
+    <Compile Include="Migrations\202106080317476_ChangeDataTypeProductCode.Designer.cs">
+      <DependentUpon>202106080317476_ChangeDataTypeProductCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AccountRepository.cs" />
@@ -192,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106051829052_AddOrderReference_OrderItem.resx">
       <DependentUpon>202106051829052_AddOrderReference_OrderItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106080317476_ChangeDataTypeProductCode.resx">
+      <DependentUpon>202106080317476_ChangeDataTypeProductCode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

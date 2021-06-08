@@ -100,6 +100,9 @@ namespace MarkomPos.Repository.Repository
                             dbData.StartNumber = codePrefix.StartNumber;
                             dbData.NewStartNumberEachYear = codePrefix.NewStartNumberEachYear;
                             dbData.DateModified = DateTime.Now;
+                            context.SaveChanges();
+
+                            AddUpdateCodeBooks(dbData);
                         }
                     }
                     else
@@ -110,15 +113,46 @@ namespace MarkomPos.Repository.Repository
                             codePrefix.DateCreated = DateTime.Now;
                             codePrefix.DateModified = DateTime.Now;
                             context.CodePrefixes.Add(codePrefix);
+                            context.SaveChanges();
+                            if (codePrefix.ID > 0)
+                            {
+                                AddUpdateCodeBooks(codePrefix);
+                            }
                         }
                     }
-                    context.SaveChanges();
                     return true;
                 }
                 catch (Exception ex)
                 {
                     return false;
                 }
+            }
+        }
+
+        public void AddUpdateCodeBooks(CodePrefix codePrefix)
+        {
+            using (var context = new markomPosDbContext())
+            {
+                var codeBook = new CodeBook();
+                var codeBookData = context.CodeBooks.FirstOrDefault(f => f.CodePrefixId == codePrefix.ID);
+                if (codeBookData != null)
+                    codeBook = codeBookData;
+
+                codeBook.CodePrefixId = codePrefix.ID;
+                codeBook.NextNumber = codePrefix.StartNumber + 1;
+                if (codePrefix.NewStartNumberEachYear)
+                {
+                    codeBook.Year = DateTime.Now.Year;
+                    codeBook.NextNumber = codeBook.Year + 1;
+                }
+                codeBook.DateModified = DateTime.Now;
+                if (codeBookData == null)
+                {
+                    codeBook.DateCreated = DateTime.Now;
+                    context.CodeBooks.Add(codeBook);
+                }
+
+                context.SaveChanges();
             }
         }
         public void Dispose()

@@ -290,20 +290,14 @@
     <Content Include="Views\CodePrefixes\_Details.cshtml" />
     <Content Include="Views\CodeBooks\_AddCodeBook.cshtml" />
     <Content Include="Views\CodeBooks\_Details.cshtml" />
-    <Content Include="Views\Orders\Create.cshtml" />
-    <Content Include="Views\Orders\Delete.cshtml" />
-    <Content Include="Views\Orders\Details.cshtml" />
-    <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
-    <Content Include="Views\OrderItems\Create.cshtml" />
-    <Content Include="Views\OrderItems\Delete.cshtml" />
-    <Content Include="Views\OrderItems\Details.cshtml" />
-    <Content Include="Views\OrderItems\Edit.cshtml" />
     <Content Include="Views\OrderItems\Index.cshtml" />
     <Content Include="Views\Orders\_AddOrder.cshtml" />
     <Content Include="Views\Orders\_Details.cshtml" />
     <Content Include="Views\OrderItems\_AddOrderItem.cshtml" />
     <Content Include="Views\OrderItems\_Details.cshtml" />
+    <Content Include="Views\ProductGroups\_DtProductGroup.cshtml" />
+    <Content Include="Views\ProductGroups\_DtBasicProductGroup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

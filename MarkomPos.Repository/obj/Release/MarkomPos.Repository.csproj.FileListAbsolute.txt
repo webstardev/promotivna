@@ -39,3 +39,5 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\bin\Release\System.Web.We
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\bin\Release\System.Web.WebPages.Razor.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.Migrations.Add_enum_ProductGroupTypeEnum.resources
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.csproj.AssemblyReference.cache
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.Migrations.AddOrderReference_OrderItem.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.Migrations.ChangeDataTypeProductCode.resources

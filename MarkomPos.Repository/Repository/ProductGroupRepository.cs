@@ -31,6 +31,7 @@ namespace MarkomPos.Repository.Repository
                 var productGroupVm = new ProductGroupVm();
                 productGroupVm = context.ProductGroups.Include(p => p.ParrentGroup).FirstOrDefault(f => f.ID == productGroupId).Adapt<ProductGroupVm>();
                 productGroupVm.productGroupVms = new SelectList(context.ProductGroups, "ID", "Name", productGroupVm.ParrentGroupId).ToList();
+                productGroupVm.MainProductGroupVms = new SelectList(context.ProductGroups.Where(w => w.productGroupType == ProductGroupTypeEnum.Main), "ID", "Name").ToList();
 
                 return productGroupVm;
             }
@@ -49,6 +50,8 @@ namespace MarkomPos.Repository.Repository
                     productGroupVm.productGroupVms = new SelectList(context.ProductGroups.Where(w => w.productGroupType == ProductGroupTypeEnum.Sub), "ID", "Name").ToList();
                 else
                     productGroupVm.productGroupVms = new List<SelectListItem>();
+
+                productGroupVm.MainProductGroupVms = new SelectList(context.ProductGroups.Where(w => w.productGroupType == ProductGroupTypeEnum.Main), "ID", "Name").ToList();
 
                 return productGroupVm;
             }
@@ -104,7 +107,15 @@ namespace MarkomPos.Repository.Repository
                 }
             }
         }
-
+        public List<ProductGroupVm> GetAllChildGroup(int parentGroupId)
+        {
+            using (var context = new markomPosDbContext())
+            {
+                var productGroupVms = new List<ProductGroupVm>();
+                productGroupVms = context.ProductGroups.Where(w => w.ParrentGroupId == parentGroupId).Adapt<List<ProductGroupVm>>().ToList();
+                return productGroupVms;
+            }
+        }
         public bool checkIsMainGroup(int id)
         {
             using (var context = new markomPosDbContext())

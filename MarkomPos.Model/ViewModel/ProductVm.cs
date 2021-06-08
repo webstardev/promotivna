@@ -21,9 +21,11 @@ namespace MarkomPos.Model.ViewModel
         public string Note { get; set; } // napomena
         public string Note2 { get; set; } // napomena 2
         [DisplayName("Šifra")]
-        public int Code { get; set; } // šifra
+        public string Code { get; set; } // šifra
         public int? UnitOfMeasureId { get; set; } // mjera
         public int? ProductGroupId { get; set; } // prodajna grupa
+        public List<SelectListItem> MainProductGroupVms { get; set; }
+        public List<SelectListItem> SubProductGroupVms { get; set; }
         public List<SelectListItem> ProductGroups { get; set; }
         public List<SelectListItem> UnitOfMeasures { get; set; }
         public ProductGroupVm ProductGroup { get; set; }

@@ -52,6 +52,8 @@ namespace MarkomPos.Web.Controllers
                 else
                     productGroup.productGroupType = ProductGroupTypeEnum.Basic;
 
+                productGroup.MainProductGroupVms = new SelectList(db.ProductGroups.Where(w => w.productGroupType == ProductGroupTypeEnum.Main), "ID", "Name").ToList();
+
                 productGroup.productGroupVms = productGroupRepository.GetSelectListItems(productGroup.productGroupType);
 
                 return PartialView("_AddProductGroup", productGroup);
@@ -129,6 +131,42 @@ namespace MarkomPos.Web.Controllers
                 }
                 return Json(isLast, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        [HttpPost]
+        public ActionResult GetSubGroups(int id)
+        {
+            using (var productGroupRepository = new ProductGroupRepository())
+            {
+                var subGroupList = productGroupRepository.GetAllChildGroup(id);
+                return PartialView("_DtProductGroup", subGroupList);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult GetBasicGroups(int id)
+        {
+            using (var productGroupRepository = new ProductGroupRepository())
+            {
+                var subGroupList = productGroupRepository.GetAllChildGroup(id);
+                return PartialView("_DtBasicProductGroup", subGroupList);
+            }
+        }
+
+        [HttpGet]
+        public JsonResult GetSelectedSubGroups(int id)
+        {
+            var subProductGroupVms = new SelectList(db.ProductGroups.Where(w => w.productGroupType == ProductGroupTypeEnum.Sub && w.ParrentGroupId == id), "ID", "Name").ToList();
+
+            return Json(subProductGroupVms, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetSelectedBasicGroups(int id)
+        {
+            var basicProductGroupVms = new SelectList(db.ProductGroups.Where(w => w.productGroupType == ProductGroupTypeEnum.Basic && w.ParrentGroupId == id), "ID", "Name").ToList();
+
+            return Json(basicProductGroupVms, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)

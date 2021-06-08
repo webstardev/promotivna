@@ -23,6 +23,7 @@
                 <table id="tblUnitOfMeasure" class="table table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>@Html.DisplayNameFor(model => model.ID)</th>
                             <th>
                                 @Html.DisplayNameFor(model => model.Name)
                             </th>
@@ -36,6 +37,10 @@
                         @foreach (var item in Model)
                         {
                             <tr>
+                                @*@Html.HiddenFor(modelItem => item.ID)*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Name)
                                 </td>
@@ -97,7 +102,8 @@
             orderCellsTop: true,
             fixedHeader: false,
             columnDefs: [
-                { orderable: false, targets: -1 }
+                { orderable: false, targets: -1 },
+                { "data": "ID", "targets": 0, "visible": false }
             ]
         });
 

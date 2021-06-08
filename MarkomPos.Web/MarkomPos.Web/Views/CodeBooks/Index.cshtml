@@ -43,9 +43,9 @@
                                     @Html.DisplayFor(modelItem => item.Year)
                                 </td>
                                 <td>
-                                    <a class="edit" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
-                                    <a class="details" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
-                                    @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove to list ?');" })
+                                    @*<a class="edit" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |*@
+                                    <a class="details" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-eye"></i></a> @*|*@
+                                    @*@Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove to list ?');" })*@
                                 </td>
                             </tr>
                         }

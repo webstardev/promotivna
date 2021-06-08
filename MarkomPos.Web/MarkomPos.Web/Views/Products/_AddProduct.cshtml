@@ -37,9 +37,27 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
+                                                <div class="dvMain">
+                                                    @Html.Label("Main Product Group", htmlAttributes: new { @class = "control-label" })
+                                                    <div class="form-group">
+                                                        @Html.DropDownList("mainGroup", Model.MainProductGroupVms, "Select Main Product Group", htmlAttributes: new { @class = "form-control", @onchange = "onMainChangefunc(this.value)" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="dvSub">
+                                                    @Html.Label("Sub Groups", htmlAttributes: new { @class = "control-label" })
+                                                    <div class="form-group">
+                                                        @Html.DropDownList("subGroup", Model.SubProductGroupVms, "Select Sub Product Group", htmlAttributes: new { @class = "form-control", @onchange = "onSubChangefunc(this.value)" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.ProductGroupId, "ProductGroupId", htmlAttributes: new { @class = "control-label" })
-                                                    @Html.DropDownListFor(m => m.ProductGroupId, Model.ProductGroups, "Select Product Group", htmlAttributes: new { @class = "form-control" })
+                                                    @Html.DropDownListFor(m => m.ProductGroupId, Model.ProductGroups, "Select Product Group", htmlAttributes: new { @class = "form-control", required = "required" })
                                                     @Html.ValidationMessageFor(model => model.ProductGroupId, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
@@ -67,18 +85,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label" })
-                                                    @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                                        @*<div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label" })
+                                                        @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-6">
+                                                <div class="col-md-6">
 
-                                            </div>
-                                        </div>
+                                                </div>
+                                            </div>*@
                                     </div>
                                 </div>
                             </div>
@@ -93,3 +111,61 @@
         </div>
     </div>
 </div>
+
+<script>
+    function onMainChangefunc(val) {
+        var ddlSubGroup = $("#subGroup");
+        if (val != undefined && val > 0) {
+            $.ajax({
+                url: "/ProductGroups/GetSelectedSubGroups",
+                type: 'GET',
+                async: false,
+                cache: false,
+                data: {
+                    id: val
+                },
+                success: function (result) {
+                    ddlSubGroup.empty();
+                    if (result != null && result.length > 0) {
+                        ddlSubGroup.empty().append('<option selected="selected">Select Group</option>');
+                        $.each(result, function () {
+                            ddlSubGroup.append($("<option></option>").val(this['Value']).html(this['Text']));
+                        });
+                    }
+                    var ddlParrentGroup = $("#ProductGroupId");
+                    ddlParrentGroup.empty();
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+    }
+
+    function onSubChangefunc(val) {
+        var ddlParrentGroup = $("#ProductGroupId");
+        if (val != undefined && val > 0) {
+            $.ajax({
+                url: "/ProductGroups/GetSelectedBasicGroups",
+                type: 'GET',
+                async: false,
+                cache: false,
+                data: {
+                    id: val
+                },
+                success: function (result) {
+                    ddlParrentGroup.empty();
+                    if (result != null && result.length > 0) {
+                        ddlParrentGroup.empty().append('<option selected="selected">Select Group</option>');
+                        $.each(result, function () {
+                            ddlParrentGroup.append($("<option></option>").val(this['Value']).html(this['Text']));
+                        });
+                    }
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+    }
+</script>

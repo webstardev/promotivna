@@ -5,14 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    .selected td {
+        background: #f0d75a !important;
+        /* color: #fff !important; */
+    }
+</style>
+
 <section class="um-wrap">
     <div class="container">
         <div class="card">
-            @*<div class="card-header">
-                    <div class="btn-create-wrap">
-                        <a class="btn btn-default create" data-title="main" href="javascript:void(0)">Create Main</a>
-                    </div>
-                </div>*@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 tblCustom">
@@ -24,6 +26,9 @@
                         <table id="tblProductGrpMain" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
+                                    <td>
+                                        @Html.DisplayName("ID")
+                                    </td>
                                     <th>
                                         @Html.DisplayName("Name")
                                     </th>
@@ -37,6 +42,9 @@
                                 @foreach (var item in Model.MainGroup)
                                 {
                                     <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ID)
+                                        </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Name)
                                         </td>
@@ -58,74 +66,16 @@
                             <div class="col-md-4"><label>Sub Group</label></div>
                             <div class="col-md-8 createBtn"><a class="btn btn-default create" data-title="sub" href="javascript:void(0)">Create</a></div>
                         </div>
-                        <table id="tblProductGrpSub" class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        @Html.DisplayName("Name")
-                                    </th>
-                                    <th>
-                                        @Html.DisplayName("DisplayName")
-                                    </th>
-                                    <th width="30%"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model.SubGroup)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Name)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.DisplayName)
-                                        </td>
-                                        <td class="icons-list">
-                                            <a class="edit" data-id="@item.ID" data-title="sub" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
-                                            <a class="details" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
-                                            @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
+                        <div id="dvSubGroupList">
+                        </div>
                     </div>
                     <div class="col-md-4 tblCustom">
                         <div class="row heading">
                             <div class="col-md-4"><label>Basic Group</label></div>
                             <div class="col-md-8 createBtn"><a class="btn btn-default create" data-title="basic" href="javascript:void(0)">Create</a></div>
                         </div>
-                        <table id="tblProductGrpBasic" class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        @Html.DisplayName("Name")
-                                    </th>
-                                    <th>
-                                        @Html.DisplayName("DisplayName")
-                                    </th>
-                                    <th width="30%"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model.BasicGroup)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Name)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.DisplayName)
-                                        </td>
-                                        <td class="icons-list">
-                                            <a class="edit" data-id="@item.ID" data-title="basic" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
-                                            <a class="details" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
-                                            @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
+                        <div id="dvBasicGroupList">
+                        </div>
                     </div>
                 </div>
 
@@ -171,48 +121,6 @@
             });
         });
 
-        $('#tblProductGrpSub thead tr').clone(true).appendTo('#tblProductGrpSub thead');
-        $('#tblProductGrpSub thead tr:eq(1) th').each(function (i) {
-            var title = $(this).text();
-
-            var length = ($("#tblProductGrpSub tr th").length) / 2;
-            if (i == length - 1) {
-                return;
-            }
-
-            $(this).html('<input type="text" class="form-control text-box single-line"/>');
-
-            $('input', this).on('keyup change', function () {
-                if (tableSub.column(i).search() !== this.value) {
-                    tableSub
-                        .column(i)
-                        .search(this.value)
-                        .draw();
-                }
-            });
-        });
-
-        $('#tblProductGrpBasic thead tr').clone(true).appendTo('#tblProductGrpBasic thead');
-        $('#tblProductGrpBasic thead tr:eq(1) th').each(function (i) {
-            var title = $(this).text();
-
-            var length = ($("#tblProductGrpBasic tr th").length) / 2;
-            if (i == length - 1) {
-                return;
-            }
-
-            $(this).html('<input type="text" class="form-control text-box single-line"/>');
-
-            $('input', this).on('keyup change', function () {
-                if (tableBasic.column(i).search() !== this.value) {
-                    tableBasic
-                        .column(i)
-                        .search(this.value)
-                        .draw();
-                }
-            });
-        });
-
         var tableMain = $('#tblProductGrpMain').DataTable({
             paging: true,
             lengthChange: true,
@@ -225,7 +133,9 @@
             orderCellsTop: true,
             fixedHeader: false,
             columnDefs: [
-                { orderable: false, targets: -1 }
+                { orderable: false, targets: -1 },
+                //{ "data": "ID", "targets": 0, "visible": false }
+                { data: "ID", visible: false, targets: 0 }
             ]
             //,
             //drawCallback: function (settings) {
@@ -245,62 +155,41 @@
             //    });
             //}
         });
-        var tableSub = $('#tblProductGrpSub').DataTable({
-            paging: true,
-            lengthChange: true,
-            searching: true,
-            ordering: true,
-            info: true,
-            autoWidth: false,
-            responsive: true,
-            colReorder: true,
-            orderCellsTop: true,
-            fixedHeader: false,
-            columnDefs: [
-                { orderable: false, targets: -1 }
-            ]
-        });
-        var tableBasic = $('#tblProductGrpBasic').DataTable({
-            paging: true,
-            lengthChange: true,
-            searching: true,
-            ordering: true,
-            info: true,
-            autoWidth: false,
-            responsive: true,
-            colReorder: true,
-            //orderCellsTop: true,
-            fixedHeader: false,
-            columnDefs: [
-                { orderable: false, targets: -1 }
-            ]
-        });
-    });
 
-    $(function () {
-        $(".details").click(function () {
-            var $buttonClicked = $(this);
-            var options = {
-                "backdrop": "static",
-                keyboard: true
-            };
-            var id = $(this).attr("data-id");
-            var ajaxCallURL = '/ProductGroups/Details?id=' + id;
+        $('#tblProductGrpMain tbody').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                tableMain.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+
+            var row = $(this).closest('tr');
+            var data = $('#tblProductGrpMain').dataTable().fnGetData(row);
+            var id = parseInt(0);
+            if (data != null && data != undefined && data.ID != null && data.ID != undefined && data.ID != "") {
+                id = parseInt(data.ID);
+            }
+
             $.ajax({
-                type: "GET",
-                url: ajaxCallURL,
-                contentType: "application/json; charset=utf-8",
+                url: '/ProductGroups/GetSubGroups?id=' + id,
                 datatype: "json",
+                type: "post",
+                contenttype: 'application/json; charset=utf-8',
+                async: true,
                 success: function (data) {
-                    $('#dialog').html(data);
-                    $('#detailsModal').modal(options);
-                    $('#detailsModal').modal('show');
+                    $("#dvSubGroupList").html(data);
+                    setTimeout(function () { $("#tblProductGrpSub>tbody>tr:first").trigger('click'); }, 1000);
                 },
-                error: function () {
-                    alert("Content load failed.");
+                error: function (xhr) {
+                    alert('error');
                 }
             });
         });
+
+        $("#tblProductGrpMain>tbody>tr:first").trigger('click');
+
         $(".create").click(function () {
             var $buttonClicked = $(this);
 
@@ -321,10 +210,58 @@
                     $('#myModal').modal('show');
                     if (title == "main") {
                         $(".parent").hide();
+                        $(".dvMain").hide();
+                        $(".dvSub").hide();
                         $('#ParrentGroupId').removeAttr('required');
+                    }
+                    else if (title == "sub") {
+                        $(".dvMain").hide();
+                        $(".dvSub").hide();
+                        $('#ParrentGroupId').attr('required', 'required');
+                        var selData = tableMain.rows(".selected").data();
+                        $('#ParrentGroupId').val(selData[0].ID);
                     }
                     else {
                         $('#ParrentGroupId').attr('required', 'required');
+
+                        var mainRows = $('#tblProductGrpMain > tbody > tr.selected');
+                        if (mainRows.length > 0) {
+                            var mainData = $('#tblProductGrpMain').dataTable().fnGetData(mainRows);
+                            $('#mainGroup').val(parseInt(mainData.ID));
+
+                            var ddlParrentGroup = $("#ParrentGroupId");
+                            if (mainData.ID != undefined && mainData.ID > 0) {
+                                $.ajax({
+                                    url: "/ProductGroups/GetSelectedSubGroups",
+                                    type: 'GET',
+                                    async: false,
+                                    cache: false,
+                                    data: {
+                                        id: mainData.ID
+                                    },
+                                    success: function (result) {
+                                        ddlParrentGroup.empty();
+                                        if (result != null && result.length > 0) {
+                                            ddlParrentGroup.empty().append('<option selected="selected">Select Group</option>');
+                                            $.each(result, function () {
+                                                ddlParrentGroup.append($("<option></option>").val(this['Value']).html(this['Text']));
+                                            });
+                                        }
+                                    },
+                                    error: function () {
+                                        alert("error");
+                                    }
+                                });
+                            }
+
+                            var rows = $('#tblProductGrpSub > tbody > tr.selected');
+                            if (rows.length > 0) {
+                                var data = $('#tblProductGrpSub').dataTable().fnGetData(rows);
+                                if (data != null) {
+                                    $('#ParrentGroupId').val(parseInt(data.ID));
+                                }
+                            }
+                        }
                     }
                 },
                 error: function () {
@@ -332,6 +269,37 @@
                 }
             });
         });
+
+    });
+
+    $(function () {
+        $(".details").click(function () {
+            var $buttonClicked = $(this);
+            var options = {
+                "backdrop": "static",
+                keyboard: true
+            };
+            var id = $(this).attr("data-id");
+            var ajaxCallURL = '/ProductGroups/Details?id=' + id;
+            $.ajax({
+                type: "GET",
+                url: ajaxCallURL,
+                contentType: "application/json; charset=utf-8",
+                datatype: "json",
+                success: function (data) {
+                    $('#dialog').html(data);
+                    $('#detailsModal').modal(options);
+                    $('#detailsModal').modal('show');
+
+                    $(".dvMain").hide();
+                    $(".blankRow").hide();
+                },
+                error: function () {
+                    alert("Content load failed.");
+                }
+            });
+        });
+
         $(".edit").click(function () {
             var $buttonClicked = $(this);
             var title = $(this).attr("data-title");
@@ -353,6 +321,24 @@
 
                     if (title == "main") {
                         $(".parent").hide();
+                        $(".dvMain").hide();
+                        $(".dvSub").hide();
+                        $('#ParrentGroupId').removeAttr('required');
+                    }
+                    else if (title == "sub") {
+                        $(".dvMain").hide();
+                        $(".dvSub").hide();
+                        $('#ParrentGroupId').attr('required', 'required');
+                        var selData = tableMain.rows(".selected").data();
+                        $('#ParrentGroupId').val(selData[0].ID);
+                    }
+                    else {
+                        $('#ParrentGroupId').attr('required', 'required');
+                        var rows = $('#tblProductGrpSub > tbody > tr.selected');
+                        if (rows.length > 0) {
+                            var data = $('#tblProductGrpSub ').dataTable().fnGetData(rows);
+                            $('#ParrentGroupId').val(parseInt(data.ID));
+                        }
                     }
                 },
                 error: function () {
