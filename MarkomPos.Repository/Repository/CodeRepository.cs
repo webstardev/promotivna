@@ -90,8 +90,9 @@ namespace MarkomPos.Repository.Repository
                 {
                     if (codePrefix.ID > 0)
                     {
+                        var isExist = context.CodePrefixes.Any(f => f.DocumentTypeEnum == codePrefix.DocumentTypeEnum && f.ID != codePrefix.ID);
                         var dbData = context.CodePrefixes.Find(codePrefix.ID);
-                        if (dbData != null)
+                        if (dbData != null && !isExist)
                         {
                             dbData.ID = codePrefix.ID;
                             dbData.Name = codePrefix.Name;
@@ -107,7 +108,7 @@ namespace MarkomPos.Repository.Repository
                     }
                     else
                     {
-                        var isExist = context.CodePrefixes.Any(f => f.Name == codePrefix.Name);
+                        var isExist = context.CodePrefixes.Any(f => f.DocumentTypeEnum == codePrefix.DocumentTypeEnum);
                         if (!isExist)
                         {
                             codePrefix.DateCreated = DateTime.Now;

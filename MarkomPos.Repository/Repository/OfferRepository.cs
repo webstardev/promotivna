@@ -11,17 +11,38 @@ namespace MarkomPos.Repository.Repository
 {
     public class OfferRepository : IDisposable
     {
-        public List<OfferVm> GetAll()
+        public OfferIndexVm GetAll()
         {
             using (var context = new markomPosDbContext())
             {
-                return context.Offers
+                var offerIndexVm = new OfferIndexVm()
+                {
+                    OfferList = new List<OfferVm>(),
+                    OfferValidationList = new List<OfferValidationVm>()
+                };
+                offerIndexVm.OfferList = context.Offers
                     .Include(i => i.DeliveryTerm)
                     .Include(i => i.DocumentParity)
                     .Include(i => i.PaymentMethod)
                     .Include(i => i.ResponsibleUser)
                     .Include(i => i.Contact)
                     .Adapt<List<OfferVm>>().ToList();
+
+                if (offerIndexVm.OfferList != null && offerIndexVm.OfferList.Count > 0)
+                {
+                    var offer = offerIndexVm.OfferList.FirstOrDefault();
+                    if (offer != null)
+                    {
+                        offerIndexVm.OfferValidationList = context.OfferValidations
+                            .Include(p => p.User)
+                            .Include(i => i.Offer)
+                            .Where(w => w.OfferId == offer.ID)
+                            .Adapt<List<OfferValidationVm>>().ToList();
+                    }
+                }
+
+
+                return offerIndexVm;
             }
         }
         public OfferVm GetById(int id)
@@ -106,6 +127,47 @@ namespace MarkomPos.Repository.Repository
                 {
                     return false;
                 }
+            }
+        }
+        public OfferIndexVm ChangeOrder(int offerId)
+        {
+            using (var context = new markomPosDbContext())
+            {
+                var offerIndexVm = new OfferIndexVm()
+                {
+                    OfferList = new List<OfferVm>(),
+                    OfferValidationList = new List<OfferValidationVm>()
+                };
+                offerIndexVm.OfferList = context.Offers
+                    .Include(i => i.DeliveryTerm)
+                    .Include(i => i.DocumentParity)
+                    .Include(i => i.PaymentMethod)
+                    .Include(i => i.ResponsibleUser)
+                    .Include(i => i.Contact)
+                    .Adapt<List<OfferVm>>().ToList();
+
+                if (offerIndexVm.OfferList != null && offerIndexVm.OfferList.Count > 0 && offerId == 0)
+                {
+                    var offer = offerIndexVm.OfferList.FirstOrDefault();
+                    if (offer != null)
+                    {
+                        offerIndexVm.OfferValidationList = context.OfferValidations
+                            .Include(p => p.User)
+                            .Include(i => i.Offer)
+                            .Where(w => w.OfferId == offer.ID)
+                            .Adapt<List<OfferValidationVm>>().ToList();
+                    }
+                }
+                else
+                {
+                    offerIndexVm.OfferValidationList = context.OfferValidations
+                            .Include(p => p.User)
+                            .Include(i => i.Offer)
+                            .Where(w => w.OfferId == offerId)
+                            .Adapt<List<OfferValidationVm>>().ToList();
+                }
+
+                return offerIndexVm;
             }
         }
         public void Dispose()

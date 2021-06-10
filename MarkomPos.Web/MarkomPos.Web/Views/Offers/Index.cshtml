@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MarkomPos.Model.ViewModel.OfferVm>
+﻿@model MarkomPos.Model.ViewModel.OfferIndexVm
 
 @{
     ViewBag.Title = "Index";
@@ -21,6 +21,9 @@
 
                             </th>
                             <th>
+                                @Html.DisplayName("ID")
+                            </th>
+                            <th>
                                 @Html.DisplayName("povezani kupac")
                             </th>
                             <th>
@@ -36,14 +39,14 @@
                                 @Html.DisplayName("odgovorna osoba")
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.OfferNumber)
+                                @Html.DisplayName("Offer Number")
                             </th>
                             <th>@Html.DisplayName("stavka ponude")</th>
-                            <th width="8%"></th>
+                            <th width="12%"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model)
+                        @foreach (var item in Model.OfferList)
                         {
                             <tr>
                                 <td>
@@ -75,7 +78,7 @@
                                                 <th>
                                                     Price
                                                 </th>
-                                                <th></th>
+                                                <th width="12%"></th>
                                             </tr>
                                             @{
                                                 var offerIRepositorytem = new MarkomPos.Repository.Repository.OfferItemRepository();
@@ -129,6 +132,10 @@
                                         </table>
                                     </div>
                                 </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Contact.Name)
                                 </td>
@@ -161,6 +168,10 @@
         </div>
     </div>
 </section>
+
+<div id="dvOfferValidation" class="mrgDT">
+</div>
+
 
 <div id="dialog">
 </div>
@@ -206,9 +217,36 @@
             orderCellsTop: true,
             fixedHeader: false,
             columnDefs: [
-                { orderable: false, targets: -1 }
+                { orderable: false, targets: -1 },
+                { data: "ID", visible: false, targets: 1 }
             ]
         });
+
+        $('#tblOffer tbody').on('click', 'tr', function () {
+
+            var row = $(this).closest('tr');
+            var data = $('#tblOffer').dataTable().fnGetData(row);
+            var id = parseInt(0);
+            if (data != null && data != undefined && data.ID != null && data.ID != undefined && data.ID != "") {
+                id = parseInt(data.ID);
+
+                $.ajax({
+                    url: '/Offers/ChangeOrder?offerId=' + id,
+                    datatype: "json",
+                    type: "post",
+                    contenttype: 'application/json; charset=utf-8',
+                    async: true,
+                    success: function (data) {
+                        $("#dvOfferValidation").html(data);
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            }
+        });
+
+        $("#tblOffer>tbody>tr:first").trigger('click');
 
     });
 
@@ -353,4 +391,5 @@
             }
         });
     }
+
 </script>

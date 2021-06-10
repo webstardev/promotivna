@@ -82,6 +82,15 @@ namespace MarkomPos.Web.Controllers
             {
                 return HttpNotFound();
             }
+
+            CodeBook codeBook = db.CodeBooks.FirstOrDefault(f=>f.CodePrefixId == id);
+            if (codeBook == null)
+            {
+                return HttpNotFound();
+            }
+            db.CodeBooks.Remove(codeBook);
+            db.SaveChanges();
+
             db.CodePrefixes.Remove(codePrefix);
             db.SaveChanges();
             return RedirectToAction("Index");

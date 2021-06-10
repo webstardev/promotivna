@@ -101,6 +101,7 @@
     <Compile Include="ViewModel\CodeBookVm.cs" />
     <Compile Include="ViewModel\HashSaltVm.cs" />
     <Compile Include="ViewModel\LoginVm.cs" />
+    <Compile Include="ViewModel\OfferIndexVm.cs" />
     <Compile Include="ViewModel\OfferItemVm.cs" />
     <Compile Include="ViewModel\OfferValidationVm.cs" />
     <Compile Include="ViewModel\OfferVm.cs" />

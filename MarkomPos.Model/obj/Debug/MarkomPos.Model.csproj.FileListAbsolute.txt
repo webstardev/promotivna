@@ -1,4 +1,3 @@
-D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\EntityFramework.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\MarkomPos.Model.dll.config
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\MarkomPos.Model.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\MarkomPos.Model.pdb
@@ -11,6 +10,7 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.Razor.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.WebPages.Deployment.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.WebPages.dll
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.WebPages.Razor.dll
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\EntityFramework.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\EntityFramework.SqlServer.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.Helpers.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.Mvc.xml

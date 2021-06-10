@@ -67,13 +67,13 @@ namespace MarkomPos.Web.Controllers
                 {
                     var result = offerValidationRepository.AddUpdateOfferValidation(offerValidation);
                     if (result)
-                        return RedirectToAction("Index");
+                        return Redirect(Request.UrlReferrer.ToString());
                 }
             }
-            return RedirectToAction("Index");
+
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
-        // GET: OfferValidations/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -101,7 +101,7 @@ namespace MarkomPos.Web.Controllers
             }
             db.OfferValidations.Remove(offerValidation);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
         protected override void Dispose(bool disposing)

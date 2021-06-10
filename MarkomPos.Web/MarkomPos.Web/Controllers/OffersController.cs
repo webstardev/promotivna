@@ -106,6 +106,15 @@ namespace MarkomPos.Web.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public ActionResult ChangeOrder(int offerId)
+        {
+            using (var offerRepository = new OfferRepository())
+            {
+                var offers = offerRepository.ChangeOrder(offerId);
+                return PartialView("_OfferValidationList", offers.OfferValidationList);
+            }
+        }
 
         protected override void Dispose(bool disposing)
         {

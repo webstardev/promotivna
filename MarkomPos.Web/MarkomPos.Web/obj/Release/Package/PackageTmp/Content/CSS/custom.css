@@ -372,3 +372,7 @@ td.icons-list a {
         max-width: 1300px;
     }
 }
+
+.mrgDT {
+    margin-top: 50px !important;
+}
