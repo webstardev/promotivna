@@ -299,6 +299,7 @@
     <Content Include="Views\ProductGroups\_DtProductGroup.cshtml" />
     <Content Include="Views\ProductGroups\_DtBasicProductGroup.cshtml" />
     <Content Include="Views\Offers\_OfferValidationList.cshtml" />
+    <Content Include="Views\Offers\_dtOffer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

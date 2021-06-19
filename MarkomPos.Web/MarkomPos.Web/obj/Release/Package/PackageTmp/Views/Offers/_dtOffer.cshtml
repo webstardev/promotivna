@@ -1,0 +1,394 @@
+﻿@model MarkomPos.Model.ViewModel.OfferIndexVm
+
+<table id="tblOffer" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+
+            </th>
+            <th>
+                @Html.DisplayName("ID")
+            </th>
+            <th>
+                @Html.DisplayName("povezani kupac")
+            </th>
+            <th>
+                @Html.DisplayName("rok isporuke")
+            </th>
+            <th>
+                @Html.DisplayName("paritet")
+            </th>
+            <th>
+                @Html.DisplayName("način plaćanja")
+            </th>
+            <th>
+                @Html.DisplayName("odgovorna osoba")
+            </th>
+            <th>
+                @Html.DisplayName("Offer Number")
+            </th>
+            <th>@Html.DisplayName("stavka ponude")</th>
+            <th width="12%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OfferList)
+        {
+            <tr>
+                <td>
+                    <img src="~/Content/Image/plus.png" />
+                    <div style="display:none">
+                        <table cellpadding="0" cellspacing="0" class="ChildGrid">
+                            <tr>
+                                <th>
+                                    ContactName
+                                </th>
+                                <th>
+                                    Product Name
+                                </th>
+                                <th>
+                                    UnitOfMeasure
+                                </th>
+                                <th>
+                                    Ordinal
+                                </th>
+                                <th>
+                                    ProductName
+                                </th>
+                                <th>
+                                    UnitOfMeasureName
+                                </th>
+                                <th>
+                                    Quantity
+                                </th>
+                                <th>
+                                    Price
+                                </th>
+                                <th width="12%"></th>
+                            </tr>
+                            @{
+                                var offerIRepositorytem = new MarkomPos.Repository.Repository.OfferItemRepository();
+                                var getOfferItemlist = offerIRepositorytem.getOfferItemList(item.ID);
+                                if (getOfferItemlist != null && getOfferItemlist.Count > 0)
+                                {
+                                    foreach (var offerItem in getOfferItemlist)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => offerItem.Offer.ContactName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => offerItem.Product.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => offerItem.UnitOfMeasure.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => offerItem.Ordinal)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => offerItem.ProductName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => offerItem.UnitOfMeasureName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => offerItem.Quantity)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => offerItem.Price)
+                                            </td>
+                                            <td>
+                                                <a class="editOfferItem" onclick="OpenEditOfferItemPage(@offerItem.ID)" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                                                <a class="detailsOfferItem" onclick="OpenDetailsOfferItemPage(@offerItem.ID)" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                                                @Html.ActionLink(" ", "DeleteConfirmed", "OfferItems", new { id = offerItem.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove to list ?');" })
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="10">No Records found</td>
+                                    </tr>
+                                }
+
+                            }
+
+                        </table>
+                    </div>
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contact.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeliveryTerm.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DocumentParity.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentMethod.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResponsibleUser.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OfferNumber)
+                </td>
+                <td><a class="btn btn-default offerItem" onclick="OpenAddOfferItem(@item.ID)" href="javascript:void(0)">stavka ponude</a></td>
+                <td>
+                    <a class="edit" onclick="OpenEditOfferPage(@item.ID)" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                    <a class="details" onclick="OpenDetailsOfferPage(@item.ID)" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                    @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove to list ?');" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function () {
+
+        $('#tblOffer thead tr').clone(true).appendTo('#tblOffer thead');
+        $('#tblOffer thead tr:eq(1) th').each(function (i) {
+            var title = $(this).text();
+
+            var length = $("table").find("tr:first th").length;
+            if (i == 0 || i == 8) {
+                return;
+            }
+
+            $(this).html('<input type="text" class="form-control text-box single-line"/>');
+
+            $('input', this).on('keyup change', function () {
+                if (table.column(i).search() !== this.value) {
+                    table
+                        .column(i)
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+
+        var events = $('#events');
+
+        var table = $('#tblOffer').DataTable({
+            paging: true,
+            lengthChange: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            autoWidth: false,
+            responsive: true,
+            colReorder: true,
+            orderCellsTop: true,
+            fixedHeader: false,
+            rowReorder: false,
+            columnDefs: [
+                { orderable: false, targets: -1 },
+                { data: "ID", visible: false, targets: 1 }
+            ]
+        });
+
+        $('#tblOffer tbody').on('click', 'tr', function () {
+
+            var row = $(this).closest('tr');
+            var data = $('#tblOffer').dataTable().fnGetData(row);
+            var id = parseInt(0);
+            if (data != null && data != undefined && data.ID != null && data.ID != undefined && data.ID != "") {
+                id = parseInt(data.ID);
+
+                $.ajax({
+                    url: '/Offers/ChangeOrder?offerId=' + id,
+                    datatype: "json",
+                    type: "post",
+                    contenttype: 'application/json; charset=utf-8',
+                    async: true,
+                    success: function (data) {
+                        $("#dvOfferValidation").html(data);
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            }
+        });
+
+        $("#tblOffer>tbody>tr:first").trigger('click');
+
+        //table.on('row-reorder', function (e, diff, edit) {
+        //    var result = 'Reorder started on row: ' + edit.triggerRow.data().ID + '\n';
+        //    debugger
+        //    var arrID = new Array();
+        //    // or var arr = [];
+        //    for (var i = 0, ien = diff.length; i < ien; i++) {
+        //        var rowData = table.row(diff[i].node).data();
+        //        arrID.push(rowData.ID);
+        //        console.log(rowData.ID)
+        //        //result += rowData[1] + ' updated to be in position ' +
+        //        //    diff[i].newData + ' (was ' + diff[i].oldData + ')<br>';
+
+        //        //result += rowData[2] + ' updated to be in position ' +
+        //        //    diff[i].newData + ' (was ' + diff[i].oldData + ')<br>';
+
+        //        result += 'ID : ' + rowData.ID + 'New Position is : ' + diff[i].newPosition + '  old position is :' + diff[i].oldPosition;
+        //    }
+        //    alert(arrID);
+        //    alert('Event result:\n' + result);
+
+        //    //$('#result').html('Event result:<br>' + result);
+        //});
+
+    });
+
+    $(function () {
+        $(".create").click(function () {
+            var $buttonClicked = $(this);
+            var options = {
+                "backdrop": "static",
+                keyboard: true
+            };
+            var ajaxCallURL = '/Offers/Create';
+            $.ajax({
+                type: "GET",
+                url: ajaxCallURL,
+                contentType: "application/json; charset=utf-8",
+                datatype: "json",
+                success: function (data) {
+                    $('#dialog').html(data);
+                    $('#myModal').modal(options);
+                    $('#myModal').modal('show');
+                },
+                error: function () {
+                    alert("Content load failed.");
+                }
+            });
+        });
+        $("body").on("click", "img[src*='plus.png']", function () {
+            if (this.src.split('/').pop() == "plus.png") {
+                $(this).closest("tr").after("<tr><td></td><td colspan = '999'>" + $(this).next().html() + "</td></tr>");
+                $(this).attr("src", "/Content/Image/minus.png");
+            }
+        });
+        //Assign Click event to Minus Image.
+        $("body").on("click", "img[src*='minus.png']", function () {
+            if (this.src.split('/').pop() == "minus.png") {
+                $(this).attr("src", "/Content/Image/plus.png");
+                $(this).closest("tr").next().remove();
+            }
+        });
+    });
+    function OpenEditOfferPage(Id) {
+        var options = {
+            "backdrop": "static",
+            keyboard: true
+        };
+        var ajaxCallURL = '/Offers/Edit?id=' + Id;
+        $.ajax({
+            type: "GET",
+            url: ajaxCallURL,
+            contentType: "application/json; charset=utf-8",
+            datatype: "json",
+            success: function (data) {
+                $('#dialog').html(data);
+                $('#myModal').modal(options);
+                $('#myModal').modal('show');
+            },
+            error: function () {
+                alert("Content load failed.");
+            }
+        });
+    }
+    function OpenDetailsOfferPage(Id) {
+        var $buttonClicked = $(this);
+        var options = {
+            "backdrop": "static",
+            keyboard: true
+        };
+        var ajaxCallURL = '/Offers/Details?id=' + Id;
+        $.ajax({
+            type: "GET",
+            url: ajaxCallURL,
+            contentType: "application/json; charset=utf-8",
+            datatype: "json",
+            success: function (data) {
+                $('#dialog').html(data);
+                $('#detailsModal').modal(options);
+                $('#detailsModal').modal('show');
+            },
+            error: function () {
+                alert("Content load failed.");
+            }
+        });
+    }
+
+    function OpenAddOfferItem(Id) {
+        var $buttonClicked = $(this);
+        var options = {
+            "backdrop": "static",
+            keyboard: true
+        };
+        var ajaxCallURL = '/OfferItems/Create?OfferId=' + Id;
+        $.ajax({
+            type: "GET",
+            url: ajaxCallURL,
+            contentType: "application/json; charset=utf-8",
+            datatype: "json",
+            success: function (data) {
+                $('#dialog').html(data);
+                $('#myModal').modal(options);
+                $('#myModal').modal('show');
+            },
+            error: function () {
+                alert("Content load failed.");
+            }
+        });
+    }
+    function OpenEditOfferItemPage(Id) {
+        var options = {
+            "backdrop": "static",
+            keyboard: true
+        };
+        var ajaxCallURL = '/OfferItems/Edit?id=' + Id;
+        $.ajax({
+            type: "GET",
+            url: ajaxCallURL,
+            contentType: "application/json; charset=utf-8",
+            datatype: "json",
+            success: function (data) {
+                $('#dialog').html(data);
+                $('#myModal').modal(options);
+                $('#myModal').modal('show');
+            },
+            error: function () {
+                alert("Content load failed.");
+            }
+        });
+    }
+    function OpenDetailsOfferItemPage(Id) {
+        var options = {
+            "backdrop": "static",
+            keyboard: true
+        };
+        var ajaxCallURL = '/OfferItems/Details?id=' + Id;
+        $.ajax({
+            type: "GET",
+            url: ajaxCallURL,
+            contentType: "application/json; charset=utf-8",
+            datatype: "json",
+            success: function (data) {
+                $('#dialog').html(data);
+                $('#detailsModal').modal(options);
+                $('#detailsModal').modal('show');
+            },
+            error: function () {
+                alert("Content load failed.");
+            }
+        });
+    }
+</script>

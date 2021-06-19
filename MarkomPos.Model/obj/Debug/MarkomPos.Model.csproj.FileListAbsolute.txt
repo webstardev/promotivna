@@ -18,7 +18,6 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.Razor.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.WebPages.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\bin\Debug\System.Web.WebPages.Razor.xml
-D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.csproj.AssemblyReference.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.csproj.CoreCompileInputs.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.csproj.CopyComplete
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Model\obj\Debug\MarkomPos.Model.dll

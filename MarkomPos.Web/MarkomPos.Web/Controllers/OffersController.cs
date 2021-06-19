@@ -116,6 +116,27 @@ namespace MarkomPos.Web.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult OfferFilter(string dateRange)
+        {
+            using (var offerRepository = new OfferRepository())
+            {
+                DateTime fromDate = DateTime.Now;
+                DateTime toDate = DateTime.Now;
+                if (dateRange != null)
+                {
+                    var dates = dateRange.Split('-');
+                    if (dates.Length == 2)
+                    {
+                        fromDate = Convert.ToDateTime(dates[0].ToString().Trim());
+                        toDate = Convert.ToDateTime(dates[1].ToString().Trim());
+                    }
+                }
+                var offers = offerRepository.OfferFilter(fromDate, toDate);
+                return PartialView("_dtOffer", offers);
+            }
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
