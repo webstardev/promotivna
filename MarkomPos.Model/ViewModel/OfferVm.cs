@@ -53,11 +53,12 @@ namespace MarkomPos.Model.ViewModel
 
         [DisplayName("Napomena 2")]
         public string Note2 { get; set; } // napomena 2
+        public decimal OfferItemPrice { get; set; }
 
         public List<SelectListItem> Contacts { get; set; }
         public List<SelectListItem> DeliveryTerms { get; set; }
         public List<SelectListItem> DocumentParities { get; set; }
         public List<SelectListItem> PaymentMethods { get; set; }
-        public List<SelectListItem> Users { get; set; }
+        public List<SelectListItem> ResponsibleUsers { get; set; }
     }
 }

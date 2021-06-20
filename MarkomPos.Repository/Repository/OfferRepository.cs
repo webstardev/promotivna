@@ -67,7 +67,7 @@ namespace MarkomPos.Repository.Repository
                     offerVm.PaymentMethods = new SelectList(context.PaymentMethods, "ID", "Name", offerData.PaymentMethodId).ToList();
                     using (var userRepository = new UserRepository())
                     {
-                        offerVm.Users = new SelectList(userRepository.getAllUser(), "ID", "Name", offerData.ResponsibleUserId).ToList();
+                        offerVm.ResponsibleUsers = new SelectList(userRepository.getAllUser(), "ID", "Name", offerData.ResponsibleUserId).ToList();
                     }
                 }
                 else
@@ -78,7 +78,7 @@ namespace MarkomPos.Repository.Repository
                     offerVm.PaymentMethods = new SelectList(context.PaymentMethods, "ID", "Name").ToList();
                     using (var userRepository = new UserRepository())
                     {
-                        offerVm.Users = new SelectList(userRepository.getAllUser(), "ID", "Name").ToList();
+                        offerVm.ResponsibleUsers = new SelectList(userRepository.getAllUser(), "ID", "Name").ToList();
                     }
                 }
                 return offerVm;
@@ -179,14 +179,33 @@ namespace MarkomPos.Repository.Repository
                     OfferList = new List<OfferVm>(),
                     OfferValidationList = new List<OfferValidationVm>()
                 };
-                offerIndexVm.OfferList = context.Offers
-                    .Include(i => i.DeliveryTerm)
-                    .Include(i => i.DocumentParity)
-                    .Include(i => i.PaymentMethod)
-                    .Include(i => i.ResponsibleUser)
-                    .Include(i => i.Contact)
-                    .Where(w => w.DateCreated >= fromDate && w.DateCreated <= toDate)
-                    .Adapt<List<OfferVm>>().ToList();
+                offerIndexVm.OfferList = (from of in context.Offers.Where(w => w.DateCreated >= fromDate && w.DateCreated <= toDate)
+                                          select new OfferVm()
+                                          {
+                                              ID = of.ID,
+                                              OfferNumber = of.OfferNumber,
+                                              ContactId = of.ContactId,
+                                              DeliveryTermId = of.DeliveryTermId,
+                                              DocumentParityId = of.DocumentParityId,
+                                              PaymentMethodId = of.PaymentMethodId,
+                                              ResponsibleUserId = of.ResponsibleUserId,
+                                              Contact = of.Contact,
+                                              DeliveryTerm = of.DeliveryTerm,
+                                              DocumentParity = of.DocumentParity,
+                                              PaymentMethod = of.PaymentMethod,
+                                              ResponsibleUser = of.ResponsibleUser,
+                                              OfferItemPrice = context.OfferItems.Where(w => w.OfferId == of.ID).ToList().Count > 0 ? context.OfferItems.Where(w => w.OfferId == of.ID).Sum(s => s.Price) : 0
+                                          })
+                                 .Adapt<List<OfferVm>>().ToList();
+
+                //offerIndexVm.OfferList = context.Offers
+                //    .Include(i => i.DeliveryTerm)
+                //    .Include(i => i.DocumentParity)
+                //    .Include(i => i.PaymentMethod)
+                //    .Include(i => i.ResponsibleUser)
+                //    .Include(i => i.Contact)
+                //    .Where(w => w.DateCreated >= fromDate && w.DateCreated <= toDate)
+                //    .Adapt<List<OfferVm>>().ToList();
 
                 if (offerIndexVm.OfferList != null && offerIndexVm.OfferList.Count > 0)
                 {

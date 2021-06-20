@@ -27,6 +27,9 @@
             <th>
                 @Html.DisplayName("Offer Number")
             </th>
+            <th>
+                @Html.DisplayName("Total Price")
+            </th>
             <th>@Html.DisplayName("stavka ponude")</th>
             <th width="12%"></th>
         </tr>
@@ -140,6 +143,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.OfferNumber)
                 </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OfferItemPrice)
+                </td>
                 <td><a class="btn btn-default offerItem" onclick="OpenAddOfferItem(@item.ID)" href="javascript:void(0)">stavka ponude</a></td>
                 <td>
                     <a class="edit" onclick="OpenEditOfferPage(@item.ID)" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
@@ -157,9 +163,9 @@
         $('#tblOffer thead tr').clone(true).appendTo('#tblOffer thead');
         $('#tblOffer thead tr:eq(1) th').each(function (i) {
             var title = $(this).text();
-
+            debugger
             var length = $("table").find("tr:first th").length;
-            if (i == 0 || i == 8) {
+            if (i == 0 || i == 10) {
                 return;
             }
 
