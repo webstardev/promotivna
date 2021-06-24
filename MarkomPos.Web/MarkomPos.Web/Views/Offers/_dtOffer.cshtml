@@ -184,7 +184,6 @@
 
             const that = this;
             $('input', this).on('keyup change', function () {
-                debugger
                 console.log(offerTable);
                 if (offerTable.column(i).search() !== this.value) {
                     offerTable
@@ -196,10 +195,6 @@
         });
 
         var events = $('#events');
-
-        //$("#tblOffer").DataTable({
-        //    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        //}).buttons().container().appendTo('#tblOffer_wrapper .col-md-6:eq(0)');
 
         var offerTable = $('#tblOffer').DataTable({
             paging: true,
@@ -218,7 +213,18 @@
                 { data: "ID", visible: false, targets: 1 }
             ],
             dom: '<"top"l>Bftrip',
-            buttons: ['print', 'colvis']
+            buttons: [
+                {
+                    extend: 'print',
+                    title: 'Offers',
+                    exportOptions: {
+                        columns: ':not(:first-child,:last-child,:nth-last-child(2))',
+                    }
+                },
+                {
+                    extend: 'colvis'
+                }
+            ]
         });
 
         $('#tblOffer tbody').on('click', 'tr', function () {
