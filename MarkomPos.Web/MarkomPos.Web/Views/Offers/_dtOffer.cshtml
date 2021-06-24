@@ -1,5 +1,17 @@
 ﻿@model MarkomPos.Model.ViewModel.OfferIndexVm
 
+@*<style>
+        .dt-buttons {
+            float: right !important;
+        }
+    </style>*@
+
+<style>
+    a.dt-button.dropdown-item.buttons-columnVisibility.active {
+        background-color: #6c757d !important;
+    }
+</style>
+
 <table id="tblOffer" class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -163,17 +175,19 @@
         $('#tblOffer thead tr').clone(true).appendTo('#tblOffer thead');
         $('#tblOffer thead tr:eq(1) th').each(function (i) {
             var title = $(this).text();
-            debugger
-            var length = $("table").find("tr:first th").length;
+            var length = $("offerTable").find("tr:first th").length;
             if (i == 0 || i == 10) {
                 return;
             }
 
             $(this).html('<input type="text" class="form-control text-box single-line"/>');
 
+            const that = this;
             $('input', this).on('keyup change', function () {
-                if (table.column(i).search() !== this.value) {
-                    table
+                debugger
+                console.log(offerTable);
+                if (offerTable.column(i).search() !== this.value) {
+                    offerTable
                         .column(i)
                         .search(this.value)
                         .draw();
@@ -183,7 +197,11 @@
 
         var events = $('#events');
 
-        var table = $('#tblOffer').DataTable({
+        //$("#tblOffer").DataTable({
+        //    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        //}).buttons().container().appendTo('#tblOffer_wrapper .col-md-6:eq(0)');
+
+        var offerTable = $('#tblOffer').DataTable({
             paging: true,
             lengthChange: true,
             searching: true,
@@ -198,7 +216,9 @@
             columnDefs: [
                 { orderable: false, targets: -1 },
                 { data: "ID", visible: false, targets: 1 }
-            ]
+            ],
+            dom: '<"top"l>Bftrip',
+            buttons: ['print', 'colvis']
         });
 
         $('#tblOffer tbody').on('click', 'tr', function () {
@@ -229,7 +249,6 @@
 
         //table.on('row-reorder', function (e, diff, edit) {
         //    var result = 'Reorder started on row: ' + edit.triggerRow.data().ID + '\n';
-        //    debugger
         //    var arrID = new Array();
         //    // or var arr = [];
         //    for (var i = 0, ien = diff.length; i < ien; i++) {
@@ -253,28 +272,6 @@
     });
 
     $(function () {
-        $(".create").click(function () {
-            var $buttonClicked = $(this);
-            var options = {
-                "backdrop": "static",
-                keyboard: true
-            };
-            var ajaxCallURL = '/Offers/Create';
-            $.ajax({
-                type: "GET",
-                url: ajaxCallURL,
-                contentType: "application/json; charset=utf-8",
-                datatype: "json",
-                success: function (data) {
-                    $('#dialog').html(data);
-                    $('#myModal').modal(options);
-                    $('#myModal').modal('show');
-                },
-                error: function () {
-                    alert("Content load failed.");
-                }
-            });
-        });
         $("body").on("click", "img[src*='plus.png']", function () {
             if (this.src.split('/').pop() == "plus.png") {
                 $(this).closest("tr").after("<tr><td></td><td colspan = '999'>" + $(this).next().html() + "</td></tr>");
@@ -289,49 +286,6 @@
             }
         });
     });
-    function OpenEditOfferPage(Id) {
-        var options = {
-            "backdrop": "static",
-            keyboard: true
-        };
-        var ajaxCallURL = '/Offers/Edit?id=' + Id;
-        $.ajax({
-            type: "GET",
-            url: ajaxCallURL,
-            contentType: "application/json; charset=utf-8",
-            datatype: "json",
-            success: function (data) {
-                $('#dialog').html(data);
-                $('#myModal').modal(options);
-                $('#myModal').modal('show');
-            },
-            error: function () {
-                alert("Content load failed.");
-            }
-        });
-    }
-    function OpenDetailsOfferPage(Id) {
-        var $buttonClicked = $(this);
-        var options = {
-            "backdrop": "static",
-            keyboard: true
-        };
-        var ajaxCallURL = '/Offers/Details?id=' + Id;
-        $.ajax({
-            type: "GET",
-            url: ajaxCallURL,
-            contentType: "application/json; charset=utf-8",
-            datatype: "json",
-            success: function (data) {
-                $('#dialog').html(data);
-                $('#detailsModal').modal(options);
-                $('#detailsModal').modal('show');
-            },
-            error: function () {
-                alert("Content load failed.");
-            }
-        });
-    }
 
     function OpenAddOfferItem(Id) {
         var $buttonClicked = $(this);

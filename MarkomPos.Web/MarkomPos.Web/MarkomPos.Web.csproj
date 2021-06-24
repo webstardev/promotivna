@@ -159,6 +159,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CSS\adminlte.min.css" />
     <Content Include="Content\CSS\all.min.css" />
+    <Content Include="Content\CSS\buttons.bootstrap4.css" />
     <Content Include="Content\CSS\buttons.bootstrap4.min.css" />
     <Content Include="Content\CSS\custom.css" />
     <Content Include="Content\CSS\dataTables.bootstrap4.min.css" />
@@ -177,6 +178,18 @@
     <Content Include="Content\JS\adminlte.min.js" />
     <Content Include="Content\JS\bootstrap.bundle.min.js" />
     <Content Include="Content\JS\buttons.bootstrap4.min.js" />
+    <Content Include="Content\JS\datatables-buttons\js\buttons.bootstrap4.js" />
+    <Content Include="Content\JS\datatables-buttons\js\buttons.bootstrap4.min.js" />
+    <Content Include="Content\JS\datatables-buttons\js\buttons.colVis.js" />
+    <Content Include="Content\JS\datatables-buttons\js\buttons.colVis.min.js" />
+    <Content Include="Content\JS\datatables-buttons\js\buttons.flash.js" />
+    <Content Include="Content\JS\datatables-buttons\js\buttons.flash.min.js" />
+    <Content Include="Content\JS\datatables-buttons\js\buttons.html5.js" />
+    <Content Include="Content\JS\datatables-buttons\js\buttons.html5.min.js" />
+    <Content Include="Content\JS\datatables-buttons\js\buttons.print.js" />
+    <Content Include="Content\JS\datatables-buttons\js\buttons.print.min.js" />
+    <Content Include="Content\JS\datatables-buttons\js\dataTables.buttons.js" />
+    <Content Include="Content\JS\datatables-buttons\js\dataTables.buttons.min.js" />
     <Content Include="Content\JS\dataTables.bootstrap4.min.js" />
     <Content Include="Content\JS\dataTables.buttons.min.js" />
     <Content Include="Content\JS\dataTables.responsive.min.js" />
