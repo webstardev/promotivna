@@ -30,146 +30,111 @@
     <link href="~/Content/CSS/custom.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdn.datatables.net/colreorder/1.5.3/css/colReorder.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.8/css/fixedHeader.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
+    @*<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">*@
 
     @*@Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")*@
 </head>
 <body class="hold-transition layout-top-nav">
     <div class="wrapper">
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand-md navbar-light navbar-white footerBg">
-            <div class="container">
-                <a href="~/" class="navbar-brand">
-                    <img src="~/Content/Image/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light txtColor">Markom</span>
-                </a>
-
-                <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="~/" class="nav-link txtColor">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">User</a>
-                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow footerBg">
-                                <li><a href="/Users/Index" class="nav-link txtColor">Users</a></li>
-                                <li><a href="/Roles/Index" class="nav-link txtColor">Role</a></li>
-                                <li><a href="/UserRoleMappings/Index" class="nav-link txtColor">Role Mapping</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Product</a>
-                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow footerBg">
-                                <li><a href="/UnitOfMeasures/Index" class="nav-link txtColor">Unit Of Measures</a></li>
-                                <li><a href="/ProductGroups/Index" class="nav-link txtColor">Product Group</a></li>
-                                <li><a href="/Products/Index" class="nav-link txtColor">Product</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="dropdownSubMenu2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Warehouse</a>
-                            <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow footerBg">
-                                <li><a href="/Warehouses/Index" class="nav-link txtColor">Warehouse</a></li>
-                                <li><a href="/WarehouseItems/Index" class="nav-link txtColor">Warehouse Item</a></li>
-                                <li><a href="/Contacts/Index" class="nav-link txtColor">Contact</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="dropdownSubMenu3" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Offer</a>
-                            <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow footerBg">
-                                <li><a href="/PaymentMethods/Index" class="nav-link txtColor">PaymentMethods</a></li>
-                                <li><a href="/DeliveryTerms/Index" class="nav-link txtColor">Delivery Term</a></li>
-                                <li><a href="/DocumentParities/Index" class="nav-link txtColor">Document Parity</a></li>
-                                <li><a href="/Offers/Index" class="nav-link txtColor">Offer</a></li>
-                                <li><a href="/OfferItems/Index" class="nav-link txtColor">Offer Item</a></li>
-                                <li><a href="/OfferValidations/Index" class="nav-link txtColor">Offer Validation</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-
-                        </li>
-                    </ul>
-                </div>
-                <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                    <li class="nav-item">
-                        <a href="/Account/Logout" class="nav-link txtColor">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <!-- /.navbar -->
-        <!-- Navbar -->
-        @*<nav class="main-header navbar navbar-expand marginLayout footerBg">
-                <div class="container">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                        </li>
-                        <li class="nav-item d-none d-sm-inline-block">
-                            <a href="~/" class="nav-link txtColor">Home</a>
-                        </li>
-                        <li class="nav-item d-none d-sm-inline-block">
-                            <a href="/UnitOfMeasures/Index" class="nav-link txtColor">Unit Of Measures</a>
-                        </li>
-                        <li class="nav-item d-none d-sm-inline-block">
-                            <a href="/Users/Index" class="nav-link txtColor">Users</a>
-                        </li>
-                        <li class="nav-item d-none d-sm-inline-block">
-                            <a href="/ProductGroups/Index" class="nav-link txtColor">Product Group</a>
-                        </li>
-                        <li class="nav-item d-none d-sm-inline-block">
-                            <a href="/Products/Index" class="nav-link txtColor">Product</a>
-                        </li>
-                        <li class="nav-item d-none d-sm-inline-block">
-                            <a href="/Warehouses/Index" class="nav-link txtColor">Warehouse</a>
-                        </li>
-                        <li class="nav-item d-none d-sm-inline-block">
-                            <a href="/WarehouseItems/Index" class="nav-link txtColor">Warehouse Item</a>
-                        </li>
-                        <li class="nav-item d-none d-sm-inline-block">
-                            <a href="/Contacts/Index" class="nav-link txtColor">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>*@
         <div class="content-wrapper dashboard marginLayout">
-            @RenderBody()
-        </div>
-        <footer class="main-footer footerBg marginLayout">
-            @*<div class="float-right d-none d-sm-block">
-                    <p>&copy; @DateTime.Now.Year - Markom Pos</p>
-                </div>*@
-            <strong>Copyright &copy; 2014-2020 <a href="#">Markom Pos</a>.</strong>
-        </footer>
-    </div>
-    @*</body>
-        <body>*@
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="cnt-wrapper-inner">
                 <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        @Html.ActionLink("Unit Of Measures", "Index", "UnitOfMeasures", new { area = "" }, new { @class = "navbar-brand" })
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("Unit Of Measures", "Index", "UnitOfMeasures")</li>
-                        </ul>
+                    <ul class="cnt-logout-link">
+                        <li class="nav-item">
+                            <a href="/Account/Logout" class="user-nav-link">
+                                @if (HttpContext.Current.Session["UserName"] != null && HttpContext.Current.Session["UserName"].ToString() != null && HttpContext.Current.Session["UserName"].ToString() != "")
+                                {
+                                    @Session["UserName"]
+                                }
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/Account/Logout" class="nav-link">odjava</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Navbar -->
+                <div class="navigation-wrapper">
+                    <div class="container">
+                        <nav class="main-header navbar navbar-expand-md navbar-light navbar-white footerBg">
+
+                            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                                <ul class="navbar-nav">
+                                    @*<li class="nav-item active">
+                                            <a href="/Orders/Index" class="nav-link txtColor">Orders</a>
+                                        </li>*@
+                                    <li class="nav-item dropdown">
+                                        <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Product/Contact</a>
+                                        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow footerBg">
+                                            <li class="toggle-icon"><i class="fa fa-chevron-down"></i></li>
+                                            <li><a href="/ProductGroups/Index" class="nav-link txtColor">Product Group</a></li>
+                                            <li><a href="/Products/Index" class="nav-link txtColor">Product</a></li>
+                                            <li><a href="/Contacts/Index" class="nav-link txtColor">Contact</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a id="dropdownSubMenu3" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Offer</a>
+                                        <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow footerBg">
+                                            <li class="toggle-icon"><i class="fa fa-chevron-down"></i></li>
+                                            <li><a href="/Offers/Index" class="nav-link txtColor">Offer</a></li>
+                                            @*<li><a href="/OfferValidations/Index" class="nav-link txtColor">Offer Validation</a></li>*@
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a href="/Orders/Index" class="nav-link txtColor">Orders</a>
+                                    </li>
+                                    @*<li class="nav-item dropdown">
+                                            <a id="dropdownSubMenu4" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Order</a>
+                                            <ul aria-labelledby="dropdownSubMenu4" class="dropdown-menu border-0 shadow footerBg">
+                                                <li class="toggle-icon"><i class="fa fa-chevron-down"></i></li>
+                                            </ul>
+                                        </li>*@
+                                    <li class="nav-item dropdown">
+                                        <a id="dropdownSubMenu2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Turnovers</a>
+                                        <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow footerBg">
+                                            <li class="toggle-icon"><i class="fa fa-chevron-down"></i></li>
+                                            <li><a href="/DeliveryTerms/Index" class="nav-link txtColor">Delivery Term</a></li>
+                                            <li><a href="/DocumentParities/Index" class="nav-link txtColor">Document Parity</a></li>
+                                            <li><a href="/CodePrefixes/Index" class="nav-link txtColor">Code Prefix</a></li>
+                                            <li><a href="/CodeBooks/Index" class="nav-link txtColor">Code Book</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a id="dropdownSubMenu4" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle txtColor">Administration</a>
+                                        <ul aria-labelledby="dropdownSubMenu4" class="dropdown-menu border-0 shadow footerBg">
+                                            <li class="toggle-icon"><i class="fa fa-chevron-down"></i></li>
+                                            <li><a href="/UnitOfMeasures/Index" class="nav-link txtColor">Unit Of Measures</a></li>
+                                            <li><a href="/Users/Index" class="nav-link txtColor">Users</a></li>
+                                            <li><a href="/Roles/Index" class="nav-link txtColor">Role</a></li>
+                                            <li><a href="/UserRoleMappings/Index" class="nav-link txtColor">Role Mapping</a></li>
+                                            <li><a href="/Warehouses/Index" class="nav-link txtColor">Warehouse</a></li>
+                                            <li><a href="/WarehouseItems/Index" class="nav-link txtColor">Warehouse Item</a></li>
+                                            <li><a href="/PaymentMethods/Index" class="nav-link txtColor">PaymentMethods</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </nav>
                     </div>
                 </div>
+                <!-- /.navbar -->
+                <div class="table-content-wrapper">
+                    @RenderBody()
+                </div>
             </div>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Markom Pos</p>
-            </footer>
-        </div>*@
+        </div>
+    </div>
 
     <!-- jQuery -->
     <script src="~/Content/JS/jquery.min.js"></script>
@@ -186,6 +151,9 @@
     <script src="~/Content/JS/responsive.bootstrap4.min.js"></script>
     <script src="~/Content/JS/dataTables.buttons.min.js"></script>
     <script src="~/Content/JS/buttons.bootstrap4.min.js"></script>
+    @*<script src="~/Content/JS/datatables-buttons/js/buttons.html5.min.js"></script>*@
+    <script src="~/Content/JS/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Content/JS/datatables-buttons/js/buttons.colVis.min.js"></script>
     <!-- Sparkline -->
     <script src="~/Content/JS/sparkline.js"></script>
     <!-- daterangepicker -->
@@ -207,6 +175,8 @@
         @RenderSection("scripts", required: false)*@
 
     <script src="https://cdn.datatables.net/colreorder/1.5.3/js/dataTables.colReorder.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js" type="text/javascript"></script>
     <script>
         $(function () {
             $("#example1").DataTable({
@@ -214,13 +184,16 @@
                 "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
+                paging: true,
+                lengthChange: false,
+                searching: true,
+                ordering: true,
+                info: true,
+                autoWidth: false,
+                responsive: true,
+                colReorder: true,
+                orderCellsTop: true,
+                fixedHeader: true
             });
         });
     </script>

@@ -70,7 +70,6 @@ namespace MarkomPos.Repository.Repository
                             dbData.DisplayName = product.DisplayName;
                             dbData.Note = product.Note;
                             dbData.Note2 = product.Note2;
-                            dbData.Code = product.Code;
                             dbData.UnitOfMeasureId = product.UnitOfMeasureId;
                             dbData.ProductGroupId = product.ProductGroupId;
                             dbData.DateModified = DateTime.Now;
@@ -118,6 +117,16 @@ namespace MarkomPos.Repository.Repository
                     return false;
                 }
             }
+        }
+
+        public bool IsProductCodeExist()
+        {
+            bool response = false;
+            using (var context = new markomPosDbContext())
+            {
+                response = context.CodePrefixes.Any(a => a.DocumentTypeEnum == DocumentTypeEnum.Product);
+            }
+            return response;
         }
 
         public void Dispose()

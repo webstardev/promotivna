@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MarkomPos.Model.Model;
+using MarkomPos.Model.ViewModel;
 using MarkomPos.Repository;
 using MarkomPos.Repository.Repository;
 
@@ -122,6 +123,32 @@ namespace MarkomPos.Web.Controllers
             db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult changePassword(int id)
+        {
+            var changePasswordVm = new ChangePasswordVm();
+            changePasswordVm.UserId = id;
+            return PartialView("_ChangePassword", changePasswordVm);
+        }
+        public JsonResult validateOldPassword(int id, string password)
+        {
+            using (var userRepository = new UserRepository())
+            {
+                bool isMatch = true;
+                isMatch = userRepository.validateOldPassword(id, password);
+                return Json(isMatch, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult ChangeUserPassword(ChangePasswordVm changePasswordVm)
+        {
+            using (var userRepository = new UserRepository())
+            {
+                bool response = true;
+                response = userRepository.ChangeUserPassword(changePasswordVm);
+                return Json(response, JsonRequestBehavior.AllowGet);
+            }
         }
 
         protected override void Dispose(bool disposing)

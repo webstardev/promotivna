@@ -55,14 +55,12 @@ namespace MarkomPos.Web.Controllers
                 {
                     var result = deliveryTermRepository.AddUpdateDeliveryTerm(deliveryTerm);
                     if (result)
-                        return RedirectToAction("Index");
+                        return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
-
-            return RedirectToAction("Index");
+            return Json(false, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: DeliveryTerms/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +88,15 @@ namespace MarkomPos.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        public JsonResult IsExist(int id, string deliveryTerm)
+        {
+            using (var deliveryTermRepository = new DeliveryTermRepository())
+            {
+                bool isExist = true;
+                isExist = deliveryTermRepository.IsExist(id, deliveryTerm);
+                return Json(isExist, JsonRequestBehavior.AllowGet);
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

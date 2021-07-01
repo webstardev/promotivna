@@ -45,6 +45,19 @@ namespace MarkomPos.Repository.Repository
                 }
             }
         }
+        public bool IsExist(int id, string deliveryTerm)
+        {
+            bool response = false;
+            using (var context = new markomPosDbContext())
+            {
+                if (id > 0)
+                    response = context.DeliveryTerms.Any(f => f.Name == deliveryTerm && f.ID != id);
+                else
+                    response = context.DeliveryTerms.Any(f => f.Name == deliveryTerm);
+            }
+            return response;
+        }
+
         public void Dispose()
         {
         }

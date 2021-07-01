@@ -69,10 +69,12 @@ namespace MarkomPos.Web.Controllers
                 {
                     var result = productRepository.AddUpdateProduct(product);
                     if (result)
-                        return RedirectToAction("Index");
+                        return Json(result, JsonRequestBehavior.AllowGet);
+                    //return RedirectToAction("Index");
                 }
             }
-            return RedirectToAction("Index");
+            return Json(false, JsonRequestBehavior.AllowGet);
+            //return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int? id)
@@ -103,6 +105,16 @@ namespace MarkomPos.Web.Controllers
             db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public JsonResult IsProductCodeExist()
+        {
+            using (var productRepository = new ProductRepository())
+            {
+                bool isExist = true;
+                isExist = productRepository.IsProductCodeExist();
+                return Json(isExist, JsonRequestBehavior.AllowGet);
+            }
         }
 
         protected override void Dispose(bool disposing)

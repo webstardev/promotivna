@@ -54,11 +54,10 @@ namespace MarkomPos.Web.Controllers
                 {
                     var result = paymentMethodRepository.AddUpdatePaymentMethod(paymentMethod);
                     if (result)
-                        return RedirectToAction("Index");
+                        return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
-
-            return RedirectToAction("Index");
+            return Json(false, JsonRequestBehavior.AllowGet);
         }
 
         // GET: PaymentMethods/Edit/5
@@ -88,6 +87,16 @@ namespace MarkomPos.Web.Controllers
             db.PaymentMethods.Remove(paymentMethod);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public JsonResult IsExist(int id, string name)
+        {
+            using (var paymentMethodRepository = new PaymentMethodRepository())
+            {
+                bool isExist = true;
+                isExist = paymentMethodRepository.IsExist(id, name);
+                return Json(isExist, JsonRequestBehavior.AllowGet);
+            }
         }
 
         protected override void Dispose(bool disposing)

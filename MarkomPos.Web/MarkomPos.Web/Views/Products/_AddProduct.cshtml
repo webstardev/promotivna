@@ -3,7 +3,7 @@
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content footerBg">
-            <form method="post" action="@Url.Action("Create", "Products")">
+            <form method="post" id="productForm" action="@Url.Action("Create", "Products")">
                 @Html.AntiForgeryToken()
                 <div class="modal-header txtColor">
                     <h4 class="modal-title">Product</h4>
@@ -104,7 +104,7 @@
                     </section>
                 </div>
                 <div class="modal-footer footerBg">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" id="btnSubmit" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </form>
@@ -113,6 +113,49 @@
 </div>
 
 <script>
+    $(function () {
+        $("#btnSubmit").click(function () {
+
+            var productCodeExistURL = '/Products/IsProductCodeExist';
+            $.ajax({
+                type: "GET",
+                url: productCodeExistURL,
+                contentType: "application/json; charset=utf-8",
+                datatype: "json",
+                success: function (data) {
+                    if (data == false) {
+                        alert("Please add code in code book")
+                    }
+                    else {
+                        saveProduct();
+                    }
+                },
+                error: function () {
+                    alert("Something failed.");
+                }
+            });
+        });
+    });
+
+    function saveProduct() {
+        var data = $('#productForm').serialize();
+        var ajaxCallURL = '/Products/Create';
+        $.ajax({
+            type: "POST",
+            url: ajaxCallURL,
+            cache: false,
+            data: data,
+            success: function (data) {
+                if (data) {
+                    window.location.href = "/Products/Index";
+                }
+            },
+            error: function () {
+                alert("Content not saved.");
+            }
+        });
+    }
+
     function onMainChangefunc(val) {
         var ddlSubGroup = $("#subGroup");
         if (val != undefined && val > 0) {

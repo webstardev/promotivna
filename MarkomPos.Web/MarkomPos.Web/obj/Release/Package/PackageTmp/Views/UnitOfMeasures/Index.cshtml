@@ -4,105 +4,58 @@
     ViewBag.Title = "Index";
 }
 
-<section class="content-header">
-    <div class="container">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="txtColor">Unit of measure</h1>
-            </div>
-            <div class="col-sm-6">
-                @*<ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item txtColor">Unit of measure</li>
-                        <li class="breadcrumb-item txtColor active">List</li>
-                    </ol>*@
-            </div>
-        </div>
-    </div><!-- /.container-fluid -->
-</section>
+<style>
+    tr.group,
+    tr.group:hover {
+        background-color: #ddd !important;
+    }
+</style>
 
-<section class="container">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        @*<div class="pull-left">
-                                <h3 class="card-title">Unit of Measure</h3>
-                            </div>*@
-                        <div class="btn-create-wrap">
-                            <a class="btn btn-default create" href="javascript:void(0)">Create New</a>
-                            @*@Html.ActionLink("Create New", "Create")*@
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <table id="tblUnitOfMeasure" class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.ID)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Name)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.DisplayName)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.DateCreated)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.CreatedBy)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.DateModified)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.ModifiedBy)
-                                    </th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ID)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Name)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.DisplayName)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.DateCreated)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.CreatedBy)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.DateModified)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ModifiedBy)
-                                        </td>
-                                        <td>
-                                            <a class="edit" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
-                                            <a class="details" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
-                                            @Html.ActionLink(".", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
-                                            @*<a href='"DeleteConfirmed/"+item.ID' onclick="return confirm('Are you sure?')">
-                                                    <i class="fa fa-trash"></i>
-                                                </a>*@
-                                            @*<a href="@Url.Action("DeleteConfirmed","UnitOfMeasures", new { onclick = "return confirm('Are sure wants to delete?');" })"><i class="fa fa-user-edit"></i> </a>*@
-                                            @*@Html.ActionLink("Delete", "DeleteConfirmed", new { id = item.ID }, new { onclick = "return confirm('Are sure wants to delete?');" })*@
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
+<section class="um-wrap">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <div class="btn-create-wrap">
+                    <a class="btn btn-default create" href="javascript:void(0)">Create New</a>
                 </div>
+            </div>
+            <div class="card-body">
+                <table id="tblUnitOfMeasure" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.ID)</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DisplayName)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                @*@Html.HiddenFor(modelItem => item.ID)*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DisplayName)
+                                </td>
+                                <td>
+                                    <a class="edit" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
+                                    <a class="details" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
+                                    @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -112,20 +65,48 @@
 </div>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/jquery-ui.js" type="text/javascript"></script>
 
 <script>
     $(document).ready(function () {
-        $('#tblUnitOfMeasure').DataTable({
+
+        $('#tblUnitOfMeasure thead tr').clone(true).appendTo('#tblUnitOfMeasure thead');
+        $('#tblUnitOfMeasure thead tr:eq(1) th').each(function (i) {
+            var title = $(this).text();
+
+            var length = $("table").find("tr:last td").length;
+            if (i == length - 1) {
+                return;
+            }
+
+            $(this).html('<input type="text" class="form-control text-box single-line"/>');
+
+            $('input', this).on('keyup change', function () {
+                if (table.column(i).search() !== this.value) {
+                    table
+                        .column(i)
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+
+        var table = $('#tblUnitOfMeasure').DataTable({
             paging: true,
-            lengthChange: false,
-            searching: false,
+            lengthChange: true,
+            searching: true,
             ordering: true,
             info: true,
             autoWidth: false,
             responsive: true,
-            colReorder: true
+            colReorder: true,
+            orderCellsTop: true,
+            fixedHeader: false,
+            columnDefs: [
+                { orderable: false, targets: -1 },
+                { "data": "ID", "targets": 0, "visible": false }
+            ]
         });
+
     });
 
     $(function () {
@@ -135,7 +116,7 @@
                 "backdrop": "static",
                 keyboard: true
             };
-            var id = $(this).closest("tr").find("td").eq(0).html();
+            var id = $(this).attr("data-id");
             var ajaxCallURL = '/UnitOfMeasures/Details?id=' + id;
             $.ajax({
                 type: "GET",
@@ -180,7 +161,7 @@
                 "backdrop": "static",
                 keyboard: true
             };
-            var id = $(this).closest("tr").find("td").eq(0).html();
+            var id = $(this).attr("data-id");
             var ajaxCallURL = '/UnitOfMeasures/Edit?id=' + id;
             $.ajax({
                 type: "GET",

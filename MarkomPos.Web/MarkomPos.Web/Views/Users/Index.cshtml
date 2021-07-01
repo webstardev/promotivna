@@ -31,7 +31,7 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.Username)
                             </th>
-                            <th width="8%"></th>
+                            <th width="18%"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,7 +56,8 @@
                                 <td>
                                     <a class="edit" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-user-edit"></i></a> |
                                     <a class="details" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-eye"></i></a> |
-                                    @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" })
+                                    @Html.ActionLink(" ", "DeleteConfirmed", new { id = item.ID }, new { @class = "fa fa-trash", onclick = "return confirm('Are you sure you want to remove " + @item.Name + " to list ?');" }) |
+                                    <a class="changePassword" data-id="@item.ID" href="javascript:void(0)"><i class="fa fa-key"></i></a>
                                 </td>
                             </tr>
                         }
@@ -189,6 +190,31 @@
                         $('#ConfirmPassword').hide();
                         $(':input[type="submit"]').prop('disabled', false);
                     }
+                },
+                error: function () {
+                    alert("Content load failed.");
+                }
+            });
+        });
+        $(".changePassword").click(function () {
+            var options = {
+                "backdrop": "static",
+                keyboard: true
+            };
+            var id = $(this).attr("data-id");
+            if (id == null || id == 0) {
+                alert("UserId should be greater than zero.");
+            }
+            var ajaxCallURL = '/Users/changePassword?id=' + id;
+            $.ajax({
+                type: "GET",
+                url: ajaxCallURL,
+                contentType: "application/json; charset=utf-8",
+                datatype: "json",
+                success: function (data) {
+                    $('#dialog').html(data);
+                    $('#changePasswordModal').modal(options);
+                    $('#changePasswordModal').modal('show');
                 },
                 error: function () {
                     alert("Content load failed.");

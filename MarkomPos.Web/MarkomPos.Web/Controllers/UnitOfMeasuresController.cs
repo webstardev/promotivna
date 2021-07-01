@@ -52,11 +52,10 @@ namespace MarkomPos.Web.Controllers
                 {
                     var result = unitOfMeasuresRepository.AddUnitMeasure(unitOfMeasure);
                     if (result)
-                        return RedirectToAction("Index");
+                        return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
-
-            return RedirectToAction("Index");
+            return Json(false, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Edit(int? id)
@@ -94,6 +93,15 @@ namespace MarkomPos.Web.Controllers
             }
         }
 
+        public JsonResult IsExist(int id, string name)
+        {
+            using (var unitOfMeasuresRepository = new UnitOfMeasuresRepository())
+            {
+                bool isExist = true;
+                isExist = unitOfMeasuresRepository.IsExist(id, name);
+                return Json(isExist, JsonRequestBehavior.AllowGet);
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

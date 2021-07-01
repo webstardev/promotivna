@@ -55,14 +55,12 @@ namespace MarkomPos.Web.Controllers
                 {
                     var result = documentParityRepository.AddUpdateDocumentParty(documentParity);
                     if (result)
-                        return RedirectToAction("Index");
+                        return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
-
-            return RedirectToAction("Index");
+            return Json(false, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: DocumentParities/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,7 +75,6 @@ namespace MarkomPos.Web.Controllers
             return PartialView("_AddDocumentParity", documentParity);
         }
 
-        // Get: DocumentParities/Delete/5
         [HttpGet, ActionName("DeleteConfirmed")]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -89,6 +86,16 @@ namespace MarkomPos.Web.Controllers
             db.DocumentParities.Remove(documentParity);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public JsonResult IsExist(int id, string documentParity)
+        {
+            using (var documentParityRepository = new DocumentParityRepository())
+            {
+                bool isExist = true;
+                isExist = documentParityRepository.IsExist(id, documentParity);
+                return Json(isExist, JsonRequestBehavior.AllowGet);
+            }
         }
 
         protected override void Dispose(bool disposing)

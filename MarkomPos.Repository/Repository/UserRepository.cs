@@ -1,4 +1,5 @@
 ﻿using MarkomPos.Model.Model;
+using MarkomPos.Model.ViewModel;
 using MarkomPos.Repository.Common;
 using System;
 using System.Collections.Generic;
@@ -71,6 +72,51 @@ namespace MarkomPos.Repository.Repository
                          where urm.RolesId != 1
                          select user).ToList();
                 return users;
+            }
+        }
+
+        public bool validateOldPassword(int id, string password)
+        {
+            using (var context = new markomPosDbContext())
+            {
+                var user = context.Users.FirstOrDefault(a => a.ID == id);
+
+                if (user == null)
+                    return false;
+
+                bool isMatch = false;
+                if ((user.PasswordHash != null && user.PasswordSalt != null) && (user.PasswordHash != "" && user.PasswordSalt != ""))
+                    isMatch = PasswordUtil.VerifyPassword(password, user.PasswordHash, user.PasswordSalt);
+
+                if (!isMatch)
+                    return false;
+                else
+                    return true;
+            }
+        }
+
+        public bool ChangeUserPassword(ChangePasswordVm changePasswordVm)
+        {
+            try
+            {
+                using (var context = new markomPosDbContext())
+                {
+                    var user = context.Users.FirstOrDefault(a => a.ID == changePasswordVm.UserId);
+
+                    if (user == null)
+                        return false;
+
+                    var getHashSaltPassword = PasswordUtil.GetHashSaltPassword(changePasswordVm.Password);
+                    user.PasswordHash = getHashSaltPassword.Hash;
+                    user.PasswordSalt = getHashSaltPassword.Salt;
+
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
 

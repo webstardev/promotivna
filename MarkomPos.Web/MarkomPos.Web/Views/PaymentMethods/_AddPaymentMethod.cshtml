@@ -3,7 +3,7 @@
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content footerBg">
-            <form method="post" action="@Url.Action("Create", "PaymentMethods")">
+            <form method="post" id="paymentForm" action="@Url.Action("Create", "PaymentMethods")">
                 @Html.AntiForgeryToken()
                 <div class="modal-header txtColor">
                     <h4 class="modal-title">Payment Method</h4>
@@ -36,7 +36,7 @@
                     </section>
                 </div>
                 <div class="modal-footer footerBg">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" id="btnSubmit" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </form>
@@ -44,3 +44,53 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(function () {
+        $("#btnSubmit").click(function () {
+
+            var IsExistURL = '/PaymentMethods/IsExist';
+            $.ajax({
+                type: "GET",
+                url: IsExistURL,
+                data: {
+                    id: $("#ID").val(),
+                    name: $("#Name").val()
+                },
+                contentType: "application/json; charset=utf-8",
+                datatype: "json",
+                success: function (data) {
+                    if (data == true) {
+                        alert("This name already exist!")
+                    }
+                    else {
+                        savePaymentMethod();
+                    }
+                },
+                error: function () {
+                    alert("Something failed.");
+                }
+            });
+        });
+    });
+
+    function savePaymentMethod() {
+        var data = $('#paymentForm').serialize();
+        var ajaxCallURL = '/PaymentMethods/Create';
+        $.ajax({
+            type: "POST",
+            url: ajaxCallURL,
+            cache: false,
+            data: data,
+            success: function (data) {
+                if (data) {
+                    window.location.href = "/PaymentMethods/Index";
+                }
+            },
+            error: function () {
+                alert("Content not saved.");
+            }
+        });
+    }
+
+</script>

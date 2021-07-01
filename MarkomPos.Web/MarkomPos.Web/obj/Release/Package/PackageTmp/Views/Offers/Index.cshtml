@@ -22,7 +22,7 @@
                                 <i class="far fa-calendar-alt"></i>
                             </span>
                         </div>
-                        <input type="text" class="form-control float-right" id="filterDate" onchange="dateRangeChange(this)">
+                        <input type="text" class="form-control float-right" id="filterDate" onchange="dateRangeChange()">
                     </div>
                 </div>
                 <div id="dvOffer"></div>
@@ -45,18 +45,32 @@
 @*<script src="~/Content/JS/rowReorder.js"></script>*@
 <script>
     $(document).ready(function () {
-        //var d = new Date();
-        //d.setMonth(d.getMonth() - 1);
-
-        //var dt_from = $.datepicker.formatDate('dd/mm/yy', d);
-        //var dt_to = $.datepicker.formatDate('dd/mm/yy', new Date());
-        //$('#filterDate').val(dt_from + " - " + dt_to);
+        var priviousDate = new Date(new Date().setDate(new Date().getDate() - 30));
 
         $('#filterDate').daterangepicker({
             locale: {
                 format: "MM/DD/YYYY"
             }
         });
+
+        $('#filterDate').val(setFormatDate(priviousDate) + " - " + setFormatDate(new Date()));
+
+        dateRangeChange();
+
+        function setFormatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+
+            //return [day, month, year].join('/');
+            return [month, day, year].join('/');
+        }
 
     });
 
@@ -128,9 +142,9 @@
         });
     }
 
-    function dateRangeChange(val) {
+    function dateRangeChange() {
         $.ajax({
-            url: '/Offers/OfferFilter?dateRange=' + val.value,
+            url: '/Offers/OfferFilter?dateRange=' + $('#filterDate').val(),
             datatype: "json",
             type: "post",
             contenttype: 'application/json; charset=utf-8',

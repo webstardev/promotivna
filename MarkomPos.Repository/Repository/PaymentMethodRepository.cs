@@ -45,6 +45,20 @@ namespace MarkomPos.Repository.Repository
                 }
             }
         }
+
+        public bool IsExist(int id, string name)
+        {
+            bool response = false;
+            using (var context = new markomPosDbContext())
+            {
+                if (id > 0)
+                    response = context.PaymentMethods.Any(f => f.Name == name && f.ID != id);
+                else
+                    response = context.PaymentMethods.Any(f => f.Name == name);
+            }
+            return response;
+        }
+
         public void Dispose()
         {
         }
