@@ -3,7 +3,7 @@
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content footerBg">
-            <form method="post" action="@Url.Action("Create", "CodePrefixes")">
+            <form method="post" id="codePrefixForm" action="@Url.Action("Create", "CodePrefixes")">
                 @Html.AntiForgeryToken()
                 <div class="modal-header txtColor">
                     <h4 class="modal-title">Code Prefix</h4>
@@ -70,10 +70,65 @@
                     </section>
                 </div>
                 <div class="modal-footer footerBg">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" id="btnSubmit" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    $(function () {
+        $("#btnSubmit").click(function () {
+            if ($("#codePrefixForm").valid()) {
+                if ($('#DocumentTypeEnum').val() == "0") {
+                    alert("Please select Vrsta dokumenta")
+                }
+                else {
+                    var codePrefixExistURL = '/CodePrefixes/IsCodePrefixExist';
+                    $.ajax({
+                        type: "GET",
+                        url: codePrefixExistURL,
+                        data: {
+                            id: $("#ID").val(),
+                            codePrefix: $("#DocumentTypeEnum").val()
+                        },
+                        contentType: "application/json; charset=utf-8",
+                        datatype: "json",
+                        success: function (data) {
+                            if (data == true) {
+                                alert("This type of prefix already exist")
+                            }
+                            else {
+                                saveCodePrefix();
+                            }
+                        },
+                        error: function () {
+                            alert("Something failed.");
+                        }
+                    });
+                }
+            }
+        });
+    });
+
+    function saveCodePrefix() {
+        var data = $('#codePrefixForm').serialize();
+        var ajaxCallURL = '/CodePrefixes/Create';
+        $.ajax({
+            type: "POST",
+            url: ajaxCallURL,
+            cache: false,
+            data: data,
+            success: function (data) {
+                if (data) {
+                    window.location.href = "/CodePrefixes/Index";
+                }
+            },
+            error: function () {
+                alert("Content not saved.");
+            }
+        });
+    }
+</script>

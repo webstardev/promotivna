@@ -36,6 +36,8 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repos
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.Add_enum_ProductGroupTypeEnum.resources
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.AddOrderReference_OrderItem.resources
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.ChangeDataTypeProductCode.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.ChangeDataType_ContactCode.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.Migrations.ChangeDataType_OfferNumber.resources
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.csproj.GenerateResource.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.csproj.CoreCompileInputs.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Debug\MarkomPos.Repository.csproj.CopyComplete

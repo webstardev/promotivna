@@ -1,4 +1,4 @@
-﻿@model MarkomPos.Model.ViewModel.OfferIndexVm
+﻿@*@model MarkomPos.Model.ViewModel.OfferIndexVm*@
 
 @{
     ViewBag.Title = "Index";
@@ -49,7 +49,7 @@
 
         $('#filterDate').daterangepicker({
             locale: {
-                format: "MM/DD/YYYY"
+                format: "DD/MM/YYYY"
             }
         });
 
@@ -68,8 +68,7 @@
             if (day.length < 2)
                 day = '0' + day;
 
-            //return [day, month, year].join('/');
-            return [month, day, year].join('/');
+            return [day, month, year].join('/');
         }
 
     });
@@ -143,6 +142,8 @@
     }
 
     function dateRangeChange() {
+        //if (setFormatDate(new Date()) + " - " + setFormatDate(new Date()) != $('#filterDate').val()) {
+        //}
         $.ajax({
             url: '/Offers/OfferFilter?dateRange=' + $('#filterDate').val(),
             datatype: "json",

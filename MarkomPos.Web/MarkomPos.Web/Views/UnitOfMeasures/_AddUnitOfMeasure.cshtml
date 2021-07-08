@@ -47,29 +47,30 @@
 <script>
     $(function () {
         $("#btnSubmit").click(function () {
-
-            var IsExistURL = '/UnitOfMeasures/IsExist';
-            $.ajax({
-                type: "GET",
-                url: IsExistURL,
-                data: {
-                    id: $("#ID").val(),
-                    name: $("#Name").val()
-                },
-                contentType: "application/json; charset=utf-8",
-                datatype: "json",
-                success: function (data) {
-                    if (data == true) {
-                        alert("This name already exist!")
+            if ($("#uomForm").valid()) {
+                var IsExistURL = '/UnitOfMeasures/IsExist';
+                $.ajax({
+                    type: "GET",
+                    url: IsExistURL,
+                    data: {
+                        id: $("#ID").val(),
+                        name: $("#Name").val()
+                    },
+                    contentType: "application/json; charset=utf-8",
+                    datatype: "json",
+                    success: function (data) {
+                        if (data == true) {
+                            alert("This name already exist!")
+                        }
+                        else {
+                            saveUom();
+                        }
+                    },
+                    error: function () {
+                        alert("Something failed.");
                     }
-                    else {
-                        saveUom();
-                    }
-                },
-                error: function () {
-                    alert("Something failed.");
-                }
-            });
+                });
+            }
         });
     });
 

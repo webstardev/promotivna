@@ -200,6 +200,8 @@
     <Content Include="Content\JS\jquery.dataTables.min.js" />
     <Content Include="Content\JS\jquery.min.js" />
     <Content Include="Content\JS\jquery.overlayScrollbars.min.js" />
+    <Content Include="Content\JS\jquery.validate.min.js" />
+    <Content Include="Content\JS\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\JS\moment.min.js" />
     <Content Include="Content\JS\responsive.bootstrap4.min.js" />
     <Content Include="Content\JS\sparkline.js" />

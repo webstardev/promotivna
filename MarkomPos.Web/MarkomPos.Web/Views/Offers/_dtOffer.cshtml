@@ -10,6 +10,10 @@
     a.dt-button.dropdown-item.buttons-columnVisibility.active {
         background-color: #6c757d !important;
     }
+
+    .selected td {
+        background: #f0d75a !important;
+    }
 </style>
 
 <table id="tblOffer" class="table table-bordered table-hover">
@@ -228,6 +232,15 @@
         });
 
         $('#tblOffer tbody').on('click', 'tr', function () {
+            if ($(this).hasClass('odd') == true || $(this).hasClass('even') == true) {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    offerTable.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            }
 
             var row = $(this).closest('tr');
             var data = $('#tblOffer').dataTable().fnGetData(row);
@@ -253,27 +266,27 @@
 
         $("#tblOffer>tbody>tr:first").trigger('click');
 
-        //table.on('row-reorder', function (e, diff, edit) {
-        //    var result = 'Reorder started on row: ' + edit.triggerRow.data().ID + '\n';
-        //    var arrID = new Array();
-        //    // or var arr = [];
-        //    for (var i = 0, ien = diff.length; i < ien; i++) {
-        //        var rowData = table.row(diff[i].node).data();
-        //        arrID.push(rowData.ID);
-        //        console.log(rowData.ID)
-        //        //result += rowData[1] + ' updated to be in position ' +
-        //        //    diff[i].newData + ' (was ' + diff[i].oldData + ')<br>';
+        offerTable.on('row-reorder', function (e, diff, edit) {
+            var result = 'Reorder started on row: ' + edit.triggerRow.data().ID + '\n';
+            var arrID = new Array();
+            // or var arr = [];
+            for (var i = 0, ien = diff.length; i < ien; i++) {
+                var rowData = offerTable.row(diff[i].node).data();
+                arrID.push(rowData.ID);
+                console.log(rowData.ID)
+                //result += rowData[1] + ' updated to be in position ' +
+                //    diff[i].newData + ' (was ' + diff[i].oldData + ')<br>';
 
-        //        //result += rowData[2] + ' updated to be in position ' +
-        //        //    diff[i].newData + ' (was ' + diff[i].oldData + ')<br>';
+                //result += rowData[2] + ' updated to be in position ' +
+                //    diff[i].newData + ' (was ' + diff[i].oldData + ')<br>';
 
-        //        result += 'ID : ' + rowData.ID + 'New Position is : ' + diff[i].newPosition + '  old position is :' + diff[i].oldPosition;
-        //    }
-        //    alert(arrID);
-        //    alert('Event result:\n' + result);
+                result += 'ID : ' + rowData.ID + 'New Position is : ' + diff[i].newPosition + '  old position is :' + diff[i].oldPosition;
+            }
+            alert(arrID);
+            alert('Event result:\n' + result);
 
-        //    //$('#result').html('Event result:<br>' + result);
-        //});
+            //$('#result').html('Event result:<br>' + result);
+        });
 
     });
 

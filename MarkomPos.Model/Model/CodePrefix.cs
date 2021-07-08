@@ -20,11 +20,11 @@ namespace MarkomPos.Model.Model
         [DisplayName("Kratki naziv")]
         public string DisplayName { get; set; }
 
-        [Required(ErrorMessage = "Prefix se mora odnositi na vrstu dokumenta !")]
+        [Range(1, int.MaxValue, ErrorMessage = "Prefix se mora odnositi na vrstu dokumenta !")]
         [DisplayName("Vrsta dokumenta")]
         public DocumentTypeEnum DocumentTypeEnum { get; set; }
 
-        [Required(ErrorMessage = "Prefix mora imati početni broj!")]
+        [Range(1, int.MaxValue, ErrorMessage = "Prefix mora imati početni broj!")]
         [DisplayName("Početni broj dokumenta")]
         public int StartNumber { get; set; }
 

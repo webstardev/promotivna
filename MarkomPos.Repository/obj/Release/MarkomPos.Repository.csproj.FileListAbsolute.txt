@@ -41,3 +41,5 @@ D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Rep
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.csproj.AssemblyReference.cache
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.Migrations.AddOrderReference_OrderItem.resources
 D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.Migrations.ChangeDataTypeProductCode.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.Migrations.ChangeDataType_ContactCode.resources
+D:\My\Nikhil\PromotivnaWeb\Source\MarkomPos.Repository\obj\Release\MarkomPos.Repository.Migrations.ChangeDataType_OfferNumber.resources

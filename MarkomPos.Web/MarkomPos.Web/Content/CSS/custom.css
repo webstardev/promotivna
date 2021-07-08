@@ -376,3 +376,8 @@ td.icons-list a {
 .mrgDT {
     margin-top: 50px !important;
 }
+
+label.error {
+    color: #dc3545 !important;
+    font-weight: 500 !important;
+}

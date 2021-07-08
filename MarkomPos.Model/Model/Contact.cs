@@ -12,7 +12,7 @@ namespace MarkomPos.Model.Model
     public class Contact : DbEntity
     {
         [DisplayName("Šifra")]
-        public int Code { get; set; } // šifra
+        public string Code { get; set; } // šifra
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Kontakt mora imati naziv !")]
         [DisplayName("Naziv")]

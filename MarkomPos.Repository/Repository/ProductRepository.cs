@@ -87,14 +87,18 @@ namespace MarkomPos.Repository.Repository
                                             cp.DisplayName
                                         }).FirstOrDefault();
 
-                        var nextNumber = codeData.NextNumber;
-                        product.Code = codeData.DisplayName + nextNumber;
-
-                        var isExistCode = context.Products.Any(a => a.Code == product.Code);
-                        if (isExistCode)
+                        int nextNumber = 0;
+                        if (codeData != null)
                         {
-                            nextNumber = nextNumber + 1;
+                            nextNumber = codeData.NextNumber;
                             product.Code = codeData.DisplayName + nextNumber;
+
+                            var isExistCode = context.Products.Any(a => a.Code == product.Code);
+                            if (isExistCode)
+                            {
+                                nextNumber = nextNumber + 1;
+                                product.Code = codeData.DisplayName + nextNumber;
+                            }
                         }
 
                         product.DateCreated = DateTime.Now;

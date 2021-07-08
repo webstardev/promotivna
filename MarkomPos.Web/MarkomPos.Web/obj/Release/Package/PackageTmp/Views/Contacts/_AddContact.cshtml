@@ -3,7 +3,7 @@
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content footerBg">
-            <form method="post" action="@Url.Action("Create", "Contacts")">
+            <form method="post" id="contactForm" action="@Url.Action("Create", "Contacts")">
                 @Html.AntiForgeryToken()
                 <div class="modal-header txtColor">
                     <h4 class="modal-title">Contact</h4>
@@ -20,14 +20,14 @@
                                     @Html.HiddenFor(model => model.ID)
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label" })
-                                                    @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
+                                            @*<div class="col-md-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label" })
+                                                        @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>*@
+                                            <div class="col-md-12">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
                                                     @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", required = "required" } })
@@ -208,10 +208,56 @@
                     </section>
                 </div>
                 <div class="modal-footer footerBg">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" id="btnSubmit" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    $(function () {
+        $("#btnSubmit").click(function () {
+            if ($("#contactForm").valid()) {
+                var contactCodeExistURL = '/Contacts/IsContactCodeExist';
+                $.ajax({
+                    type: "GET",
+                    url: contactCodeExistURL,
+                    contentType: "application/json; charset=utf-8",
+                    datatype: "json",
+                    success: function (data) {
+                        if (data == false) {
+                            alert("Please add code in code book")
+                        }
+                        else {
+                            saveContact();
+                        }
+                    },
+                    error: function () {
+                        alert("Something failed.");
+                    }
+                });
+            }
+        });
+    });
+
+    function saveContact() {
+        var data = $('#contactForm').serialize();
+        var ajaxCallURL = '/Contacts/Create';
+        $.ajax({
+            type: "POST",
+            url: ajaxCallURL,
+            cache: false,
+            data: data,
+            success: function (data) {
+                if (data) {
+                    window.location.href = "/Contacts/Index";
+                }
+            },
+            error: function () {
+                alert("Content not saved.");
+            }
+        });
+    }
+</script>

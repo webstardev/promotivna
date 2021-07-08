@@ -21,11 +21,12 @@ namespace MarkomPos.Web.Controllers
         // GET: Offers
         public ActionResult Index()
         {
-            using (var offerRepository = new OfferRepository())
-            {
-                var offers = offerRepository.GetAll();
-                return View(offers);
-            }
+            //using (var offerRepository = new OfferRepository())
+            //{
+            //    var offers = offerRepository.GetAll();
+            //    return View(offers);
+            //}
+            return View();
         }
 
         public ActionResult Details(int? id)
@@ -69,11 +70,10 @@ namespace MarkomPos.Web.Controllers
                 {
                     var result = offerRepository.AddUpdateOffer(offer);
                     if (result)
-                        return RedirectToAction("Index");
+                        return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
-
-            return RedirectToAction("Index");
+            return Json(false, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Offers/Edit/5
@@ -136,7 +136,15 @@ namespace MarkomPos.Web.Controllers
                 return PartialView("_dtOffer", offers);
             }
         }
-
+        public JsonResult IsOfferCodeExist()
+        {
+            using (var offerRepository = new OfferRepository())
+            {
+                bool isExist = true;
+                isExist = offerRepository.IsOfferCodeExist();
+                return Json(isExist, JsonRequestBehavior.AllowGet);
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

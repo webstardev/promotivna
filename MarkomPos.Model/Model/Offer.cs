@@ -15,7 +15,7 @@ namespace MarkomPos.Model.Model
         public DateTime OfferDate { get; set; }
 
         [DisplayName("Broj")]
-        public int OfferNumber { get; set; }
+        public string OfferNumber { get; set; }
 
         [DisplayName("Valjanost ponude")]
         public DateTime ExpirationDate { get; set; }

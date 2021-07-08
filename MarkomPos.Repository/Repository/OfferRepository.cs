@@ -6,6 +6,7 @@ using System.Linq;
 using System.Data.Entity;
 using Mapster;
 using System.Web.Mvc;
+using MarkomPos.Model.Enum;
 
 namespace MarkomPos.Repository.Repository
 {
@@ -90,6 +91,7 @@ namespace MarkomPos.Repository.Repository
             {
                 try
                 {
+                    int nextNumber = 0;
                     if (offer.ID > 0)
                     {
                         var dbData = context.Offers.Find(offer.ID);
@@ -97,7 +99,7 @@ namespace MarkomPos.Repository.Repository
                         {
                             dbData.ID = offer.ID;
                             dbData.OfferDate = offer.OfferDate;
-                            dbData.OfferNumber = offer.OfferNumber;
+                            //dbData.OfferNumber = offer.OfferNumber;
                             dbData.ExpirationDate = offer.ExpirationDate;
                             dbData.DeliveryTermId = offer.DeliveryTermId;
                             dbData.DocumentParityId = offer.DocumentParityId;
@@ -115,11 +117,40 @@ namespace MarkomPos.Repository.Repository
                     }
                     else
                     {
+                        var codeData = (from cp in context.CodePrefixes
+                                        join cb in context.CodeBooks on cp.ID equals cb.CodePrefixId
+                                        where cp.DocumentTypeEnum == DocumentTypeEnum.Offer
+                                        select new
+                                        {
+                                            cb.NextNumber,
+                                            cp.DisplayName
+                                        }).FirstOrDefault();
+
+                        if (codeData != null)
+                        {
+                            nextNumber = codeData.NextNumber;
+                            offer.OfferNumber = codeData.DisplayName + nextNumber;
+
+                            var isExistCode = context.Products.Any(a => a.Code == offer.OfferNumber);
+                            if (isExistCode)
+                            {
+                                nextNumber = nextNumber + 1;
+                                offer.OfferNumber = codeData.DisplayName + nextNumber;
+                            }
+                        }
+
                         offer.DateCreated = DateTime.Now;
                         offer.DateModified = DateTime.Now;
                         var offerData = offer.Adapt<Offer>();
                         context.Offers.Add(offerData);
                     }
+                    context.SaveChanges();
+
+                    var codeBookData = (from cb in context.CodeBooks
+                                        join cp in context.CodePrefixes on cb.CodePrefixId equals cp.ID
+                                        where cp.DocumentTypeEnum == DocumentTypeEnum.Product
+                                        select cb).FirstOrDefault();
+                    codeBookData.NextNumber = nextNumber + 1;
                     context.SaveChanges();
                     return true;
                 }
@@ -179,7 +210,7 @@ namespace MarkomPos.Repository.Repository
                     OfferList = new List<OfferVm>(),
                     OfferValidationList = new List<OfferValidationVm>()
                 };
-                offerIndexVm.OfferList = (from of in context.Offers.Where(w => w.DateCreated >= fromDate && w.DateCreated <= toDate)
+                offerIndexVm.OfferList = (from of in context.Offers.Where(w => DbFunctions.TruncateTime(w.DateCreated) >= fromDate && DbFunctions.TruncateTime(w.DateCreated) <= toDate)
                                           select new OfferVm()
                                           {
                                               ID = of.ID,
@@ -223,7 +254,15 @@ namespace MarkomPos.Repository.Repository
                 return offerIndexVm;
             }
         }
-
+        public bool IsOfferCodeExist()
+        {
+            bool response = false;
+            using (var context = new markomPosDbContext())
+            {
+                response = context.CodePrefixes.Any(a => a.DocumentTypeEnum == DocumentTypeEnum.Offer);
+            }
+            return response;
+        }
         public void Dispose()
         {
         }

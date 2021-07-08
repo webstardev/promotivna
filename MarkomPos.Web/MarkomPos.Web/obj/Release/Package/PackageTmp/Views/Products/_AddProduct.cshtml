@@ -41,6 +41,7 @@
                                                     @Html.Label("Main Product Group", htmlAttributes: new { @class = "control-label" })
                                                     <div class="form-group">
                                                         @Html.DropDownList("mainGroup", Model.MainProductGroupVms, "Select Main Product Group", htmlAttributes: new { @class = "form-control", @onchange = "onMainChangefunc(this.value)" })
+                                                        @Html.ValidationMessage("mainGroup", "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
                                             </div>
@@ -49,6 +50,7 @@
                                                     @Html.Label("Sub Groups", htmlAttributes: new { @class = "control-label" })
                                                     <div class="form-group">
                                                         @Html.DropDownList("subGroup", Model.SubProductGroupVms, "Select Sub Product Group", htmlAttributes: new { @class = "form-control", @onchange = "onSubChangefunc(this.value)" })
+                                                        @Html.ValidationMessage("subGroup", "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
                                             </div>
@@ -85,18 +87,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        @*<div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label" })
-                                                        @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-
-                                                </div>
-                                            </div>*@
                                     </div>
                                 </div>
                             </div>
@@ -115,25 +105,59 @@
 <script>
     $(function () {
         $("#btnSubmit").click(function () {
-
-            var productCodeExistURL = '/Products/IsProductCodeExist';
-            $.ajax({
-                type: "GET",
-                url: productCodeExistURL,
-                contentType: "application/json; charset=utf-8",
-                datatype: "json",
-                success: function (data) {
-                    if (data == false) {
-                        alert("Please add code in code book")
-                    }
-                    else {
-                        saveProduct();
-                    }
-                },
-                error: function () {
-                    alert("Something failed.");
+            if ($("#productForm").valid()) {
+                if ($("#mainGroup").val() == null || $("#mainGroup").val() == "" || $("#mainGroup").val() == "Select Group") {
+                    $("[data-valmsg-for='mainGroup']").text("This field is required.");
+                    e.preventDefault();
                 }
-            });
+                else {
+                    $("[data-valmsg-for='mainGroup']").text("");
+                }
+                if ($("#subGroup").val() == null || $("#subGroup").val() == "" || $("#subGroup").val() == "Select Group") {
+                    $("[data-valmsg-for='subGroup']").text("This field is required.");
+                    e.preventDefault();
+                }
+                else {
+                    $("[data-valmsg-for='subGroup']").text("");
+                }
+                if ($("#ProductGroupId").val() == null || $("#ProductGroupId").val() == "" || $("#ProductGroupId").val() == "Select Group") {
+                    $("[data-valmsg-for='ProductGroupId']").text("This field is required.");
+                    e.preventDefault();
+                }
+                else {
+                    $("[data-valmsg-for='ProductGroupId']").text("");
+                }
+                if ($("#UnitOfMeasureId").val() == null || $("#UnitOfMeasureId").val() == "") {
+                    $("[data-valmsg-for='UnitOfMeasureId']").text("This field is required.");
+                    e.preventDefault();
+                }
+                else {
+                    $("[data-valmsg-for='UnitOfMeasureId']").text("");
+                } //else {
+                //    $("[data-valmsg-for='ProductGroupId']").text("");
+                //    e.preventDefault.remove();
+                //}
+            }
+            if ($("#productForm").valid()) {
+                var productCodeExistURL = '/Products/IsProductCodeExist';
+                $.ajax({
+                    type: "GET",
+                    url: productCodeExistURL,
+                    contentType: "application/json; charset=utf-8",
+                    datatype: "json",
+                    success: function (data) {
+                        if (data == false) {
+                            alert("Please add code in code book")
+                        }
+                        else {
+                            saveProduct();
+                        }
+                    },
+                    error: function () {
+                        alert("Something failed.");
+                    }
+                });
+            }
         });
     });
 

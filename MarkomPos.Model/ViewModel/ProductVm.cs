@@ -23,6 +23,7 @@ namespace MarkomPos.Model.ViewModel
         [DisplayName("Šifra")]
         public string Code { get; set; } // šifra
         public int? UnitOfMeasureId { get; set; } // mjera
+        //[Range(1, int.MaxValue)]
         public int? ProductGroupId { get; set; } // prodajna grupa
         public List<SelectListItem> MainProductGroupVms { get; set; }
         public List<SelectListItem> SubProductGroupVms { get; set; }

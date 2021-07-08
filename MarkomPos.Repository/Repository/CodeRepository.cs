@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Mapster;
 using System.Web.Mvc;
+using MarkomPos.Model.Enum;
 
 namespace MarkomPos.Repository.Repository
 {
@@ -155,6 +156,18 @@ namespace MarkomPos.Repository.Repository
 
                 context.SaveChanges();
             }
+        }
+        public bool IsCodePrefixExist(int id, DocumentTypeEnum codePrefix)
+        {
+            bool response = false;
+            using (var context = new markomPosDbContext())
+            {
+                if (id > 0)
+                    response = context.CodePrefixes.Any(a => a.DocumentTypeEnum == codePrefix && a.ID != id);
+                else
+                    response = context.CodePrefixes.Any(a => a.DocumentTypeEnum == codePrefix);
+            }
+            return response;
         }
         public void Dispose()
         {

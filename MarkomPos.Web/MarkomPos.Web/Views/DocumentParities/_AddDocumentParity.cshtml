@@ -48,29 +48,30 @@
 <script>
     $(function () {
         $("#btnSubmit").click(function () {
-
-            var IsExistURL = '/DocumentParities/IsExist';
-            $.ajax({
-                type: "GET",
-                url: IsExistURL,
-                data: {
-                    id: $("#ID").val(),
-                    documentParity: $("#Name").val()
-                },
-                contentType: "application/json; charset=utf-8",
-                datatype: "json",
-                success: function (data) {
-                    if (data == true) {
-                        alert("This name already exist!")
+            if ($("#dpForm").valid()) {
+                var IsExistURL = '/DocumentParities/IsExist';
+                $.ajax({
+                    type: "GET",
+                    url: IsExistURL,
+                    data: {
+                        id: $("#ID").val(),
+                        documentParity: $("#Name").val()
+                    },
+                    contentType: "application/json; charset=utf-8",
+                    datatype: "json",
+                    success: function (data) {
+                        if (data == true) {
+                            alert("This name already exist!")
+                        }
+                        else {
+                            saveDocumentParity();
+                        }
+                    },
+                    error: function () {
+                        alert("Something failed.");
                     }
-                    else {
-                        saveDocumentParity();
-                    }
-                },
-                error: function () {
-                    alert("Something failed.");
-                }
-            });
+                });
+            }
         });
     });
 

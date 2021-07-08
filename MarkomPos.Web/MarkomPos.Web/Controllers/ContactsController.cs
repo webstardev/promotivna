@@ -58,11 +58,10 @@ namespace MarkomPos.Web.Controllers
                 {
                     var result = contactRepository.AddUpdateContact(contact);
                     if (result)
-                        return RedirectToAction("Index");
+                        return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
-
-            return RedirectToAction("Index");
+            return Json(false, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Contacts/Edit/5
@@ -93,7 +92,15 @@ namespace MarkomPos.Web.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        public JsonResult IsContactCodeExist()
+        {
+            using (var contactRepository = new ContactRepository())
+            {
+                bool isExist = true;
+                isExist = contactRepository.IsContactCodeExist();
+                return Json(isExist, JsonRequestBehavior.AllowGet);
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

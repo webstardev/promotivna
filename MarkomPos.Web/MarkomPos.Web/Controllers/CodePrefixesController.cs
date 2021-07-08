@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MarkomPos.Model.Enum;
 using MarkomPos.Model.Model;
 using MarkomPos.Repository;
 using MarkomPos.Repository.Repository;
@@ -52,11 +53,10 @@ namespace MarkomPos.Web.Controllers
                 {
                     var result = codeRepository.AddUpdateCodePrefix(codePrefix);
                     if (result)
-                        return RedirectToAction("Index");
+                        return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
-
-            return RedirectToAction("Index");
+            return Json(false, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Edit(int? id)
@@ -83,7 +83,7 @@ namespace MarkomPos.Web.Controllers
                 return HttpNotFound();
             }
 
-            CodeBook codeBook = db.CodeBooks.FirstOrDefault(f=>f.CodePrefixId == id);
+            CodeBook codeBook = db.CodeBooks.FirstOrDefault(f => f.CodePrefixId == id);
             if (codeBook == null)
             {
                 return HttpNotFound();
@@ -95,7 +95,15 @@ namespace MarkomPos.Web.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        public JsonResult IsCodePrefixExist(int id, DocumentTypeEnum codePrefix)
+        {
+            using (var codeRepository = new CodeRepository())
+            {
+                bool isExist = true;
+                isExist = codeRepository.IsCodePrefixExist(id, codePrefix);
+                return Json(isExist, JsonRequestBehavior.AllowGet);
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -48,29 +48,30 @@
 <script>
     $(function () {
         $("#btnSubmit").click(function () {
-
-            var IsExistURL = '/PaymentMethods/IsExist';
-            $.ajax({
-                type: "GET",
-                url: IsExistURL,
-                data: {
-                    id: $("#ID").val(),
-                    name: $("#Name").val()
-                },
-                contentType: "application/json; charset=utf-8",
-                datatype: "json",
-                success: function (data) {
-                    if (data == true) {
-                        alert("This name already exist!")
+            if ($("#paymentForm").valid()) {
+                var IsExistURL = '/PaymentMethods/IsExist';
+                $.ajax({
+                    type: "GET",
+                    url: IsExistURL,
+                    data: {
+                        id: $("#ID").val(),
+                        name: $("#Name").val()
+                    },
+                    contentType: "application/json; charset=utf-8",
+                    datatype: "json",
+                    success: function (data) {
+                        if (data == true) {
+                            alert("This name already exist!")
+                        }
+                        else {
+                            savePaymentMethod();
+                        }
+                    },
+                    error: function () {
+                        alert("Something failed.");
                     }
-                    else {
-                        savePaymentMethod();
-                    }
-                },
-                error: function () {
-                    alert("Something failed.");
-                }
-            });
+                });
+            }
         });
     });
 
