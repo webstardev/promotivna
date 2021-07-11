@@ -18,6 +18,7 @@
                                 <!-- left column -->
                                 <div class="col-md-12">
                                     @Html.HiddenFor(model => model.ID)
+                                    @Html.HiddenFor(model => model.OfferId)
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6">
@@ -36,14 +37,14 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.OfferId, "OfferId", htmlAttributes: new { @class = "control-label" })
-                                                    @Html.DropDownListFor(m => m.OfferId, Model.Offers, "Select Offer", htmlAttributes: new { @class = "form-control", required = "required" })
-                                                    @Html.ValidationMessageFor(model => model.OfferId, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
+                                            @*<div class="col-md-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.OfferId, "OfferId", htmlAttributes: new { @class = "control-label" })
+                                                        @Html.DropDownListFor(m => m.OfferId, Model.Offers, "Select Offer", htmlAttributes: new { @class = "form-control", required = "required" })
+                                                        @Html.ValidationMessageFor(model => model.OfferId, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>*@
+                                            <div class="col-md-12">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label" })
                                                     @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })

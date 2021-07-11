@@ -44,11 +44,12 @@ namespace MarkomPos.Web.Controllers
             }
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int offerId = 0)
         {
             using (var offerValidationRepository = new OfferValidationRepository())
             {
                 var offerValidation = offerValidationRepository.GetById(0);
+                offerValidation.OfferId = offerId;
                 if (offerValidation == null)
                 {
                     return HttpNotFound();

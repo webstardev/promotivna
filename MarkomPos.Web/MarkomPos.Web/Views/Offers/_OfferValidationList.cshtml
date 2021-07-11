@@ -8,7 +8,7 @@
                     <div class="col-md-3"><label style="color:white">Offer Validation</label></div>
                     <div class="col-md-9">
                         <div class="btn-create-wrap">
-                            <a class="btn btn-default createValidation" href="javascript:void(0)">Create New</a>
+                            <a class="btn btn-default createValidation" href="javascript:void(0)">Validate</a>
                         </div>
                     </div>
                 </div>
@@ -132,6 +132,9 @@
             });
         });
         $(".createValidation").click(function () {
+            var rows = $('#tblOffer > tbody > tr.selected')
+            var data = $('#tblOffer').dataTable().fnGetData(rows);            
+            console.log(data.ID)
             var $buttonClicked = $(this);
             var options = {
                 "backdrop": "static",
@@ -141,8 +144,11 @@
             $.ajax({
                 type: "GET",
                 url: ajaxCallURL,
-                contentType: "application/json; charset=utf-8",
-                datatype: "json",
+                async: false,
+                cache: false,
+                data: {
+                    offerId: data.ID
+                },
                 success: function (data) {
                     $('#dialogValidation').html(data);
                     $('#myModal').modal(options);
