@@ -22,15 +22,15 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    @Html.LabelFor(model => model.ContactId, "Contact", htmlAttributes: new { @class = "control-label" })
-                                                    @Html.DropDownListFor(m => m.ContactId, Model.Contacts, "Select Contact", htmlAttributes: new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.ContactId, "", new { @class = "text-danger" })
+                                                    @Html.LabelFor(model => model.ResponsibleUserId, "ResponsibleUserId", htmlAttributes: new { @class = "control-label" })
+                                                    @Html.DropDownListFor(m => m.ResponsibleUserId, Model.ResponsibleUsers, "Select Responsible User", htmlAttributes: new { @class = "form-control", required = "required" })
+                                                    @Html.ValidationMessageFor(model => model.ResponsibleUserId, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.DeliveryTermId, "DeliveryTermId", htmlAttributes: new { @class = "control-label" })
-                                                    @Html.DropDownListFor(m => m.DeliveryTermId, Model.DeliveryTerms, "Select Delivery Term", htmlAttributes: new { @class = "form-control", required = "required" })
+                                                    @Html.DropDownListFor(m => m.DeliveryTermId, Model.DeliveryTerms, "Select Delivery Term", htmlAttributes: new { @class = "form-control" })
                                                     @Html.ValidationMessageFor(model => model.DeliveryTermId, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
@@ -39,14 +39,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.DocumentParityId, "DocumentParityId", htmlAttributes: new { @class = "control-label" })
-                                                    @Html.DropDownListFor(m => m.DocumentParityId, Model.DocumentParities, "Select Document Parity", htmlAttributes: new { @class = "form-control", required = "required" })
+                                                    @Html.DropDownListFor(m => m.DocumentParityId, Model.DocumentParities, "Select Document Parity", htmlAttributes: new { @class = "form-control" })
                                                     @Html.ValidationMessageFor(model => model.DocumentParityId, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.PaymentMethodId, "PaymentMethodId", htmlAttributes: new { @class = "control-label" })
-                                                    @Html.DropDownListFor(m => m.PaymentMethodId, Model.PaymentMethods, "Select Payment Method", htmlAttributes: new { @class = "form-control", required = "required" })
+                                                    @Html.DropDownListFor(m => m.PaymentMethodId, Model.PaymentMethods, "Select Payment Method", htmlAttributes: new { @class = "form-control" })
                                                     @Html.ValidationMessageFor(model => model.PaymentMethodId, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
@@ -54,9 +54,9 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    @Html.LabelFor(model => model.ResponsibleUserId, "ResponsibleUserId", htmlAttributes: new { @class = "control-label" })
-                                                    @Html.DropDownListFor(m => m.ResponsibleUserId, Model.ResponsibleUsers, "Select Responsible User", htmlAttributes: new { @class = "form-control", required = "required" })
-                                                    @Html.ValidationMessageFor(model => model.ResponsibleUserId, "", new { @class = "text-danger" })
+                                                    @Html.LabelFor(model => model.ContactId, "Contact", htmlAttributes: new { @class = "control-label" })
+                                                    @Html.DropDownListFor(m => m.ContactId, Model.Contacts, "Select Contact", htmlAttributes: new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.ContactId, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                             <div class="col-md-6">

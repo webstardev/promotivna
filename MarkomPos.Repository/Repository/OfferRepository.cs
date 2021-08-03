@@ -131,7 +131,7 @@ namespace MarkomPos.Repository.Repository
                             nextNumber = codeData.NextNumber;
                             offer.OfferNumber = codeData.DisplayName + nextNumber;
 
-                            var isExistCode = context.Products.Any(a => a.Code == offer.OfferNumber);
+                            var isExistCode = context.Offers.Any(a => a.OfferNumber == offer.OfferNumber);
                             if (isExistCode)
                             {
                                 nextNumber = nextNumber + 1;
@@ -221,6 +221,7 @@ namespace MarkomPos.Repository.Repository
                                               PaymentMethodId = of.PaymentMethodId,
                                               ResponsibleUserId = of.ResponsibleUserId,
                                               Contact = of.Contact,
+                                              ContactName = of.ContactName,
                                               DeliveryTerm = of.DeliveryTerm,
                                               DocumentParity = of.DocumentParity,
                                               PaymentMethod = of.PaymentMethod,

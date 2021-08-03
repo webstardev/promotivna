@@ -53,6 +53,7 @@ namespace MarkomPos.Web.Controllers
                 {
                     return HttpNotFound();
                 }
+                offerItem.OfferId = OfferId;
                 return PartialView("_AddOfferItem", offerItem);
             }
         }

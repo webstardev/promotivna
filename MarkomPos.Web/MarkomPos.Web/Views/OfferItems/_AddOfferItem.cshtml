@@ -18,8 +18,10 @@
                                 <!-- left column -->
                                 <div class="col-md-12">
                                     @Html.HiddenFor(model => model.ID)
+                                    @Html.HiddenFor(model => model.OfferId)
+                                    @Html.HiddenFor(model => model.Ordinal)
                                     <div class="card-body">
-                                        <div class="row">
+                                        @*<div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.OfferId, "OfferId", htmlAttributes: new { @class = "control-label" })
@@ -34,7 +36,7 @@
                                                     @Html.ValidationMessageFor(model => model.Ordinal, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>*@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">

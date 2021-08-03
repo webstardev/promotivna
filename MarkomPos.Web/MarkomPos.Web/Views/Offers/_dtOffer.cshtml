@@ -143,6 +143,14 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Contact.Name)
+                    @*@if (item.Contact != null)
+                    {
+                        Html.DisplayFor(modelItem => item.Contact.Name);
+                    }
+                    else
+                    {
+                        Html.DisplayFor(modelItem => item.ContactName);
+                    }*@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DeliveryTerm.Name)
